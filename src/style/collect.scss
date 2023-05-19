@@ -1,0 +1,168 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+
+.collect-container {
+    width: 100%;
+    background-color: #F7F7F9;
+
+    .collect-reservation {
+        display: flex;
+        padding: 70px;
+
+        .mySwiper {
+            width: 85%;
+
+            .swiper-wrapper {
+                padding: 0;
+            }
+
+            .swiper-pagination {
+                background-color: #7D7D7DCC;
+                width: 50px;
+                height: 20px;
+                font-size: 1px;
+                color: white;
+                padding: 3px;
+                margin: 0px 0px 10px 30px;
+            }
+        }
+
+        .swiper-button-next {
+            background: url(../img/arrow.png) no-repeat;
+            background-size: 50% auto;
+            background-position: center;
+            transform: rotate(180deg);
+        }
+
+        .swiper-button-prev {
+            background: url(../img/arrow.png) no-repeat;
+            background-size: 50% auto;
+            background-position: center;
+        }
+
+        .swiper-button-next::after,
+        .swiper-button-prev::after {
+            display: none;
+        }
+
+        input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+            color: rgba(0, 0, 0, 0); //숨긴다
+            opacity: 1;
+            display: block;
+            background: url(https://mywildalberta.ca/images/GFX-MWA-Parks-Reservations.png) no-repeat; // 대체할 아이콘
+            width: 20px;
+            height: 20px;
+            border-width: thin;
+        }
+
+        .collect-input {
+            display: block;
+            width: 75%;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .collect-option {
+            display: block;
+            width: 75%;
+            height: 30px;
+            margin: 20px auto;
+            text-align: center;
+        }
+
+        .collect-weight {
+            display: block;
+            width: 75%;
+            margin: 20px auto;
+            padding: 0;
+
+            button {
+                margin: 0px 5px;
+                border: 1px solid gray;
+                background-color: white;
+                padding: 2px;
+                cursor: pointer;
+            }
+        }
+
+        .collect-buttonArea {
+            width: 100%;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            position: absolute;
+            bottom: 10px;
+
+            button {
+                width: 45%;
+                height: 40px;
+                margin: 0;
+                border: none;
+                background-color: transparent;
+                font-weight: bold;
+                cursor: pointer;
+
+                &:first-child {
+                    text-decoration: underline;
+                }
+
+                &:last-child {
+                    color: white;
+                    background-color: #777777;
+                }
+            }
+        }
+    }
+
+    .event-area {
+        width: 100%;
+
+        .swiper {
+            width: 80%;
+
+            .swiper-wrapper {
+                margin-left: 40px;
+            }
+
+            .swiper-button-next {
+                background: url(../img/rightArrow.png) no-repeat;
+                background-size: 100% auto;
+            }
+
+            .swiper-button-prev {
+                background: url(../img/leftArrow.png) no-repeat;
+                background-size: 100% auto;
+            }
+
+            .swiper-button-next::after,
+            .swiper-button-prev::after {
+                display: none;
+            }
+        }
+
+
+    }
+}
+
+
+// event-card
+
+.event_card {
+    width: 100%;
+    height: 200px;
+    position: relative;
+    background-color: #777777;
+    position: relative;
+
+    .event_text {
+        position: absolute;
+        bottom: 10px;
+
+        color: white;
+    }
+}

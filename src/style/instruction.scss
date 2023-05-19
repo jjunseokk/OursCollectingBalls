@@ -1,0 +1,124 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.instruction-container {
+    width: 100%;
+    padding: 40px;
+    background-color: #F7F7F9;
+
+    div {
+        h3 {
+            padding: 0px;
+            margin: 30px 0px;
+        }
+    }
+
+    .section1 {
+        border-bottom: 1px solid black;
+        margin: 0px;
+
+        .title {
+            padding: 0px;
+            margin: 10px;
+        }
+
+        .tap-area {
+            display: flex;
+            padding: 0px;
+            margin: 0px;
+
+            p {
+                padding: 0px;
+                margin: 10px;
+            }
+        }
+
+        .submenu {
+            display: flex;
+            color: #7A7A7A;
+            cursor: pointer;
+        }
+
+        .focused {
+            color: black;
+            border-bottom: 1px solid black;
+        }
+
+        .component {
+            padding: 0px;
+            margin: 0px;
+        }
+    }
+
+    .section2 {
+        padding: 30px 0px;
+        margin: 0px;
+        border-bottom: 1px solid #C5C5C5;
+
+        button {
+            width: 20%;
+            height: 40px;
+            background-color: white;
+            border: 1px solid black;
+            cursor: pointer;
+        }
+    }
+
+    .section3 {
+        margin: 0px;
+        padding: 0px;
+        border-bottom: 1px solid #C5C5C5;
+    }
+
+    .section4 {
+        padding: 20px 0px;
+        margin: 0px;
+        border-bottom: 1px solid #C5C5C5;
+
+        p {
+            margin: 0;
+            padding: 40px 30px;
+            background-color: white;
+        }
+
+    }
+
+    .section5 {
+        margin: 0px;
+        padding: 20px 0px;
+        border-bottom: 1px solid #C5C5C5;
+
+        .img-area {
+            display: flex;
+            justify-content: space-between;
+
+            img {
+                width: 45%;
+            }
+        }
+    }
+
+    .section6 {
+        margin: 0px;
+        padding: 0px;
+
+        p {
+            margin-bottom: 40px;
+        }
+
+        div {
+            display: flex;
+            justify-content: space-between;
+            padding: 40px;
+            margin-bottom: 20px;
+            background-color: white;
+            p{
+                margin-bottom: 0px;
+            }
+        }
+    }
+
+}

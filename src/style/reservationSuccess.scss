@@ -1,0 +1,41 @@
+.reservationSuccess-container{
+    width: 100vw;
+    height: 100vh;
+    font-size: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+    text-align: center;
+    .reservationSuccess-text{
+        width: 60%;
+
+        font-size: 0.8em;
+
+        h3, p, div{
+            margin: 5px 0px;
+        }
+        div{
+            width: 50%;
+            display: flex;
+            justify-content: space-around;
+            margin: 0 auto;
+
+            button{
+                width: 40%;
+                height: 40px;
+                color: black;
+                cursor: pointer;
+                &:first-child{
+                    background-color: white;
+                    border: 1px solid #000;
+                }
+                &:last-child{
+                    border: none;
+                    background-color: #AEFF1E;
+                }
+            }
+        }
+    }
+}

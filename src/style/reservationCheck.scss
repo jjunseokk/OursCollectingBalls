@@ -1,0 +1,48 @@
+.reservationCheck-container {
+    width: 100vw;
+    height: 100vh;
+    font-size: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    text-align: center;
+    font-size: 1em;
+    h4{
+        font-size: 2em;
+    }
+    form{
+        width: 50%;
+        margin: 10px 0px;
+        label{
+            display: block;
+            width: 100%;
+            margin: 20px 0px ;
+
+            span{
+                display: inline-block;
+                width: 20%;
+                font-size: 1.2em;
+            }
+            input{
+                width: 70%;
+                border: none;
+                border-bottom: 1px solid black;
+                font-size: 1.2em;
+
+                &:focus{
+                    outline: none;
+                }
+            }
+        }
+        button{
+            width: 20%;
+            height: 40px;
+            border: none;
+            background-color: #AEFF1E;
+            font-size: 1.2em;
+            cursor: pointer;
+        }
+    }
+}

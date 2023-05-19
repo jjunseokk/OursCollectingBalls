@@ -1,0 +1,294 @@
+.reservation-container {
+    display: flex;
+    width: 100%;
+    padding: 0;
+    background-color: #F7F7F9;
+
+    .progress-status {
+        width: 30%;
+        height: 100vh;
+        padding: 0;
+        background-color: white;
+
+        .progress-text {
+            width: 100%;
+            height: 50%;
+            padding: 130px 0px;
+            text-align: center;
+        }
+    }
+
+    .reservation-area {
+        width: 70%;
+        height: 100%;
+        padding: 0;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        .reservation-result {
+            width: 100%;
+            position: relative;
+            background-color: transparent;
+
+            // ---------shopsearch---------
+            .shop-searchZone {
+                display: flex;
+                padding: 0px;
+
+                .shop {
+                    width: 50%;
+                    border: 1px solid red;
+                }
+
+                .shop-search {
+                    width: 50%;
+                    position: relative;
+
+                    h4 {
+                        padding: 5px 0px;
+                        border-bottom: 2px solid black;
+                    }
+
+                    .shop-selectArea {
+                        padding: 0;
+                        display: flex;
+                        justify-content: space-between;
+
+                        .shop-select {
+                            display: inline-block;
+                            width: 45%;
+                            height: 25px;
+                            margin-top: 10px;
+                        }
+                    }
+
+                    input {
+                        width: 100%;
+                        height: 25px;
+                        margin-top: 10px;
+                    }
+
+                    .shop-search {
+                        width: 20px;
+                        position: absolute;
+                        bottom: 14px;
+                        right: 10px;
+                        z-index: 1;
+                    }
+                }
+            }
+
+            .shop-table {
+                padding: 0;
+
+                table,
+                th,
+                td {
+                    border: 1px solid black;
+                    border-collapse: collapse;
+                    padding: 5px;
+                }
+
+                table {
+                    width: 100%;
+                    margin-top: 20px;
+                }
+
+                th {
+                    background-color: #E9E9E9;
+                }
+
+                td {
+                    text-align: center;
+                }
+            }
+
+            .event-pagination {
+                text-align: center;
+                button {
+                    width: 20px;
+                    height: 20px;
+                    margin: 0px 5px;
+                    font-size: 10px;
+                    background-color: white;
+                    border: 1px solid black;
+                    cursor: pointer;
+                }
+
+                .event-active {
+                    background-color: #AEFF1E;
+                }
+            }
+
+            // ---------shopsearch---------
+
+            // ---------Schedule----------
+            .calendar-container {
+                width: 100%;
+                font-family: Arial, sans-serif;
+                padding: 10px;
+
+                h4 {
+                    border-bottom: 1px solid black;
+                    padding: 5px;
+                }
+
+                .calendar-header {
+                    width: 30%;
+                    margin-left: 70%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    margin-bottom: 10px;
+
+                    .prev-month-button,
+                    .next-month-button {
+                        background-color: transparent;
+                        border: none;
+                        cursor: pointer;
+                        font-size: 18px;
+                    }
+
+                    .calendar-month {
+                        font-size: 16px;
+                        font-weight: bold;
+                    }
+                }
+
+                .calendar-days {
+                    display: grid;
+                    grid-template-columns: repeat(7, 1fr);
+                    font-size: 14px;
+                    font-weight: bold;
+                    text-align: center;
+                    margin-bottom: 10px;
+                }
+
+                .calendar-day {
+                    padding: 5px;
+                    text-align: center;
+                }
+
+                .calendar-grid {
+                    display: grid;
+                    grid-template-columns: repeat(7, 1fr);
+                    gap: 5px;
+                    cursor: pointer;
+                }
+
+                .blank {
+                    visibility: hidden;
+
+                }
+
+                .selected {
+                    width: 25px;
+                    height: 25px;
+                    margin: 0 auto;
+                    background: url(../img/check.png) no-repeat;
+                    background-size: cover;
+                    color: transparent;
+                }
+            }
+
+            .clock-container {
+                width: 100%;
+                margin-top: 50px;
+
+                .clock-select {
+                    margin-top: 20px;
+                    display: flex;
+                    justify-content: space-around;
+
+                    button {
+                        width: 20%;
+                        height: 40px;
+                        border-radius: 20px;
+                        border: 1px solid black;
+                        background-color: #F7F7F9;
+                        cursor: pointer;
+                    }
+                    .click{
+                        background-color: #AEFF1E;
+                        cursor: pointer;
+                    }
+
+                }
+
+            }
+
+            // ---------Schedule----------
+
+            // ---------ScheduleCheck-----------
+            .check-infor {
+                h4 {
+                    padding: 5px;
+                    border-bottom: 1px solid black;
+                }
+
+                form {
+                    label {
+                        display: block;
+                        width: 100%;
+                        margin: 10px 0px;
+
+                        span {
+                            display: inline-block;
+                            width: 11%;
+                        }
+
+                        input {
+                            width: 85%;
+                            height: 30px;
+                            padding: 10px;
+                            background-color: transparent;
+                            border: none;
+                            border-bottom: 1px solid black;
+
+                            &:focus {
+                                outline: none;
+                            }
+                        }
+
+                        textarea {
+                            display: block;
+                            width: 95%;
+                            height: 150px;
+                            margin: 10px auto;
+                            padding: 10px;
+
+                            &:focus {
+                                outline: none;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .agree-zone {
+                .agree-check {
+                    border-bottom: 1px solid black;
+
+                    span {
+                        font-weight: bold;
+                    }
+                }
+            }
+
+            // ---------ScheduleCheck-----------
+        }
+
+
+        .reservation-btnArea {
+            width: 100%;
+
+            button {
+                background-color: white;
+                border: 1px solid black;
+            }
+        }
+    }
+}
