@@ -30,7 +30,7 @@ const Header = () => {
                 <li onClick={() => handleMenuClick('/reservation')}>예약</li>
                 <li onClick={() => handleMenuClick('/ReservationCheck')}>예약확인</li>
                 <li onClick={() => handleMenuClick('/Instruction')}>이용안내</li>
-                <li onClick={() => handleMenuClick('/')}>고객센터</li>
+                <li onClick={() => handleMenuClick('/Service')}>고객센터</li>
                 <li onClick={() => handleMenuClick('/')}>이벤트</li>
             </ul>
         </div>

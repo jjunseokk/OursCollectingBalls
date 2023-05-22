@@ -54,7 +54,9 @@ const Home = () => {
                         <strong>OURS BOX 이용에 궁금한 점이 있나요?</strong> <br /><br />
                         온라인 상담으로 문제를 해결해 보세요.
                     </p>
-                    <button><a href="https://pf.kakao.com/_xnGFTT">고객센터</a></button>
+                    <button onClick={()=>{
+                        navigate('/Service');
+                    }}>고객센터</button>
                 </div>
             </div>
         </div>

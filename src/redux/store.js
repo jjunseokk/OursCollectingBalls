@@ -11,7 +11,10 @@ let checked = createSlice({
     initialState: {},
     reducers: {
         changeState(state, action) {
-            return { checked: action.payload }
+            return {
+                ...state,
+                checked: action.payload
+            }
         }
     }
 })
@@ -43,7 +46,7 @@ let date = createSlice({
         }
     }
 })
-
+// 이름, 나이, 문의사항
 let service = createSlice({
     name: 'service',
     initialState: {},
@@ -57,11 +60,25 @@ let service = createSlice({
     }
 })
 
+// 이벤트 광고 동의 확인
+let event = createSlice({
+    name: 'evnet',
+    initialState: {},
+    reducers: {
+        eventState(state, action) {
+            return {
+                ...state,
+                event: action.payload
+            }
+        }
+    }
+})
 
 export let { addState } = address.actions;
 export let { changeState } = checked.actions;
 export let { dateState } = date.actions;
 export let { serviceState } = service.actions;
+export let { eventState } = event.actions;
 
 export default configureStore({
     reducer: {
@@ -69,5 +86,6 @@ export default configureStore({
         address: address.reducer,
         date: date.reducer,
         service: service.reducer,
+        event: event.reducer,
     }
 }) 

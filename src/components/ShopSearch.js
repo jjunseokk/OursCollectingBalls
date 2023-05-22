@@ -7,7 +7,8 @@ import { faChevronLeft, faChevronRight, faSearch } from "@fortawesome/free-solid
 import { useDispatch } from 'react-redux'
 import { addState } from "../redux/store";
 
-
+import golf from '../img/golf.png';
+import warning from '../img/warning.png';
 
 const ShopSearch = () => {
 
@@ -221,21 +222,13 @@ const ShopSearch = () => {
         setSearchTerm(event.target.value);
     };
 
-    // 체크 박스
-    // const handleInputChange = (index) => {
-    //     setSelect(index);
-    //     setAdd(currentItems && currentItems[index].address);
-    //     dispatch(addState(add));
-    //     console.log(add);
-    // };
-
     const handleInputChange = (index) => {
         setSelect(index);
         const selectedAddress = currentItems && currentItems[index].address;
         setAdd(selectedAddress);
         dispatch(addState(selectedAddress));
     };
-    
+
     useEffect(() => {
         if (add) {
             dispatch(addState(add));
@@ -247,7 +240,19 @@ const ShopSearch = () => {
         <div className="reservation-result">
             <div className="shop-searchZone">
                 <div className="shop">
-
+                    <h4>수거량</h4>
+                    <p>
+                        <img src={golf} alt="" width="10px" /> 로스트볼 수거량
+                    </p>
+                    <div className="collect-weight">
+                        <button>1톤 이하</button>
+                        <button>1톤 이상</button>
+                        <button>2톤 이상</button>
+                        <button>5톤 이상</button>
+                        <p style={{ color: 'red', fontSize: 2, marginTop: 5 }}>
+                            <img src={warning} alt="" width="10px" /> 1톤 이하의 볼 수거는 추가 비용이 발생합니다.
+                        </p>
+                    </div>
                 </div>
                 <div className="shop-search">
                     <h4>매장 찾기</h4>

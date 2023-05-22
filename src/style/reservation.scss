@@ -3,7 +3,7 @@
     width: 100%;
     padding: 0;
     background-color: #F7F7F9;
-
+    position: relative;
     .progress-status {
         width: 30%;
         height: 100vh;
@@ -40,7 +40,11 @@
 
                 .shop {
                     width: 50%;
-                    border: 1px solid red;
+                    
+                    h4{
+                        padding: 5px 0px;
+                        border-bottom: 2px solid black;
+                    }
                 }
 
                 .shop-search {
@@ -290,5 +294,46 @@
                 border: 1px solid black;
             }
         }
+    }
+    .success-modal{
+        width: 50%;
+        height: 50%;
+        background-color: white;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0;
+        margin: 0;
+        border: 1px solid black;
+        .modal-text{
+            padding: 50px;
+            p{
+                margin: 10px 0px;
+            }
+        }
+        .btn-area{
+            padding: 0;
+            margin: 0;
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            button{
+                width: 50%;
+                height: 40px;
+                border: none;
+                cursor: pointer;
+
+                &:last-child{
+                    background-color: #AEFF1E;
+                }
+            }
+        }
+    }
+    .none-modal{
+        display: none;
     }
 }
