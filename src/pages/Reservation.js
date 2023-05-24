@@ -3,7 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
-import { useSelector } from 'react-redux'
+import { useSelector } from 'react-redux';
+import axios from 'axios';
 
 import "../style/reservation.scss";
 import ShopSearch from "../components/ShopSearch";
@@ -14,21 +15,25 @@ import progress_1 from '../img/progress_1.png';
 import progress_2 from '../img/progress_2.png';
 import progress_3 from '../img/progress_3.png';
 
+// 예약 컴포넌트
 const Reservation = () => {
-  const [step, setStep] = useState(0);
-  const [showModal, setShowModal] = useState(false);
+  const [step, setStep] = useState(0); // 현재 단계를 관리하는 상태
+  const [showModal, setShowModal] = useState(false); // 모달 창을 보여주는 상태
   const navigate = useNavigate();
 
   const redux_data = useSelector((state) => state);
-  const { checked, address, date, service, event } = redux_data;
+  const { checked, address, date, service, collect } = redux_data;
+  
+  console.log("실제 데이터:", redux_data);
 
-  console.log("찐인 데이터 입니다.::", redux_data);
+  console.log('address', address);
 
+  // 다음 단계로 이동하는 함수
   const handleNext = () => {
     setStep((prevStep) => prevStep + 1);
   };
 
-
+  // 이전 단계로 이동하는 함수
   const handlePrev = () => {
     if (step === 0) {
       alert("이전 작업이 없습니다.");
@@ -38,23 +43,36 @@ const Reservation = () => {
   };
 
   const handleCancel = () => {
-    navigate("/");
+    navigate("/"); // 예약 취소 시 메인 페이지로 이동하는 함수
   };
 
+  // 이용약관 확인 함수
   const handleReservationConfirmation = () => {
-
-
     if (!checked.checked) {
       alert("이용약관에 동의해주세요.");
-    } else if (!address.add || !date.date) {
+    } else if (!collect.collect) {
+      alert('수거량을 선택했는지 확인해주세요.');
+    } else if (!address.add.address || !date.date) {
       alert("장소와 일시를 선택했는지 확인해주세요.");
     } else if (service.service.phoneNumber.length < 13) {
       alert("휴대전화 13자리를 입력하세요.")
     } else if (!service.service.name || !service.service.phoneNumber) {
       alert("성함과 휴대전화를 입력해주세요.");
     } else {
-      setShowModal(true);
+      setShowModal(true); // 예약 확인 모달 창을 보여주는 함수
     }
+  };
+
+  const handelSuccess = () => {
+    axios.post('/user', redux_data)
+      .then(response => {
+        console.log(response.data);
+        alert('예약이 확정되었습니다.');
+        navigate('/ReservationSuccess');
+      })
+      .catch(error => {
+        console.error(error);
+      });
   };
 
   const renderComponentAndProgressText = () => {
@@ -63,15 +81,15 @@ const Reservation = () => {
 
     switch (step) {
       case 0:
-        currentComponent = <ShopSearch />;
+        currentComponent = <ShopSearch />; // 장소 검색 컴포넌트
         progressText = progress_1;
         break;
       case 1:
-        currentComponent = <Schedule />;
+        currentComponent = <Schedule />; // 일정 선택 컴포넌트
         progressText = progress_2;
         break;
       case 2:
-        currentComponent = <ScheduleCheck />;
+        currentComponent = <ScheduleCheck />; // 일정 확인 컴포넌트
         progressText = progress_3;
         break;
       default:
@@ -90,6 +108,7 @@ const Reservation = () => {
     marginRight: 5,
   };
 
+
   return (
     <div className="reservation-container">
       <div className="progress-status">
@@ -98,7 +117,7 @@ const Reservation = () => {
         </div>
         <div style={{ padding: 10, fontSize: '0.8em' }}>
           <h2 style={{ textAlign: 'center', marginBottom: 10 }}>선택한 일정 확인</h2>
-          <p>장소 : {redux_data.address.add}</p>
+          <p>장소 : {redux_data.address.add && redux_data.address.add.address}</p>
           <p>일시 : {redux_data.date.date}</p>
         </div>
       </div>
@@ -141,9 +160,9 @@ const Reservation = () => {
           <p>성함 : {service.service && service.service.name}</p>
           <p>전화번호 : {service.service && service.service.phoneNumber}</p>
           <p>이메일 : {service.service && service.service.email}</p>
-          <p>예약장소 : {address && address.add}</p>
+          <p>예약장소 : {address.add && address.add.address}</p>
           <p>예약날짜 : {date && date.date}</p>
-          <p>로스트볼 수거량 : { }</p>
+          <p>로스트볼 수거량 : {collect && collect.collect}</p>
           <p>기타 문의사항 : {service.service && service.service.inquiry}</p>
         </div>
         <div className="btn-area">
@@ -151,8 +170,7 @@ const Reservation = () => {
             setShowModal(false);
           }}>취소</button>
           <button onClick={() => {
-            alert("예약이 확정되었습니다.");
-            navigate('/ReservationSuccess');
+            handelSuccess()
           }}>예약확정</button>
         </div>
       </div>

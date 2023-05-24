@@ -1,64 +1,63 @@
-import React, { useState } from "react";
-import '../style/reservationList.scss';
-import '../style/reservation.scss'
-
+import React, { useEffect, useState } from "react";
+import "../style/reservationList.scss";
+import "../style/reservation.scss";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronLeft, faChevronRight, faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 
-
+import { useSelector } from "react-redux";
+import axios from "axios";
 
 const ReservationList = () => {
-    const tableData = [
-        { spot: '서울특별시', shop: "Item 1", address: '서울특별시 강동구 00가 1211 스크린 골프장', phone: '00-000-0000' },
-        { spot: '대구광역시', shop: "Item 2", address: '대구광역시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-        { spot: '경기도', shop: "Item 3", address: '경기성남시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-        { spot: '부산광역시', shop: "Item 4", address: '부산광역시 북구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-        { spot: '서울특별시', shop: "Item 1", address: '서울특별시 강동구 00가 1211 스크린 골프장', phone: '00-000-0000' },
-        { spot: '대구광역시', shop: "Item 2", address: '대구광역시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-        { spot: '경기도', shop: "Item 3", address: '경기성남시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-        { spot: '부산광역시', shop: "Item 4", address: '부산광역시 북구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-        { spot: '서울특별시', shop: "Item 1", address: '서울특별시 강동구 00가 1211 스크린 골프장', phone: '00-000-0000' },
-        { spot: '대구광역시', shop: "Item 2", address: '대구광역시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-        { spot: '경기도', shop: "Item 3", address: '경기성남시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-        { spot: '부산광역시', shop: "Item 4", address: '부산광역시 북구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-        { spot: '서울특별시', shop: "Item 1", address: '서울특별시 강동구 00가 1211 스크린 골프장', phone: '00-000-0000' },
-        { spot: '대구광역시', shop: "Item 2", address: '대구광역시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-        { spot: '경기도', shop: "Item 3", address: '경기성남시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-        { spot: '부산광역시', shop: "Item 4", address: '부산광역시 북구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-        { spot: '서울특별시', shop: "Item 1", address: '서울특별시 강동구 00가 1211 스크린 골프장', phone: '00-000-0000' },
-        { spot: '대구광역시', shop: "Item 2", address: '대구광역시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-        { spot: '경기도', shop: "Item 3", address: '경기성남시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-        { spot: '부산광역시', shop: "Item 4", address: '부산광역시 북구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-        { spot: '서울특별시', shop: "Item 1", address: '서울특별시 강동구 00가 1211 스크린 골프장', phone: '00-000-0000' },
-        { spot: '대구광역시', shop: "Item 2", address: '대구광역시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-        { spot: '경기도', shop: "Item 3", address: '경기성남시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-        { spot: '부산광역시', shop: "Item 4", address: '부산광역시 북구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-    ];
+    const dbData2 = useSelector((state) => state.dbData.dbData);
+
+    const [dbData, setDbData] = useState([]);
+    console.log(dbData);
+
+    useEffect(() => {
+        const storedData = localStorage.getItem("dbData");
+        if (storedData) {
+            setDbData(JSON.parse(storedData));
+        }
+    }, []);
+
+    useEffect(() => {
+        if (dbData2 && dbData2.length > 0) {
+            setDbData(dbData2);
+            localStorage.setItem("dbData", JSON.stringify(dbData2));
+        }
+    }, [dbData2]);
 
     // 페이지네이션을 위한 변수들
     const itemsPerPage = 10; // 페이지당 보여줄 항목 수
     const [currentPage, setCurrentPage] = useState(1); // 현재 페이지
 
+    const totalPages = Math.ceil((dbData && dbData.length) / itemsPerPage); // 총 페이지 수
 
-    const filteredItems = tableData.filter((item) => {
-        const combinedItemData = `${item.spot} ${item.shop} ${item.address} ${item.phone}`.toLowerCase();
-        return combinedItemData;
-    });
-
-    const totalPages = Math.ceil(filteredItems.length / itemsPerPage); // 총 페이지 수
-
-    const currentItems = filteredItems.slice(
-        (currentPage - 1) * itemsPerPage,
-        currentPage * itemsPerPage
-    );
-
-
+    const currentItems =
+        dbData &&
+        dbData.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
 
     // 페이지 변경 함수
     const handleChangePage = (page) => {
         setCurrentPage(page);
     };
+
+    const cancelReservation = (index) => {
+        const reservationDate = dbData[index].date;
+        const reservationName = dbData[index].name;
+        axios
+            .post("/delete", { date: reservationDate, name: reservationName })
+            .then((response) => {
+                console.log(response);
+                const updatedData = dbData.filter((item, i) => i !== index);
+                setDbData(updatedData);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    };
+
 
     return (
         <div className="reservationList-container">
@@ -83,22 +82,27 @@ const ReservationList = () => {
                     <table>
                         <thead>
                             <tr>
+                                <th>번호</th>
                                 <th>지역</th>
                                 <th>매장명</th>
                                 <th>주소</th>
-                                <th>전화번호</th>
-                                <th>보기</th>
+                                <th colSpan='2'>예약일시</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {currentItems.map((item, index) => (
-                                <tr key={`${item.spot}-${index}`}>
+                            {currentItems && currentItems.map((item, index) => (
+                                <tr key={index}>
+                                    <td>{(currentPage - 1) * itemsPerPage + index + 1}</td>
                                     <td>{item.spot}</td>
                                     <td>{item.shop}</td>
-                                    <td>{item.address}</td>
-                                    <td>{item.phone}</td>
-                                    <td>
-                                        <FontAwesomeIcon icon={faSearch} />
+                                    <td>{item.place}</td>
+                                    <td>{item.date}</td>
+                                    <td style={{ padding: 0 }}>
+                                        <button onClick={() => { cancelReservation(index) }}
+                                            style={{ width: '100%', height: '30px', border: 'none', margin: 0, backgroundColor: "#AEFF1E", cursor: 'pointer' }}
+                                        >
+                                            예약취소
+                                        </button>
                                     </td>
                                 </tr>
                             ))}
@@ -132,11 +136,9 @@ const ReservationList = () => {
                         )}
                     </div>
                 </div>
-
             </div>
         </div>
-    )
-}
-
+    );
+};
 
 export default ReservationList;

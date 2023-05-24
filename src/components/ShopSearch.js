@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft, faChevronRight, faSearch } from "@fortawesome/free-solid-svg-icons";
 
 import { useDispatch } from 'react-redux'
-import { addState } from "../redux/store";
+import { addState, collectState } from "../redux/store";
 
 import golf from '../img/golf.png';
 import warning from '../img/warning.png';
@@ -27,6 +27,12 @@ const ShopSearch = () => {
 
     // 지역 저장 state
     const [add, setAdd] = useState('');
+
+    // 볼수거량 저장
+    const [collect, setCollect] = useState('');
+
+    // 버튼 액티브
+    const [active, setActive] = useState('');
 
     const dispatch = useDispatch();
 
@@ -185,7 +191,6 @@ const ShopSearch = () => {
         { spot: '경기도', shop: "Item 3", address: '경기성남시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
         { spot: '부산광역시', shop: "Item 4", address: '부산광역시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
         { spot: '경상남도', shop: "Item 5", address: '창원시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-        // ... 더 많은 항목들
     ];
 
     // 페이지네이션을 위한 변수들
@@ -193,14 +198,27 @@ const ShopSearch = () => {
     const [currentPage, setCurrentPage] = useState(1); // 현재 페이지
 
 
-    const filteredItems = tableData.filter((item) => {
-        const combinedSearchTerm = `${Selected} ${Selected2} ${searchTerm}`.toLowerCase();
-        const combinedItemData = `${item.spot} ${item.shop} ${item.address} ${item.phone}`.toLowerCase();
-        return combinedItemData.includes(combinedSearchTerm) || Selected.includes('시/도');
-    });
+    // 지역과 매장명에 따라 필터링된 항목들을 반환하는 함수
+    const filterItems = (items) => {
+        const combinedSearchTerm = searchTerm.toLowerCase();
+        return items.filter((item) => {
+            const combinedItemData = `${item.spot} ${item.shop} ${item.address} ${item.phone}`.toLowerCase();
+            const selectedRegion = Selected === '시/도' ? '' : Selected;
+            const selectedArea = Selected2 === '구/군을 선택해주세요.' ? '' : Selected2;
+            return (
+                (combinedItemData.includes(combinedSearchTerm) || searchTerm.trim() === '') &&
+                (selectedRegion === '' || item.spot.includes(selectedRegion)) &&
+                (selectedArea === '' || item.address.includes(selectedArea))
+            );
+        });
+    };
+
+    // 검색어 및 지역에 따라 필터링된 항목들을 반환
+    const filteredItems = filterItems(tableData);
 
     const totalPages = Math.ceil(filteredItems.length / itemsPerPage); // 총 페이지 수
 
+    // 현재 페이지에서 필터링된 항목들을 표시하기 위해 currentItems 변수에 할당
     const currentItems = filteredItems.slice(
         (currentPage - 1) * itemsPerPage,
         currentPage * itemsPerPage
@@ -224,35 +242,69 @@ const ShopSearch = () => {
 
     const handleInputChange = (index) => {
         setSelect(index);
-        const selectedAddress = currentItems && currentItems[index].address;
-        setAdd(selectedAddress);
-        dispatch(addState(selectedAddress));
+        setAdd(currentItems[index]);
     };
+
+    const colletSelect = (index) => {
+        setCollect(index);
+        setActive(index);
+    }
 
     useEffect(() => {
         if (add) {
-            dispatch(addState(add));
-            console.log(add);
+            const { spot, shop, address } = add;
+            dispatch(addState({ spot, shop, address }));
+            console.log("뭐지??", add);
         }
     }, [add, dispatch]);
+
+    useEffect(() => {
+        dispatch(collectState(collect));
+    }, [collect, dispatch])
+
 
     return (
         <div className="reservation-result">
             <div className="shop-searchZone">
                 <div className="shop">
-                    <h4>수거량</h4>
-                    <p>
-                        <img src={golf} alt="" width="10px" /> 로스트볼 수거량
-                    </p>
+                    <h4><img src={golf} alt="" width="10px" /> 로스트볼 수거량</h4>
                     <div className="collect-weight">
-                        <button>1톤 이하</button>
-                        <button>1톤 이상</button>
-                        <button>2톤 이상</button>
-                        <button>5톤 이상</button>
-                        <p style={{ color: 'red', fontSize: 2, marginTop: 5 }}>
-                            <img src={warning} alt="" width="10px" /> 1톤 이하의 볼 수거는 추가 비용이 발생합니다.
-                        </p>
+                        <button
+                            onClick={() => {
+                                colletSelect('1톤 이하');
+                            }}
+                            className={active === '1톤 이하' ? 'selected' : ''}
+                        >
+                            1톤 이하
+                        </button>
+                        <button
+                            onClick={() => {
+                                colletSelect('1톤 이상');
+                            }}
+                            className={active === '1톤 이상' ? 'selected' : ''}
+                        >
+                            1톤 이상
+                        </button>
+                        <button
+                            onClick={() => {
+                                colletSelect('2톤 이상');
+                            }}
+                            className={active === '2톤 이상' ? 'selected' : ''}
+                        >
+                            2톤 이상
+                        </button>
+                        <button
+                            onClick={() => {
+                                colletSelect('5톤 이상');
+                            }}
+                            className={active === '5톤 이상' ? 'selected' : ''}
+                        >
+                            5톤 이상
+                        </button>
                     </div>
+                    <p style={{ color: 'red', fontSize: 2, marginTop: 5 }}>
+                        <img src={warning} alt="" width="10px" /> 1톤 이하의 볼 수거는 추가 비용이 발생합니다.
+                    </p>
                 </div>
                 <div className="shop-search">
                     <h4>매장 찾기</h4>
@@ -269,7 +321,7 @@ const ShopSearch = () => {
                             <option className='option'>{Selected2}</option>
                         </select>
                     </div>
-                    <input type="text" value={searchTerm} onChange={handleSearch} />
+                    <input style={{ padding: 5 }} type="text" value={searchTerm} onChange={handleSearch} placeholder="매장명을 입력하세요." />
                     <FontAwesomeIcon icon={faSearch} className="shop-search" />
                 </div>
             </div>

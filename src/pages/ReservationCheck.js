@@ -1,19 +1,57 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import '../style/reservationCheck.scss'
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { useDispatch } from "react-redux";
+import { dbState } from "../redux/store";
 
 const ReservationCheck = () => {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     // 폰번호 받는 state
     const [phoneNumber, setPhoneNumber] = useState('');
 
-    // 폰번호 변경 시 이벤트 핸들러
+    const [reservationInfo, setReservationInfo] = useState({
+        name: "",
+        phoneNumber: "",
+    });
+
+
+    // 예약자명 입력 변경 핸들러
+    const handleNameChange = (event) => {
+        setReservationInfo((prevState) => ({
+            ...prevState,
+            name: event.target.value,
+        }));
+    };
+
+    // 폰번호 변경 시 이벤트 핸들러,  휴대전화 입력 변경 핸들러
     const handleChange = (event) => {
         const inputPhoneNumber = event.target.value;
         const formattedPhoneNumber = formatPhoneNumber(inputPhoneNumber);
         setPhoneNumber(formattedPhoneNumber);
+
+        setReservationInfo((prevState) => ({
+            ...prevState,
+            phoneNumber: formattedPhoneNumber, // 변환된 전화번호를 설정
+        }));
     };
+
+    const checkReservation = () => {
+        axios
+            .post('/check', reservationInfo)
+            .then(response => {
+                if (response.data.exists) {
+                    dispatch(dbState(response.data.result));
+                    navigate('/ReservationList');
+                }
+            })
+            .catch(error => {
+                console.error(error);
+                alert('예약자명과 휴대전화를 맞게 입력했는지 확인해주세요.');
+            });
+    }
 
     // 폰번호 형식 변환 함수
     const formatPhoneNumber = (inputPhoneNumber) => {
@@ -35,7 +73,12 @@ const ReservationCheck = () => {
             <form>
                 <label>
                     <span>예약자명</span>
-                    <input type="text" placeholder="예약자명을 입력하세요." />
+                    <input
+                        type="text"
+                        placeholder="예약자명을 입력하세요."
+                        value={reservationInfo.name}
+                        onChange={handleNameChange}
+                    />
                 </label>
                 <label>
                     <span>휴대전화</span>
@@ -43,12 +86,12 @@ const ReservationCheck = () => {
                         type="tel"
                         placeholder="전화번호를 입력하세요."
                         maxLength="13"
-                        value={phoneNumber}
+                        value={reservationInfo.phoneNumber}
                         onChange={handleChange}
                     />
                 </label>
                 <button type='button' onClick={() => {
-                    navigate('/ReservationList');
+                    checkReservation()
                 }}>예약확인</button>
             </form>
         </div>

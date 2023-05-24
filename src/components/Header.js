@@ -1,12 +1,12 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
+import Logo from '../img/oursLogo.png';
 
 const Header = () => {
     const navigate = useNavigate();
     const handleMenuClick = (path) => {
         navigate(path) // 페이지 이동
-        window.location.reload(); // 새로고침
     };
     return (<>
         {/* --------메인화면 헤더------- */}
@@ -23,9 +23,9 @@ const Header = () => {
             </div>
         </div>
         <div className="home-navbar">
-            <div className="navbar-logo" style={{ cursor: 'pointer' }} onClick={() => {
+            <div className="navbar-logo" style={{ cursor: 'pointer', width : '15%', marginLeft:'15%', padding : '24px 5px' }} onClick={() => {
                 navigate('/')
-            }}>로고 영역</div>
+            }}><img src={Logo} alt="" width='100%'/></div>
             <ul className="navbar-menu">
                 <li onClick={() => handleMenuClick('/reservation')}>예약</li>
                 <li onClick={() => handleMenuClick('/ReservationCheck')}>예약확인</li>

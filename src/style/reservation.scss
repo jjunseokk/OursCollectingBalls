@@ -4,6 +4,7 @@
     padding: 0;
     background-color: #F7F7F9;
     position: relative;
+
     .progress-status {
         width: 30%;
         height: 100vh;
@@ -40,10 +41,26 @@
 
                 .shop {
                     width: 50%;
-                    
-                    h4{
+
+                    h4 {
                         padding: 5px 0px;
                         border-bottom: 2px solid black;
+                    }
+
+                    .collect-weight {
+                        display: flex;
+                        justify-content: space-around;
+
+                        button {
+                            width: 20%;
+                            height: 30px;
+                            background-color: white;
+                            border: 1px solid black;
+                            cursor: pointer;
+                        }
+                        .selected{
+                            background-color: #AEFF1E;
+                        }
                     }
                 }
 
@@ -87,6 +104,9 @@
 
             .shop-table {
                 padding: 0;
+                input{
+                    accent-color: #AEFF1E;
+                }
 
                 table,
                 th,
@@ -112,6 +132,7 @@
 
             .event-pagination {
                 text-align: center;
+
                 button {
                     width: 20px;
                     height: 20px;
@@ -215,7 +236,8 @@
                         background-color: #F7F7F9;
                         cursor: pointer;
                     }
-                    .click{
+
+                    .click {
                         background-color: #AEFF1E;
                         cursor: pointer;
                     }
@@ -295,7 +317,8 @@
             }
         }
     }
-    .success-modal{
+
+    .success-modal {
         width: 50%;
         height: 50%;
         background-color: white;
@@ -309,31 +332,36 @@
         padding: 0;
         margin: 0;
         border: 1px solid black;
-        .modal-text{
+
+        .modal-text {
             padding: 50px;
-            p{
+
+            p {
                 margin: 10px 0px;
             }
         }
-        .btn-area{
+
+        .btn-area {
             padding: 0;
             margin: 0;
             position: absolute;
             width: 100%;
             bottom: 0;
-            button{
+
+            button {
                 width: 50%;
                 height: 40px;
                 border: none;
                 cursor: pointer;
 
-                &:last-child{
+                &:last-child {
                     background-color: #AEFF1E;
                 }
             }
         }
     }
-    .none-modal{
+
+    .none-modal {
         display: none;
     }
 }

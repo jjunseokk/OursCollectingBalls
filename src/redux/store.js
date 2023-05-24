@@ -1,10 +1,5 @@
 import { configureStore, createSlice } from '@reduxjs/toolkit';
 
-// createSlice({
-//     name : 'state이름 ~',
-//     initialState : '값'
-// })
-
 // 이용약관
 let checked = createSlice({
     name: 'checked',
@@ -27,11 +22,13 @@ let address = createSlice({
         addState(state, action) {
             return {
                 ...state,
-                add: action.payload
+                add: action.payload,
             }
         }
     }
 })
+
+
 
 // 예약할 때 날짜 상태값 저장
 let date = createSlice({
@@ -62,7 +59,7 @@ let service = createSlice({
 
 // 이벤트 광고 동의 확인
 let event = createSlice({
-    name: 'evnet',
+    name: 'event',
     initialState: {},
     reducers: {
         eventState(state, action) {
@@ -74,11 +71,41 @@ let event = createSlice({
     }
 })
 
+// 로스트볼 수거량
+let collect = createSlice({
+    name: 'collect',
+    initialState: {},
+    reducers: {
+        collectState(state, action) {
+            return {
+                ...state,
+                collect: action.payload
+            }
+        }
+    }
+})
+
+// DB에서 name과 phone 소팅해서 받은 값
+let dbData = createSlice({
+    name: 'dbData',
+    initialState:{},
+    reducers : {
+        dbState(state, action){
+            return{
+                ...state,
+                dbData : action.payload
+            }
+        }
+    }
+})
+
 export let { addState } = address.actions;
 export let { changeState } = checked.actions;
 export let { dateState } = date.actions;
 export let { serviceState } = service.actions;
 export let { eventState } = event.actions;
+export let { collectState } = collect.actions;
+export let { dbState } = dbData.actions;
 
 export default configureStore({
     reducer: {
@@ -87,5 +114,7 @@ export default configureStore({
         date: date.reducer,
         service: service.reducer,
         event: event.reducer,
+        collect: collect.reducer,
+        dbData : dbData.reducer,
     }
 }) 
