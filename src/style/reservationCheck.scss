@@ -37,11 +37,12 @@
             }
         }
         button{
-            width: 20%;
-            height: 40px;
-            border: none;
+            width: 25%;
+            height: 50px;
+            border: 1px solid black;
             background-color: #AEFF1E;
             font-size: 1.2em;
+            border-radius: 50px;
             cursor: pointer;
         }
     }

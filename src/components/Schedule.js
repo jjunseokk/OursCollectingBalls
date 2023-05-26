@@ -98,13 +98,13 @@ const Schedule = () => {
           <button className="next-month-button" onClick={handleNextMonth}>&gt;</button>
         </div>
         <div className="calendar-days">
-          <div className="calendar-day">일</div>
-          <div className="calendar-day">월</div>
-          <div className="calendar-day">화</div>
-          <div className="calendar-day">수</div>
-          <div className="calendar-day">목</div>
-          <div className="calendar-day">금</div>
-          <div className="calendar-day">토</div>
+          <div className="calendar-day">SUN</div>
+          <div className="calendar-day">MON</div>
+          <div className="calendar-day">TUE</div>
+          <div className="calendar-day">WED</div>
+          <div className="calendar-day">THU</div>
+          <div className="calendar-day">FRI</div>
+          <div className="calendar-day">SAT</div>
         </div>
         <div className="calendar-grid">
           {renderCalendar()}

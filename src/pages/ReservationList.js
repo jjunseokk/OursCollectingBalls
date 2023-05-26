@@ -3,16 +3,19 @@ import "../style/reservationList.scss";
 import "../style/reservation.scss";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import { faChevronLeft, faChevronRight, faL, faQuestion } from "@fortawesome/free-solid-svg-icons";
 
 import { useSelector } from "react-redux";
 import axios from "axios";
+
 
 const ReservationList = () => {
     const dbData2 = useSelector((state) => state.dbData.dbData);
 
     const [dbData, setDbData] = useState([]);
+    const [modal, setModal] = useState(false);
     console.log(dbData);
+
 
     useEffect(() => {
         const storedData = localStorage.getItem("dbData");
@@ -43,6 +46,7 @@ const ReservationList = () => {
         setCurrentPage(page);
     };
 
+    // 예약내역취소 함수
     const cancelReservation = (index) => {
         const reservationDate = dbData[index].date;
         const reservationName = dbData[index].name;
@@ -52,12 +56,15 @@ const ReservationList = () => {
                 console.log(response);
                 const updatedData = dbData.filter((item, i) => i !== index);
                 setDbData(updatedData);
+                localStorage.setItem("dbData", JSON.stringify(updatedData)); // 업데이트된 데이터로 localStorage 업데이트
             })
             .catch((error) => {
                 console.error(error);
+                alert("입력하신 예약자명과 전화번호를 확인해주세요.")
             });
-    };
 
+        setModal(false);
+    };
 
     return (
         <div className="reservationList-container">
@@ -65,17 +72,21 @@ const ReservationList = () => {
                 <div>
                     <h3>예약 내역 조회하기</h3>
                     <p>
-                        예약자명과 예약 시 등록한 <br />
-                        연락처로 검색이 가능합니다.
-                        <br /><br />
-                        취소하고 싶은 예약을 말씀해 주시면 <br />
-                        담당자가 취소해드립니다.
-                        <br /><br />
-                        일정 변경, 등 기타 문의는 사전 1주일 <br />
-                        이전에 문의 부탁드립니다.
+                        OURS 수거 정책
+                        <br />
+                        <br />
+                        - 수거 일정 및 시간은 담당 매니저와 조율합니다.(*수거신청해주시면 담당매니저 배정 후 해피콜이 진행됩니다.)
+                        <br />
+                        <br />
+                        - 수거후 약 2~3주 선별 작업 후 OURS 에코 보상이 진행 됩니다.
+                        <br />
+                        <br />
+                        - 보상내역은 담당 매니저를 통해 상세내역 전달 및 리포트를 전달 받으실 수 있습니다.
+                        <br />
+                        <br />
+                        - 모든 내역은 OURS 마이페이지에서 확인하실 수 있습니다.
                     </p>
                 </div>
-                <button><a href="https://pf.kakao.com/_xnGFTT">1:1 문의하기</a></button>
             </div>
             <div className="reservationList-area">
                 <div>
@@ -86,28 +97,45 @@ const ReservationList = () => {
                                 <th>지역</th>
                                 <th>매장명</th>
                                 <th>주소</th>
-                                <th colSpan='2'>예약일시</th>
+                                <th>예약일시</th>
+                                <th colSpan='2'>예약등록시간</th>
                             </tr>
                         </thead>
                         <tbody>
                             {currentItems && currentItems.map((item, index) => (
-                                <tr key={index}>
-                                    <td>{(currentPage - 1) * itemsPerPage + index + 1}</td>
-                                    <td>{item.spot}</td>
-                                    <td>{item.shop}</td>
-                                    <td>{item.place}</td>
-                                    <td>{item.date}</td>
-                                    <td style={{ padding: 0 }}>
-                                        <button onClick={() => { cancelReservation(index) }}
-                                            style={{ width: '100%', height: '30px', border: 'none', margin: 0, backgroundColor: "#AEFF1E", cursor: 'pointer' }}
-                                        >
-                                            예약취소
-                                        </button>
-                                    </td>
-                                </tr>
+                                <React.Fragment key={index}>
+                                    <tr key={index}>
+                                        <td>{(currentPage - 1) * itemsPerPage + index + 1}</td>
+                                        <td>{item.spot}</td>
+                                        <td>{item.shop}</td>
+                                        <td>{item.place}</td>
+                                        <td>{item.date}</td>
+                                        <td>{item.time}</td>
+                                        <td style={{ padding: 0 }}>
+                                            <button onClick={() => { setModal(true) }}
+                                                style={{ width: '100%', height: '30px', border: 'none', margin: 0, backgroundColor: "#AEFF1E", cursor: 'pointer' }}
+                                            >
+                                                예약취소
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <div className={modal ? "modal" : "none"}>
+                                        <h3>예약 내역 취소하기</h3>
+                                        <p>해당 예약 내역을 취소하시겠습니까?</p>
+                                        <div className="modal-btnArea">
+                                            <button onClick={() => {
+                                                setModal(false);
+                                            }}>뒤로가기</button>
+                                            <button onClick={() => {
+                                                cancelReservation(index)
+                                            }}>삭제하기</button>
+                                        </div>
+                                    </div>
+                                </React.Fragment>
                             ))}
                         </tbody>
                     </table>
+
                     <div className="event-pagination">
                         {currentPage > 1 && (
                             <button
@@ -137,6 +165,7 @@ const ReservationList = () => {
                     </div>
                 </div>
             </div>
+
         </div>
     );
 };

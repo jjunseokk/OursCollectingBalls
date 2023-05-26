@@ -3,18 +3,16 @@
     height: 100vh;
     padding: 0;
     margin: 0;
-    background-color: #F7F7F9;
-
-    display: flex;
+    background-color: #FFFFFF;
+    position: relative;
 
     .reservationList-text {
-        width: 30%;
-        height: 100%;
+        width: 80%;
+        margin: 0 auto;
         background-color: white;
 
         display: flex;
         justify-content: center;
-        align-items: center;
         flex-direction: column;
 
         div {
@@ -22,51 +20,108 @@
 
             h3 {
                 margin-bottom: 20px;
+                padding: 10px;
+                border-bottom: 1px solid black;
+            }
+
+            p {
+                padding: 10px;
+                color: #757575;
             }
 
         }
 
-        button {
-            width: 40%;
-            height: 40px;
-            background-color: #AEFF1E;
-            border: none;
-            cursor: pointer;
-        }
+
     }
 
     .reservationList-area {
-        width: 70%;
+        width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
 
         div {
-            width: 100%;
+            width: 80%;
 
             table,
             th,
             td {
-                border: 1px solid black;
                 border-collapse: collapse;
                 padding: 5px;
             }
 
-            table {
-                width: 100%;
-                margin-top: 20px;
-            }
-
             th {
                 background-color: #E9E9E9;
+
+                &:first-child {
+                    border-top-left-radius: 20px;
+                    border-bottom-left-radius: 20px;
+                }
+
+                &:last-child {
+                    border-top-right-radius: 20px;
+                    border-bottom-right-radius: 20px;
+                }
+            }
+
+            table {
+                width: 100%;
+            }
+
+            tbody {
+                .modal {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 40%;
+                    height: 50%;
+                    background-color: white;
+                    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+                    padding: 20px;
+                    h3 {
+                        padding: 10px;
+                        border-bottom: 1px solid black;
+                    }
+                    p{
+                        width: 50%;
+                        margin: 25% auto;
+                    }
+                    .modal-btnArea{
+                        width: 40%;
+                        position: absolute;
+                        bottom: 0;
+                        right: 0;
+                        
+                        button{
+                            width: 45%;
+                            height: 35px;
+                            margin: 0px 5px;
+                            border: 1px solid black;
+                            cursor: pointer;
+                            border-radius: 40px;
+                            &:first-child{
+                                background-color: white;
+                            }
+                            &:last-child{
+                                background-color: #AEFF1E;
+                            }
+                        }
+                    }
+                }
+                .none{
+                    display: none;
+                }
             }
 
             td {
+                padding: 15px 0px;
                 text-align: center;
             }
 
             .event-pagination {
                 text-align: center;
+                margin: 0 auto;
 
                 button {
                     width: 20px;
@@ -83,6 +138,6 @@
                 }
             }
         }
-
     }
+
 }

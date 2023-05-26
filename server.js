@@ -37,14 +37,14 @@ app.get("/*", (req, res) => {
 
 // 예약확정
 app.post('/user', (req, res) => {
-    const { address, date, service, event, collect } = req.body;
-    console.log(address);
+    const { address, date, service, event, collect, time } = req.body;
+    console.log(time);
     if (!address || !date || !service || !collect) {
         res.status(400).json({ error: 'address, date, service, collect 필드가 필요합니다.' });
         return;
     }
 
-    const query = `INSERT INTO user (name, phoneNumber, email, spot ,place, shop, date, collect, inquiry, event) VALUES ('${service.service.name}','${service.service.phoneNumber}','${service.service.email}','${address.add.spot}','${address.add.address}','${address.add.shop}','${date.date}','${collect.collect}','${service.service.inquiry}','${event.event}' )`;
+    const query = `INSERT INTO user (name, phoneNumber, email, spot ,place, shop, date, collect, inquiry, event, time) VALUES ('${service.service.name}','${service.service.phoneNumber}','${service.service.email}','${address.add.spot}','${address.add.address}','${address.add.shop}','${date.date}','${collect.collect}','${service.service.inquiry}','${event.event}', '${time.time}' )`;
     const values = [address, date, service, event, collect];
 
     connection.query(query, values, (error, results) => {
@@ -56,6 +56,12 @@ app.post('/user', (req, res) => {
         res.json({ success: results });
     });
 });
+
+// // 사용자가 직접 입력한 내용.
+// app.post('/addData', (req, res)=>{
+//     const {sopt, item, place, phone}
+// })
+
 // 예약확인 내역
 app.post('/check', (req, res) => {
     const { name, phoneNumber } = req.body;
@@ -80,7 +86,7 @@ app.post('/check', (req, res) => {
     })
 })
 
-
+//예약 내역 삭제!!!!
 app.post('/delete', (req, res) => {
     console.log("연결", req.body);
     const { date, name } = req.body;
@@ -89,10 +95,10 @@ app.post('/delete', (req, res) => {
 
     connection.query(query, (error, result) => {
         if (error) {
-            console.error("delete 쿼리 오류:::", error)
+            console.error("delete 쿼리 오류:::", error);
         }
 
-        res.json({result})
+        res.json({ result })
     })
 })
 

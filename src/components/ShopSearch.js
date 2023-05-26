@@ -9,6 +9,7 @@ import { addState, collectState } from "../redux/store";
 
 import golf from '../img/golf.png';
 import warning from '../img/warning.png';
+import axios from "axios";
 
 const ShopSearch = () => {
 
@@ -33,6 +34,14 @@ const ShopSearch = () => {
 
     // 버튼 액티브
     const [active, setActive] = useState('');
+
+    // 사용자가 입력한 지역, 매장명, 주소, 전화번호 저장
+    const [formData, setFormData] = useState({
+        spot: '',
+        item: '',
+        place: '',
+        phone: ''
+    });
 
     const dispatch = useDispatch();
 
@@ -146,7 +155,7 @@ const ShopSearch = () => {
 
 
     // 테이블 항목을 위한 데이터
-    const tableData = [
+    const [tableData, setTableData] = useState([
         { spot: '서울특별시', shop: "Item 1", address: '서울특별시 강동구 00가 1211 스크린 골프장', phone: '00-000-0000' },
         { spot: '대구광역시', shop: "Item 2", address: '대구광역시 중구 00가 1202 스크린 골프장', phone: '00-000-0000' },
         { spot: '경기도', shop: "Item 3", address: '경기성남시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
@@ -172,26 +181,7 @@ const ShopSearch = () => {
         { spot: '경기도', shop: "Item 3", address: '경기성남시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
         { spot: '부산광역시', shop: "Item 4", address: '부산광역시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
         { spot: '경상남도', shop: "Item 5", address: '창원시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-        { spot: '서울특별시', shop: "Item 1", address: '서울특별시 동작구 00가 1211 스크린 골프장', phone: '00-000-0000' },
-        { spot: '대구광역시', shop: "Item 2", address: '대구광역시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-        { spot: '경기도', shop: "Item 3", address: '경기성남시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-        { spot: '부산광역시', shop: "Item 4", address: '부산광역시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-        { spot: '경상남도', shop: "Item 5", address: '창원시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-        { spot: '대구광역시', shop: "Item 2", address: '대구광역시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-        { spot: '경기도', shop: "Item 3", address: '경기성남시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-        { spot: '부산광역시', shop: "Item 4", address: '부산광역시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-        { spot: '경상남도', shop: "Item 5", address: '창원시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-        { spot: '서울특별시', shop: "Item 1", address: '서울특별시 마포구 00가 1211 스크린 골프장', phone: '00-000-0000' },
-        { spot: '대구광역시', shop: "Item 2", address: '대구광역시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-        { spot: '경기도', shop: "Item 3", address: '경기성남시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-        { spot: '부산광역시', shop: "Item 4", address: '부산광역시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-        { spot: '경상남도', shop: "Item 5", address: '창원시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-        { spot: '서울특별시', shop: "Item 1", address: '서울특별시 노원구 00가 1211 스크린 골프장', phone: '00-000-0000' },
-        { spot: '대구광역시', shop: "Item 2", address: '대구광역시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-        { spot: '경기도', shop: "Item 3", address: '경기성남시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-        { spot: '부산광역시', shop: "Item 4", address: '부산광역시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-        { spot: '경상남도', shop: "Item 5", address: '창원시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-    ];
+    ]);
 
     // 페이지네이션을 위한 변수들
     const itemsPerPage = 10; // 페이지당 보여줄 항목 수
@@ -240,89 +230,224 @@ const ShopSearch = () => {
         setSearchTerm(event.target.value);
     };
 
+    // item 중 선택된 체크박스 데이터만 전달 
     const handleInputChange = (index) => {
         setSelect(index);
         setAdd(currentItems[index]);
     };
 
+    // 무게 선택
     const colletSelect = (index) => {
         setCollect(index);
         setActive(index);
     }
 
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+
+        // 전화번호 입력 시 자동으로 하이푼(-) 추가
+        if (name === 'phone') {
+            const phoneNumber = value.replace(/-/g, ''); // 기존 하이픈 제거
+            const formattedPhoneNumber = phoneNumber
+                .replace(/(\d{3})(\d{3,4})(\d{4})/, '$1-$2-$3'); // 하이픈 추가
+            setFormData((prevData) => ({
+                ...prevData,
+                [name]: formattedPhoneNumber
+            }));
+        } else {
+            setFormData((prevData) => ({
+                ...prevData,
+                [name]: value
+            }));
+        }
+    };
+
+
+    // 추가하기 버튼을 누르면 작동 이벤트
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (formData.phone.length == 13) {
+            alert('성공적으로 추가되었습니다.')
+            setTableData((prevData) => [...prevData, formData]);
+
+            // 추가된 데이터를 로컬 스토리지에 저장
+            localStorage.setItem('tableData', JSON.stringify([...tableData, formData]));
+
+            // 입력값 초기화
+            setFormData({
+                spot: '',
+                shop: '',
+                address: '',
+                phone: ''
+            });
+        } else {
+            alert('전화번호 13자리를 올바르게 입력하세요.')
+        }
+
+
+        console.log(formData);
+
+        //----지우면 안됌--------------
+        // axios.post('/addData', formData)
+        //     .then((response) => {
+        //         console.log(response)
+        //     })
+        //     .catch((error) => {
+        //         console.error(error);
+        //     });
+        // console.log(formData);
+        //----지우면 안됌--------------
+
+    };
+
+    // 주소 선택 값이 바뀌면 dispatch로 redux에 저장
     useEffect(() => {
         if (add) {
             const { spot, shop, address } = add;
             dispatch(addState({ spot, shop, address }));
-            console.log("뭐지??", add);
         }
     }, [add, dispatch]);
 
+    // 무게가 값이 바뀌면 redux에 저장
     useEffect(() => {
         dispatch(collectState(collect));
     }, [collect, dispatch])
 
 
+    // -----임시---------
+    useEffect(() => {
+        const storedData = localStorage.getItem('tableData');
+        if (storedData) {
+            setTableData(JSON.parse(storedData));
+        } else {
+            setTableData([
+                { spot: '서울특별시', shop: "Item 1", address: '서울특별시 강동구 00가 1211 스크린 골프장', phone: '00-000-0000' },
+                { spot: '대구광역시', shop: "Item 2", address: '대구광역시 중구 00가 1202 스크린 골프장', phone: '00-000-0000' },
+                { spot: '경기도', shop: "Item 3", address: '경기성남시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
+                { spot: '부산광역시', shop: "Item 4", address: '부산광역시 북구 00가 1202 스크린 골프장', phone: '00-000-0000' },
+                { spot: '경상남도', shop: "Item 5", address: '창원시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
+                { spot: '서울특별시', shop: "Item 6", address: '서울특별시 강남구 00가 1211 스크린 골프장', phone: '00-000-0000' },
+                { spot: '대구광역시', shop: "Item 7", address: '대구광역시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
+                { spot: '경기도', shop: "Item 8", address: '경기성남시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
+                { spot: '부산광역시', shop: "Item 9", address: '부산광역시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
+                { spot: '경상남도', shop: "Item 5", address: '창원시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
+                { spot: '서울특별시', shop: "Item 1", address: '서울특별시 강서구 00가 1211 스크린 골프장', phone: '00-000-0000' },
+                { spot: '대구광역시', shop: "Item 2", address: '대구광역시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
+                { spot: '경기도', shop: "Item 3", address: '경기성남시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
+                { spot: '부산광역시', shop: "Item 4", address: '부산광역시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
+                { spot: '경상남도', shop: "Item 5", address: '창원시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
+                { spot: '서울특별시', shop: "Item 1", address: '서울특별시 강동구 00가 1211 스크린 골프장', phone: '00-000-0000' },
+                { spot: '대구광역시', shop: "Item 2", address: '대구광역시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
+                { spot: '경기도', shop: "Item 3", address: '경기성남시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
+                { spot: '부산광역시', shop: "Item 4", address: '부산광역시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
+                { spot: '경상남도', shop: "Item 5", address: '창원시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
+                { spot: '서울특별시', shop: "Item 1", address: '서울특별시 서초구 00가 1211 스크린 골프장', phone: '00-000-0000' },
+                { spot: '대구광역시', shop: "Item 2", address: '대구광역시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
+                { spot: '경기도', shop: "Item 3", address: '경기성남시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
+                { spot: '부산광역시', shop: "Item 4", address: '부산광역시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
+                { spot: '경상남도', shop: "Item 5", address: '창원시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
+            ]);
+        }
+    }, []);
     return (
         <div className="reservation-result">
             <div className="shop-searchZone">
-                <div className="shop">
-                    <h4><img src={golf} alt="" width="10px" /> 로스트볼 수거량</h4>
-                    <div className="collect-weight">
-                        <button
-                            onClick={() => {
-                                colletSelect('1톤 이하');
-                            }}
-                            className={active === '1톤 이하' ? 'selected' : ''}
-                        >
-                            1톤 이하
-                        </button>
-                        <button
-                            onClick={() => {
-                                colletSelect('1톤 이상');
-                            }}
-                            className={active === '1톤 이상' ? 'selected' : ''}
-                        >
-                            1톤 이상
-                        </button>
-                        <button
-                            onClick={() => {
-                                colletSelect('2톤 이상');
-                            }}
-                            className={active === '2톤 이상' ? 'selected' : ''}
-                        >
-                            2톤 이상
-                        </button>
-                        <button
-                            onClick={() => {
-                                colletSelect('5톤 이상');
-                            }}
-                            className={active === '5톤 이상' ? 'selected' : ''}
-                        >
-                            5톤 이상
-                        </button>
+                <div className="select-zone">
+                    <div className="shop-search">
+                        <h4>매장 찾기</h4>
+                        <div className="shop-selectArea">
+                            <select name="h_area1" onChange={showSelect} value={Selected} className="shop-select">
+                                {city.map((item) => (
+                                    <option value={item} key={item}>
+                                        {item}
+                                    </option>
+                                ))}
+                            </select>
+                            <select name="h_area2" id="modal" onChange={showDetailSelect} className="shop-select">
+                                <option className='option'>구/군을 선택해주세요.</option>
+                                <option className='option'>{Selected2}</option>
+                            </select>
+                        </div>
+                        <input style={{ padding: 10 }} type="text" value={searchTerm} onChange={handleSearch} placeholder="매장명을 입력하세요." />
+                        <FontAwesomeIcon icon={faSearch} className="shop-search" />
                     </div>
-                    <p style={{ color: 'red', fontSize: 2, marginTop: 5 }}>
-                        <img src={warning} alt="" width="10px" /> 1톤 이하의 볼 수거는 추가 비용이 발생합니다.
-                    </p>
+                    <div className="shop">
+                        <h4><img src={golf} alt="" width="10px" /> 로스트볼 수거량</h4>
+                        <div className="collect-weight">
+                            <button
+                                onClick={() => {
+                                    colletSelect('1톤 이하');
+                                }}
+                                className={active === '1톤 이하' ? 'selected' : ''}
+                            >
+                                1톤 이하
+                            </button>
+                            <button
+                                onClick={() => {
+                                    colletSelect('1톤 이상');
+                                }}
+                                className={active === '1톤 이상' ? 'selected' : ''}
+                            >
+                                1톤 이상
+                            </button>
+                            <button
+                                onClick={() => {
+                                    colletSelect('2톤 이상');
+                                }}
+                                className={active === '2톤 이상' ? 'selected' : ''}
+                            >
+                                2톤 이상
+                            </button>
+                            <button
+                                onClick={() => {
+                                    colletSelect('5톤 이상');
+                                }}
+                                className={active === '5톤 이상' ? 'selected' : ''}
+                            >
+                                5톤 이상
+                            </button>
+                        </div>
+                        <p style={{ color: 'red', fontSize: 2, marginTop: 5 }}>
+                            <img src={warning} alt="" width="10px" /> 1톤 이하의 볼 수거는 추가 비용이 발생합니다.
+                        </p>
+                    </div>
                 </div>
-                <div className="shop-search">
-                    <h4>매장 찾기</h4>
-                    <div className="shop-selectArea">
-                        <select name="h_area1" onChange={showSelect} value={Selected} className="shop-select">
-                            {city.map((item) => (
-                                <option value={item} key={item}>
-                                    {item}
-                                </option>
-                            ))}
-                        </select>
-                        <select name="h_area2" id="modal" onChange={showDetailSelect} className="shop-select">
-                            <option className='option'>구/군을 선택해주세요.</option>
-                            <option className='option'>{Selected2}</option>
-                        </select>
-                    </div>
-                    <input style={{ padding: 5 }} type="text" value={searchTerm} onChange={handleSearch} placeholder="매장명을 입력하세요." />
-                    <FontAwesomeIcon icon={faSearch} className="shop-search" />
+
+                <div className="input-zone">
+                    <h4>찾으시는 매장이 없으신가요?</h4>
+                    <p>* 추가하기 버튼을 누르시면 아래의 리스트의 추가 됩니다.</p>
+                    <form onSubmit={handleSubmit}>
+                        <input
+                            type="text"
+                            name="spot"
+                            placeholder="지역명을 입력하세요"
+                            value={formData.spot}
+                            onChange={handleChange}
+                        />
+                        <input
+                            type="text"
+                            name="shop"
+                            placeholder="매장명을 입력하세요"
+                            value={formData.shop || ''}
+                            onChange={handleChange}
+                        />
+                        <input
+                            type="text"
+                            name="address"
+                            placeholder="주소를 입력하세요"
+                            value={formData.address || ''}
+                            onChange={handleChange}
+                        />
+                        <input
+                            type="text"
+                            name="phone"
+                            placeholder="전화번호를 입력하세요"
+                            value={formData.phone || ''}
+                            onChange={handleChange}
+                            maxLength='13'
+                        />
+                        <button type="submit">추가하기</button>
+                    </form>
                 </div>
             </div>
             <div className="shop-table">

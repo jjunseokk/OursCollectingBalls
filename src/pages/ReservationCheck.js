@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import '../style/reservationCheck.scss'
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -9,9 +9,7 @@ const ReservationCheck = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
-    // 폰번호 받는 state
-    const [phoneNumber, setPhoneNumber] = useState('');
-
+    // 이름, 전화번호 받는 state
     const [reservationInfo, setReservationInfo] = useState({
         name: "",
         phoneNumber: "",
@@ -30,7 +28,6 @@ const ReservationCheck = () => {
     const handleChange = (event) => {
         const inputPhoneNumber = event.target.value;
         const formattedPhoneNumber = formatPhoneNumber(inputPhoneNumber);
-        setPhoneNumber(formattedPhoneNumber);
 
         setReservationInfo((prevState) => ({
             ...prevState,
@@ -92,7 +89,7 @@ const ReservationCheck = () => {
                 </label>
                 <button type='button' onClick={() => {
                     checkReservation()
-                }}>예약확인</button>
+                }}>예약 내역 확인</button>
             </form>
         </div>
     )

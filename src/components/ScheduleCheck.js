@@ -116,7 +116,7 @@ const ScheduleCheck = () => {
         <h4>예약자 정보</h4>
         <form>
           <label>
-            <span>성함 : <span style={{ color: 'red' }}>*</span> </span>
+            <span>성함 <span style={{ color: 'red' }}>*</span> </span>
             <input
               type="text"
               name="name"
@@ -126,7 +126,7 @@ const ScheduleCheck = () => {
             />
           </label>
           <label>
-            <span>휴대전화 : <span style={{ color: 'red' }}>*</span> </span>
+            <span>휴대전화 <span style={{ color: 'red' }}>*</span> </span>
             <input
               type="text"
               name="phoneNumber"
@@ -137,7 +137,7 @@ const ScheduleCheck = () => {
             />
           </label>
           <label>
-            <span>이메일 : <span style={{ color: 'red' }}>*</span> </span>
+            <span>이메일  </span>
             <input
               type='email'
               name="email"
@@ -147,7 +147,7 @@ const ScheduleCheck = () => {
             />
           </label>
           <label>
-            <span>문의사항 : </span>
+            <span>문의사항 <span style={{ color: 'red' }}>*</span></span>
             <textarea
               name="inquiry"
               placeholder="문의사항을 남겨주세요"
@@ -230,8 +230,9 @@ const AgreeBox = (props) => {
           backgroundColor: 'white',
           overflow: 'auto',
           width: '80%',
-          height: 100,
+          height: 130,
           margin: '10px auto',
+          borderRadius : 20
         }}
       >
         {text}

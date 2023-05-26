@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 import Logo from '../img/oursLogo.png';
+import navLogo from '../img/nav_logo.png';
 
 const Header = () => {
     const navigate = useNavigate();
@@ -12,10 +13,12 @@ const Header = () => {
         {/* --------메인화면 헤더------- */}
         <div className="home-header">
             <div>
-                <span onClick={() => handleMenuClick('/collect')}>수거신청</span>
-                <span>1:1 문의</span>
+                <span onClick={() => handleMenuClick('/Service')}>FAQ</span>
+                <span onClick={()=>{window.location.href='https://pf.kakao.com/_xnGFTT'}}>1:1 문의</span>
             </div>
-
+            <div>
+                <a href="https://theours.imweb.me/"><img src={navLogo} alt="" /></a>
+            </div>
             <div>
                 <span><a href="http://service.qving.co.kr/">큐빙</a></span>
                 <span><a href="http://www.xperon.co.kr/">엑스페론</a></span>
@@ -23,9 +26,9 @@ const Header = () => {
             </div>
         </div>
         <div className="home-navbar">
-            <div className="navbar-logo" style={{ cursor: 'pointer', width : '15%', marginLeft:'15%', padding : '24px 5px' }} onClick={() => {
+            <div className="navbar-logo" style={{ cursor: 'pointer', width: '15%', marginLeft: '10%', padding: '24px 5px' }} onClick={() => {
                 navigate('/')
-            }}><img src={Logo} alt="" width='100%'/></div>
+            }}><img src={Logo} alt="" width='100%' /></div>
             <ul className="navbar-menu">
                 <li onClick={() => handleMenuClick('/reservation')}>예약</li>
                 <li onClick={() => handleMenuClick('/ReservationCheck')}>예약확인</li>

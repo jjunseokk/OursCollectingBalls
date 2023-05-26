@@ -43,6 +43,7 @@ let date = createSlice({
         }
     }
 })
+
 // 이름, 나이, 문의사항
 let service = createSlice({
     name: 'service',
@@ -88,12 +89,26 @@ let collect = createSlice({
 // DB에서 name과 phone 소팅해서 받은 값
 let dbData = createSlice({
     name: 'dbData',
-    initialState:{},
-    reducers : {
-        dbState(state, action){
-            return{
+    initialState: {},
+    reducers: {
+        dbState(state, action) {
+            return {
                 ...state,
-                dbData : action.payload
+                dbData: action.payload
+            }
+        }
+    }
+})
+//현재시간
+
+let time = createSlice({
+    name: 'time',
+    initialState: {},
+    reducers: {
+        timeState(state, action) {
+            return {
+                ...state,
+                time : action.payload
             }
         }
     }
@@ -106,6 +121,7 @@ export let { serviceState } = service.actions;
 export let { eventState } = event.actions;
 export let { collectState } = collect.actions;
 export let { dbState } = dbData.actions;
+export let { timeState } = time.actions;
 
 export default configureStore({
     reducer: {
@@ -115,6 +131,7 @@ export default configureStore({
         service: service.reducer,
         event: event.reducer,
         collect: collect.reducer,
-        dbData : dbData.reducer,
+        dbData: dbData.reducer,
+        time : time.reducer,
     }
 }) 

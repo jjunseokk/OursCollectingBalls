@@ -4,30 +4,62 @@
     box-sizing: border-box;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&family=Noto+Sans+KR&display=swap');
 
 .home-container {
     width: 100%;
     font-size: 1em;
     background-color: #F7F7F9;
     padding: 0;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Noto Sans KR', sans-serif;
 
     .home-main {
         position: relative;
 
         .parallax-text {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
             color: white;
-            position: absolute;
-            bottom: 60px;
-            right: 60px;
+
+            .parallax-title {
+                font-weight: bolder;
+                font-size: 3em;
+                padding: 50px 0px;
+                font-family: 'Inter', sans-serif;
+                font-weight: 900;
+                position: relative;
+            }
+
+            img {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 40%;
+            }
+
+            h1 {
+                padding: 20px 0px;
+            }
+
+            span {
+                color: #AEFF1E;
+            }
+
+            .downIcon {
+                font-size: 1.5em;
+                position: absolute;
+                bottom: 30px;
+                animation: upDown linear 1s infinite;
+            }
         }
     }
 
     .home-wrap {
-        padding: 70px 100px;
+        padding: 70px 120px;
 
         p {
             font-size: 2em;
@@ -37,7 +69,7 @@
 
     .home-goLink {
         padding: 0;
-        margin-bottom: 80px;
+        margin-bottom: 100px;
 
         div {
             display: flex;
@@ -49,30 +81,47 @@
 
     .home-area {
         width: 100%;
-        margin-bottom: 80px;
+        margin-bottom: 100px;
 
-        .swiper {
-            width: 100%;
+        .title {
+            display: flex;
+            justify-content: center;
+            align-items: center;
 
-            .swiper-wrapper {
-                margin-left: 0px;
+            img {
+                width: 40px;
+                height: 40px;
+                margin: 0px 20px;
             }
 
-            .swiper-button-next {
-                background: url(../img/rightArrow.png) no-repeat;
-                background-size: 100% auto;
-            }
-
-            .swiper-button-prev {
-                background: url(../img/leftArrow.png) no-repeat;
-                background-size: 100% auto;
-            }
-
-            .swiper-button-next::after,
-            .swiper-button-prev::after {
-                display: none;
+            span {
+                background-color: #AEFF1E;
             }
         }
+
+
+        // .swiper {
+        //     width: 100%;
+
+        //     .swiper-wrapper {
+        //         margin-left: 0px;
+        //     }
+
+        //     .swiper-button-next {
+        //         background: url(../img/rightArrow.png) no-repeat;
+        //         background-size: 100% auto;
+        //     }
+
+        //     .swiper-button-prev {
+        //         background: url(../img/leftArrow.png) no-repeat;
+        //         background-size: 100% auto;
+        //     }
+
+        //     .swiper-button-next::after,
+        //     .swiper-button-prev::after {
+        //         display: none;
+        //     }
+        // }
 
         // event-card
 
@@ -94,18 +143,22 @@
     }
 
     .home-counseling {
-        width: 100%;
+        width: 98%;
         height: 150px;
+        margin: 0 auto;
+        padding: 0px 40px;
         background-color: #AEFF1E;
-        border-radius: 60px;
+        border-radius: 50px;
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         align-items: center;
 
         p {
-            font-size: 0.5em;
+            font-size: 1em;
+
             strong {
-                font-size: 20px;
+                font-size: 2em;
+                font-weight: 700;
             }
         }
 
@@ -113,7 +166,10 @@
             width: 150px;
             height: 70px;
 
-            border: none;
+            border: 1px solid black;
+            background-color: #FFFFFF;
+            border-radius: 50px;
+            cursor: pointer;
 
             a {
                 text-decoration: none;
@@ -124,5 +180,15 @@
                 padding: 30px 0px;
             }
         }
+    }
+}
+
+@keyframes upDown {
+    0% {
+        bottom: 50px;
+    }
+
+    80% {
+        bottom: 30px;
     }
 }

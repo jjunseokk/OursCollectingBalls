@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 
 import "../style/reservation.scss";
@@ -14,24 +14,32 @@ import ScheduleCheck from "../components/ScheduleCheck";
 import progress_1 from '../img/progress_1.png';
 import progress_2 from '../img/progress_2.png';
 import progress_3 from '../img/progress_3.png';
+import { timeState } from "../redux/store";
 
 // 예약 컴포넌트
 const Reservation = () => {
   const [step, setStep] = useState(0); // 현재 단계를 관리하는 상태
   const [showModal, setShowModal] = useState(false); // 모달 창을 보여주는 상태
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const redux_data = useSelector((state) => state);
-  const { checked, address, date, service, collect } = redux_data;
-  
-  console.log("실제 데이터:", redux_data);
+  const { checked, address, date, service, collect, } = redux_data;
 
-  console.log('address', address);
+  console.log("실제 데이터:", redux_data);
 
   // 다음 단계로 이동하는 함수
   const handleNext = () => {
     setStep((prevStep) => prevStep + 1);
   };
+
+  let currentDate = new Date();
+  const currentDateTimeString = currentDate.toLocaleString();
+
+
+  useEffect(() => {
+    dispatch(timeState(currentDateTimeString));
+  }, [])
 
   // 이전 단계로 이동하는 함수
   const handlePrev = () => {
@@ -102,79 +110,80 @@ const Reservation = () => {
   const isLastStep = step === 2;
   const { currentComponent, progressText } = renderComponentAndProgressText();
   const buttonStyles = {
-    width: 100,
-    height: 30,
+    width: 50,
+    height: 50,
     cursor: 'pointer',
     marginRight: 5,
+    borderRadius: '50%'
   };
 
 
   return (
-    <div className="reservation-container">
-      <div className="progress-status">
-        <div className="progress-text">
-          <img src={progressText} style={{ width: '50%', marginTop: 5 }} alt="" />
+    <>
+      <div className="reservation-container">
+        <div className="progress-status">
+          <div className="progress-text">
+            <img src={progressText} style={{ width: '50%', marginTop: 5 }} alt="" />
+          </div>
         </div>
-        <div style={{ padding: 10, fontSize: '0.8em' }}>
-          <h2 style={{ textAlign: 'center', marginBottom: 10 }}>선택한 일정 확인</h2>
-          <p>장소 : {redux_data.address.add && redux_data.address.add.address}</p>
-          <p>일시 : {redux_data.date.date}</p>
-        </div>
-      </div>
-      <div className="reservation-area">
-        {currentComponent}
-        <div className="reservation-btnArea">
-          <div style={{ display: "flex", justifyContent: "space-between" }}>
-            <button
-              style={buttonStyles}
-              onClick={handlePrev}
-              disabled={step === 0}
-            >
-              <FontAwesomeIcon icon={faArrowLeft} /> 뒤로가기
-            </button>
-            <div style={{ padding: 0 }}>
+        <div className="reservation-area">
+          {currentComponent}
+          <div className="reservation-btnArea">
+            <div style={{ display: "flex", justifyContent: "space-between" }}>
               <button
                 style={buttonStyles}
-                onClick={handleCancel}
+                onClick={handlePrev}
+                disabled={step === 0}
               >
-                취소
+                <FontAwesomeIcon icon={faArrowLeft} />
               </button>
-              <button
-                style={{
-                  ...buttonStyles,
-                  border: "none",
-                  backgroundColor: "#AEFF1E",
-                }}
-                onClick={isLastStep ? handleReservationConfirmation : handleNext}
-              >
-                {isLastStep ? "예약 확정" : "다음"}{" "}
-                {isLastStep && <FontAwesomeIcon icon={faArrowRight} />}
-              </button>
+              <div style={{ padding: 0 }}>
+                <button
+                  style={{ ...buttonStyles, width: 60, borderRadius: 50 }}
+                  onClick={handleCancel}
+                >
+                  취소
+                </button>
+                <button
+                  style={{
+                    ...buttonStyles,
+                    border: "1px solid black",
+                    backgroundColor: "#AEFF1E",
+                  }}
+                  onClick={isLastStep ? handleReservationConfirmation : handleNext}
+                >
+                  {isLastStep ? <FontAwesomeIcon icon={faArrowRight} /> : <FontAwesomeIcon icon={faArrowRight} />}
+
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div className={showModal ? "success-modal" : "none-modal"}>
-        <h3>고객님이 입력하신 정보가 맞습니까?</h3>
-        <div className="modal-text">
-          <p>성함 : {service.service && service.service.name}</p>
-          <p>전화번호 : {service.service && service.service.phoneNumber}</p>
-          <p>이메일 : {service.service && service.service.email}</p>
-          <p>예약장소 : {address.add && address.add.address}</p>
-          <p>예약날짜 : {date && date.date}</p>
-          <p>로스트볼 수거량 : {collect && collect.collect}</p>
-          <p>기타 문의사항 : {service.service && service.service.inquiry}</p>
-        </div>
-        <div className="btn-area">
-          <button onClick={() => {
-            setShowModal(false);
-          }}>취소</button>
-          <button onClick={() => {
-            handelSuccess()
-          }}>예약확정</button>
+      <div className={showModal ? "modal-container" : "none-modal"}>
+        <div className="success-modal">
+          <h3>예약 정보 확인하기</h3>
+          <div className="modal-text">
+            <p>성함</p><span>{service.service && service.service.name}</span>
+            <p>전화번호</p><span>{service.service && service.service.phoneNumber}</span>
+            <p>이메일 </p><span>{service.service && service.service.email}</span>
+            <p>예약장소 </p><span>{address.add && address.add.address}</span>
+            <p>예약날짜 </p><span>{date && date.date}</span>
+            <p>로스트볼 수거량 </p><span>{collect && collect.collect}</span>
+            <p>기타 문의사항 </p><span>{service.service && service.service.inquiry}</span>
+          </div>
+          <div className="btn-area">
+            <button onClick={() => {
+              setShowModal(false);
+            }}>수정하기</button>
+            <button onClick={() => {
+              handelSuccess()
+            }}>예약확정</button>
+          </div>
         </div>
       </div>
-    </div>
+
+    </>
   );
 };
 
