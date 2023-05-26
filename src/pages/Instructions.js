@@ -9,26 +9,26 @@ import delivery from "../img/delivery.png";
 import navigation from "../img/navigation.png";
 
 const Instruction = () => {
-  let [clickTab, setClickTap] = useState(0);
+  // let [clickTab, setClickTap] = useState(0);
 
-  const menuArr = [
-    { content: <OursBox />, text: "OURS BOX안내" },
-    { content: <Collect />, text: "수거신청안내" },
-  ];
+  // const menuArr = [
+  //   // { content: <OursBox />, text: "OURS BOX안내" },
+  //   { content: <Collect />,},
+  // ];
 
-  const selectMenuHandler = (index) => {
-    setClickTap(index);
-  };
+  // const selectMenuHandler = (index) => {
+  //   setClickTap(index);
+  // };
 
   const onButtonClick = () => {
-    fetch("Smart Unmanned Platform Cubing_Business Introduction.pdf").then(
+    fetch("ours_Brochure.pdf").then(
       (response) => {
         response.blob().then((blob) => {
           const fileURL = window.URL.createObjectURL(blob);
           let alink = document.createElement("a");
           alink.href = fileURL;
           alink.download =
-            "Smart Unmanned Platform Cubing_Business Introduction.pdf";
+            "ours_Brochure.pdf";
           alink.click();
         });
       }
@@ -39,7 +39,7 @@ const Instruction = () => {
     <div className="instruction-container">
       <div className="section1">
         <h3 className="title">이용안내</h3>
-        <div className="tap-area">
+        {/* <div className="tap-area">
           {menuArr.map((el, index) => (
             <p
               key={index}
@@ -52,7 +52,8 @@ const Instruction = () => {
             </p>
           ))}
         </div>
-        <div className="itemBox">{menuArr[clickTab].content}</div>
+        <div className="itemBox">{menuArr[clickTab].content}</div> */}
+        <Collect />
       </div>
       <div className="section2">
         <h3>수거신청 전에 알아보세요.</h3>
@@ -93,7 +94,7 @@ const Instruction = () => {
           </p>
           <p>평일 09:00~18:00 (주말/공휴일 휴무)</p>
         </div>
-        <p style={{ color: "#616161" }}>
+        <p style={{ color: "#616161", fontSize: '0.9em' }}>
           고객센터 연결이 월활하지 않은 경우, 상담 요청시간 기준 24시간 이내 (영업일
           기준) 고객님이 남겨주신 연락처로 안내 드릴게요
         </p>
@@ -102,34 +103,38 @@ const Instruction = () => {
   );
 };
 
-const OursBox = () => {
-  return (
-    <div className="component">
-      <h3>OURS BOX 수거 신청 사용방법</h3>
-      <p>이용방법이용</p>
-      <p>이용방법이용</p>
-      <p>이용방법이용</p>
-      <p>이용방법이용</p>
-      <p>이용방법이용</p>
-      <p>이용방법이용</p>
-      <p>이용방법이용</p>
-    </div>
-  );
-};
+// const OursBox = () => {
+//   return (
+//     <div className="component">
+//       <h3>OURS BOX 수거 신청 사용방법</h3>
+//       <p>OURS 트레이딩센터(홈페이지) 신청</p>
+//       <p>공식 콜센터 신청</p>
+//     </div>
+//   );
+// };
 
 const Collect = () => {
   return (
-    <div className="component">
-      <h3>수거신청안내</h3>
-      <p>수거신청안내</p>
-      <p>수거신청안내</p>
-      <p>수거신청안내</p>
-      <p>수거신청안내</p>
-      <p>수거신청안내</p>
-      <p>수거신청안내</p>
-      <p>수거신청안내</p>
-      <p>수거신청안내</p>
+    <div className="collectBox">
+      <div className="component">
+        <h3>수거신청 안내</h3>
+        <div className="first">
+          <p style={{marginBottom : 10}}>∙ OURS트레이닝센터(홈페이지) 신청</p>
+          <p>∙ 공식 콜센터 요청</p>
+        </div>
+      </div>
+      <div className="component">
+        <h3>신청자격 기준</h3>
+        <div className="second">
+          <p>무료 : 3만알 이상(헌볼, 레인지볼 등)</p>
+          <p>유료 : 3만알 이하(헌볼, 레인지볼 등)</p>
+          <p>OURS 수거 전용 포대를 드립니다. </p>
+        </div>
+        <p style={{ textAlign: 'right', padding: 5, fontSize : "0.9em", color : 'gray' }}>*포대기준으로 유무를 판별</p>
+
+      </div>
     </div>
+
   );
 };
 

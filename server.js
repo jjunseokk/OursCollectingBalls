@@ -8,11 +8,11 @@ const port = 5000;
 
 
 const connection = mysql.createConnection({
-    host: 'localhost',
+    host: 'ours.cohoyi0rdiro.ap-northeast-2.rds.amazonaws.com',
     port: 3306,
     user: 'root',
-    password: 'junseok12',
-    database: 'testDB',
+    password: 'junseok12!',
+    database: 'user',
 });
 
 connection.connect((error) => {
@@ -44,7 +44,7 @@ app.post('/user', (req, res) => {
         return;
     }
 
-    const query = `INSERT INTO user (name, phoneNumber, email, spot ,place, shop, date, collect, inquiry, event, time) VALUES ('${service.service.name}','${service.service.phoneNumber}','${service.service.email}','${address.add.spot}','${address.add.address}','${address.add.shop}','${date.date}','${collect.collect}','${service.service.inquiry}','${event.event}', '${time.time}' )`;
+    const query = `INSERT INTO ours (name, phoneNumber, email, spot ,place, shop, date, collect, inquiry, event, time) VALUES ('${service.service.name}','${service.service.phoneNumber}','${service.service.email}','${address.add.spot}','${address.add.address}','${address.add.shop}','${date.date}','${collect.collect}','${service.service.inquiry}','${event.event}', '${time.time}' )`;
     const values = [address, date, service, event, collect];
 
     connection.query(query, values, (error, results) => {
@@ -66,7 +66,7 @@ app.post('/user', (req, res) => {
 app.post('/check', (req, res) => {
     const { name, phoneNumber } = req.body;
 
-    const query = `SELECT * FROM user WHERE name ='${name}' AND phoneNumber='${phoneNumber}'`;
+    const query = `SELECT * FROM ours WHERE name ='${name}' AND phoneNumber='${phoneNumber}'`;
 
     connection.query(query, (error, result) => {
         if (error) {
@@ -91,7 +91,7 @@ app.post('/delete', (req, res) => {
     console.log("연결", req.body);
     const { date, name } = req.body;
 
-    const query = `DELETE FROM user WHERE name='${name}' AND date='${date}'`;
+    const query = `DELETE FROM ours WHERE name='${name}' AND date='${date}'`;
 
     connection.query(query, (error, result) => {
         if (error) {

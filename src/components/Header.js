@@ -26,15 +26,14 @@ const Header = () => {
             </div>
         </div>
         <div className="home-navbar">
-            <div className="navbar-logo" style={{ cursor: 'pointer', width: '15%', marginLeft: '10%', padding: '24px 5px' }} onClick={() => {
+            <div className="navbar-logo" style={{ cursor: 'pointer', width: '12%', marginLeft: '10%', padding: '24px 5px' }} onClick={() => {
                 navigate('/')
-            }}><img src={Logo} alt="" width='100%' /></div>
+            }}><img src={Logo} alt="" /></div>
             <ul className="navbar-menu">
                 <li onClick={() => handleMenuClick('/reservation')}>예약</li>
                 <li onClick={() => handleMenuClick('/ReservationCheck')}>예약확인</li>
                 <li onClick={() => handleMenuClick('/Instruction')}>이용안내</li>
                 <li onClick={() => handleMenuClick('/Service')}>고객센터</li>
-                <li onClick={() => handleMenuClick('/')}>이벤트</li>
             </ul>
         </div>
     </>)
