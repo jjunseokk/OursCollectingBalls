@@ -2,7 +2,7 @@ const mysql = require('mysql2');
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
-
+const http = require("http");
 const port = 5000;
 
 
@@ -20,18 +20,24 @@ connection.connect((error) => {
         console.error('연결 실패:', error);
         return;
     }
-    app.listen(port, () => {
-        console.log(`서버가 포트 ${port}에서 시작되었습니다.`);
+    http.createServer(app).listen(port, () => {
+        console.log(`app listening at ${port}`);
     });
 });
 
 const app = express();
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "build")));
 app.use(cors());
 
 
+app.use(express.static(path.join(__dirname, "build")));
+
 app.get("/*", (req, res) => {
+    res.set({
+        "Cache-Control": "no-cache, no-store, must-revalidate",
+        Pragma: "no-cache",
+        Date: Date.now()
+    });
     res.sendFile(path.join(__dirname, "build", "index.html"));
 });
 
@@ -57,10 +63,6 @@ app.post('/user', (req, res) => {
     });
 });
 
-// // 사용자가 직접 입력한 내용.
-// app.post('/addData', (req, res)=>{
-//     const {sopt, item, place, phone}
-// })
 
 // 예약확인 내역
 app.post('/check', (req, res) => {
