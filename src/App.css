@@ -15,34 +15,12 @@ a {
   font-family: "Noto Sans KR", sans-serif;
 }
 
+div{
+  padding: 10px;
+}
 .home-container {
   font-size: 1em;
   width: 100vw;
-}
-
-.home-header {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid gray;
-}
-
-div {
-  padding: 10px;
-}
-
-.home-header span {
-  width: 50px;
-  text-align: center;
-  font-size: 0.5em;
-  display: inline-block;
-  border-right: 1px solid black;
-  cursor: pointer;
-}
-
-span:last-child {
-  border: none;
 }
 
 .home-navbar {
@@ -50,16 +28,13 @@ span:last-child {
   height: 100px;
 
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 
   position: relative;
   border-bottom: 2px solid gray;
-}
-.navbar-logo {
-  position: absolute;
-  top: 0px;
-  left: 0px;
+
+  padding: 0;
 }
 
 .navbar-menu {
@@ -71,6 +46,10 @@ span:last-child {
   list-style: none;
   margin: 0px 10px;
   cursor: pointer;
+}
+.outSite span {
+  font-size: 0.8em;
+  padding: 0px 5px;
 }
 
 /* --------footer----------------------- */

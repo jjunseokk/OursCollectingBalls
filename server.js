@@ -3,13 +3,12 @@ const express = require('express');
 const path = require('path');
 const cors = require('cors');
 const http = require("http");
-const port = 5000;
+const port = 6000;
 
 require('dotenv').config();
 
 const connection = mysql.createConnection({
     host: 'ours.cohoyi0rdiro.ap-northeast-2.rds.amazonaws.com',
-    port: 3306,
     user: 'root',
     password: 'junseok12!',
     database: 'user',

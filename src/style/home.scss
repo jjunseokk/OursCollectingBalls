@@ -35,9 +35,9 @@
 
             img {
                 position: absolute;
-                top: 50%;
+                top: -5%;
                 left: 50%;
-                transform: translate(-50%, -50%);
+                transform: translate( -50%);
                 width: 40%;
             }
 
@@ -52,7 +52,7 @@
             .downIcon {
                 font-size: 1.5em;
                 position: absolute;
-                bottom: 30px;
+                bottom: 100px;
                 animation: upDown linear 1s infinite;
             }
         }
@@ -76,6 +76,9 @@
             justify-content: space-between;
             font-family: 'Noto Sans KR', sans-serif;
             font-weight: 700;
+            p{
+                text-shadow: 2px 1px 3px #ccc;
+            }
         }
     }
 
@@ -185,10 +188,10 @@
 
 @keyframes upDown {
     0% {
-        bottom: 50px;
+        bottom: 100px;
     }
 
     80% {
-        bottom: 30px;
+        bottom: 80px;
     }
 }

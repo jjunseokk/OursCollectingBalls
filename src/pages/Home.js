@@ -19,7 +19,8 @@ import text from '../img/text.png';
 import collectIcon from '../img/collectIcon.png';
 import btnBackground from '../img/btnBackground.png';
 import process from '../img/miniProcess.png';
-
+import btnBack from '../img/btnBack.png';
+import ds from '../img/ds.png';
 
 const LinkBox = styled.div`
     width: ${props => props.width};
@@ -29,7 +30,8 @@ const LinkBox = styled.div`
     border-radius: 60px;
     border: 1px solid black;
     cursor: pointer;
-
+    background: url(${ds}) no-repeat;
+    background-size: cover;
 `
 
 const Home = () => {
@@ -57,7 +59,7 @@ const Home = () => {
                             navigate('/reservation');
                         }}>
                             <p>
-                                로스트볼  <br />
+                                헌볼  <br />
                                 수거 신청
                             </p>
                             <img src={collectIcon} alt="" width='70px' height='70px' />
