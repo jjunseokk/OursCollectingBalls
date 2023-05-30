@@ -19,8 +19,7 @@ import text from '../img/text.png';
 import collectIcon from '../img/collectIcon.png';
 import btnBackground from '../img/btnBackground.png';
 import process from '../img/miniProcess.png';
-import btnBack from '../img/btnBack.png';
-import ds from '../img/ds.png';
+import btnBack from '../img/ds.png';
 
 const LinkBox = styled.div`
     width: ${props => props.width};
@@ -30,7 +29,7 @@ const LinkBox = styled.div`
     border-radius: 60px;
     border: 1px solid black;
     cursor: pointer;
-    background: url(${ds}) no-repeat;
+    background: url(${btnBack}) no-repeat;
     background-size: cover;
 `
 
