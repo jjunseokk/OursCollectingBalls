@@ -128,7 +128,7 @@ const ReservationList = () => {
                                             }}>뒤로가기</button>
                                             <button onClick={() => {
                                                 cancelReservation(index)
-                                            }}>삭제하기</button>
+                                            }}>취소하기</button>
                                         </div>
                                     </div>
                                 </React.Fragment>

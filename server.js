@@ -5,7 +5,7 @@ const cors = require('cors');
 
 const port = 5000;
 
-
+require('dotenv').config();
 
 const connection = mysql.createConnection({
     host: 'ours.cohoyi0rdiro.ap-northeast-2.rds.amazonaws.com',
@@ -57,10 +57,6 @@ app.post('/user', (req, res) => {
     });
 });
 
-// // 사용자가 직접 입력한 내용.
-// app.post('/addData', (req, res)=>{
-//     const {sopt, item, place, phone}
-// })
 
 // 예약확인 내역
 app.post('/check', (req, res) => {
