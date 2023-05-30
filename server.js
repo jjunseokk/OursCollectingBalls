@@ -9,6 +9,7 @@ require('dotenv').config();
 
 const connection = mysql.createConnection({
     host: 'ours.cohoyi0rdiro.ap-northeast-2.rds.amazonaws.com',
+    port: 3306,
     user: 'root',
     password: 'junseok12!',
     database: 'user',
