@@ -30,7 +30,24 @@ const Reservation = () => {
 
   // 다음 단계로 이동하는 함수
   const handleNext = () => {
-    setStep((prevStep) => prevStep + 1);
+    console.log(step);
+    if (step === 0) {
+      if (!collect.collect) {
+        alert('수거량을 선택했는지 확인해주세요.');
+      } else if (!address.add) {
+        alert('장소를 선택했는지 확인해주세요.');
+      } else {
+        setStep((prevStep) => prevStep + 1);
+      }
+    } else if (step === 1) {
+      if (!date.date) {
+        alert('일시를 선택했는지 확인해주세요.')
+      } else {
+        setStep((prevStep) => prevStep + 1);
+      }
+    } else {
+      setStep((prevStep) => prevStep + 1);
+    }
   };
 
   let currentDate = new Date();
@@ -58,10 +75,6 @@ const Reservation = () => {
   const handleReservationConfirmation = () => {
     if (!checked.checked) {
       alert("이용약관에 동의해주세요.");
-    } else if (!collect.collect) {
-      alert('수거량을 선택했는지 확인해주세요.');
-    } else if (!address.add.address || !date.date) {
-      alert("장소와 일시를 선택했는지 확인해주세요.");
     } else if (service.service.phoneNumber.length < 13) {
       alert("휴대전화 13자리를 입력하세요.")
     } else if (!service.service.name || !service.service.phoneNumber) {

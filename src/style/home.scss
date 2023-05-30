@@ -37,7 +37,7 @@
                 position: absolute;
                 top: -5%;
                 left: 50%;
-                transform: translate( -50%);
+                transform: translate(-50%);
                 width: 40%;
             }
 
@@ -76,9 +76,13 @@
             justify-content: space-between;
             font-family: 'Noto Sans KR', sans-serif;
             font-weight: 700;
-            p{
-                text-shadow: 2px 1px 3px #ccc;
+
+            .ball-animation {
+                &:hover {
+                    animation: Scale linear 1s infinite;
+                }
             }
+
         }
     }
 
@@ -173,6 +177,7 @@
             background-color: #FFFFFF;
             border-radius: 50px;
             cursor: pointer;
+            font-size: 1.2em;
 
             a {
                 text-decoration: none;
@@ -193,5 +198,15 @@
 
     80% {
         bottom: 80px;
+    }
+}
+
+@keyframes Scale {
+    0% {
+        transform: scale(1);
+    }
+
+    90% {
+        transform: scale(1.03);
     }
 }

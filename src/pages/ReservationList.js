@@ -3,7 +3,7 @@ import "../style/reservationList.scss";
 import "../style/reservation.scss";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronLeft, faChevronRight, faL, faQuestion } from "@fortawesome/free-solid-svg-icons";
+import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 
 import { useSelector } from "react-redux";
 import axios from "axios";

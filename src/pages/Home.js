@@ -2,24 +2,24 @@ import React from "react";
 import '../style/home.scss';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAngleDoubleDown, faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import { faAngleDoubleDown, faArrowRight, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from "react-router-dom";
 import { ParallaxBanner, ParallaxBannerLayer } from 'react-scroll-parallax';
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Navigation } from "swiper";
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
+// import { Swiper, SwiperSlide } from "swiper/react";
+// import { Pagination, Navigation } from "swiper";
+// import "swiper/css";
+// import "swiper/css/pagination";
+// import "swiper/css/navigation";
 
-import EventCard from "../components/EventCard";
+// import EventCard from "../components/EventCard";
 
 import main from '../img/main.png';
 import text from '../img/text.png';
 import collectIcon from '../img/collectIcon.png';
 import btnBackground from '../img/btnBackground.png';
 import process from '../img/miniProcess.png';
-import btnBack from '../img/ds.png';
+import btnBack from '../img/btnBack.png';
 
 const LinkBox = styled.div`
     width: ${props => props.width};
@@ -54,7 +54,7 @@ const Home = () => {
             <div className="home-wrap">
                 <div className="home-goLink">
                     <div>
-                        <LinkBox width="59%" padding="50px" onClick={() => {
+                        <LinkBox className="ball-animation" width="59%" padding="50px" onClick={() => {
                             navigate('/reservation');
                         }}>
                             <p>
@@ -62,7 +62,7 @@ const Home = () => {
                                 수거 신청
                             </p>
                             <img src={collectIcon} alt="" width='70px' height='70px' />
-                            <FontAwesomeIcon icon={faChevronRight} style={{ position: 'absolute', bottom: 50, right: 70, fontSize: '2em' }} />
+                            <FontAwesomeIcon icon={faArrowRight} style={{ position: 'absolute', bottom: 50, right: 70, fontSize: '4em', fontWeight:'bold' }} />
                         </LinkBox>
                         <LinkBox width="39%" padding="0" onClick={() => {
                             window.location.href = "https://theours.imweb.me/"
