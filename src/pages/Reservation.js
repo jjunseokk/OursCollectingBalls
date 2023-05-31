@@ -183,7 +183,7 @@ const Reservation = () => {
             <p>전화번호</p><span>{service.service && service.service.phoneNumber}</span>
             <p>이메일 </p><span>{service.service && service.service.email}</span>
             <p>예약장소 </p><span>{address.add && address.add.address}</span>
-            <p>예약날짜 </p><span>{date && date.date}</span>
+            <p>예약날짜 </p><span>{date && date.date} {date && date.time}</span>
             <p>로스트볼 수거량 </p><span>{collect && collect.collect}</span>
             <p>기타 문의사항 </p><span>{service.service && service.service.inquiry}</span>
           </div>
