@@ -5,6 +5,7 @@ import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
+import { format } from "date-fns";
 
 import "../style/reservation.scss";
 import ShopSearch from "../components/ShopSearch";
@@ -51,7 +52,8 @@ const Reservation = () => {
   };
 
   let currentDate = new Date();
-  const currentDateTimeString = currentDate.toLocaleString();
+  const currentDateTimeString = format(currentDate, 'yyyy-MM-dd HH:mm:ss');
+
 
 
   useEffect(() => {
@@ -175,7 +177,7 @@ const Reservation = () => {
       </div>
       <div className={showModal ? "modal-container" : "none-modal"}>
         <div className="success-modal">
-          <h3>예약 정보 확인하기</h3>
+          <h3 style={{ position: "fixed", top: 0, left: 0, width: '100%', padding: 10 }}>예약 정보 확인하기</h3>
           <div className="modal-text">
             <p>성함</p><span>{service.service && service.service.name}</span>
             <p>전화번호</p><span>{service.service && service.service.phoneNumber}</span>

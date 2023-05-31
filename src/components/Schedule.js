@@ -45,9 +45,12 @@ const Schedule = () => {
 
   useEffect(() => {
     // 선택한 날짜와 시간이 변경될 때마다 dispatch 호출
-    if (selectedDate && selectedTime) {
-      const formattedDate = `${selectedDate} ${selectedTime}`;
-      dispatch(dateState(formattedDate));
+    if (selectedDate || selectedTime) {
+      const payload = {
+        date: selectedDate || '',
+        time: selectedTime || '',
+      };
+      dispatch(dateState(payload));
     }
   }, [selectedDate, selectedTime, dispatch]);
 

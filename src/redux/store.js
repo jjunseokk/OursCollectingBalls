@@ -38,11 +38,12 @@ let date = createSlice({
         dateState(state, action) {
             return {
                 ...state,
-                date: action.payload
-            }
-        }
-    }
-})
+                date: action.payload.date,
+                time: action.payload.time,
+            };
+        },
+    },
+});
 
 // 이름, 나이, 문의사항
 let service = createSlice({
@@ -108,7 +109,7 @@ let time = createSlice({
         timeState(state, action) {
             return {
                 ...state,
-                time : action.payload
+                time: action.payload
             }
         }
     }
@@ -132,6 +133,6 @@ export default configureStore({
         event: event.reducer,
         collect: collect.reducer,
         dbData: dbData.reducer,
-        time : time.reducer,
+        time: time.reducer,
     }
 }) 

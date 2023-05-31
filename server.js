@@ -8,11 +8,11 @@ const port = 6000;
 require('dotenv').config();
 
 const connection = mysql.createConnection({
-    host: 'ours.cohoyi0rdiro.ap-northeast-2.rds.amazonaws.com',
+    host: 'ls-73437f1140087ff57815f637d3fad565a1b67dd9.ct49gfaignpb.ap-northeast-2.rds.amazonaws.com',
     port: 3306,
-    user: 'root',
-    password: 'junseok12!',
-    database: 'user',
+    user: 'dbmasteruser',
+    password: 'tH}Gl|ePw([l1DI(a-Ve[9oQ.V|l%eTz',
+    database: 'xperon_pos_db',
 });
 
 connection.connect((error) => {
@@ -50,7 +50,7 @@ app.post('/user', (req, res) => {
         return;
     }
 
-    const query = `INSERT INTO ours (name, phoneNumber, email, spot ,place, shop, date, collect, inquiry, event, time) VALUES ('${service.service.name}','${service.service.phoneNumber}','${service.service.email}','${address.add.spot}','${address.add.address}','${address.add.shop}','${date.date}','${collect.collect}','${service.service.inquiry}','${event.event}', '${time.time}' )`;
+    const query = `INSERT INTO tbl_ours_trading (name, cellphone, email, spot ,place, shop, date, timezone, collect, inquiry, event, time) VALUES ('${service.service.name}','${service.service.phoneNumber}','${service.service.email}','${address.add.spot}','${address.add.address}','${address.add.shop}','${date.date}','${date.time}','${collect.collect}','${service.service.inquiry}','${event.event}', '${time.time}' )`;
     const values = [address, date, service, event, collect];
 
     connection.query(query, values, (error, results) => {
@@ -68,7 +68,7 @@ app.post('/user', (req, res) => {
 app.post('/check', (req, res) => {
     const { name, phoneNumber } = req.body;
 
-    const query = `SELECT * FROM ours WHERE name ='${name}' AND phoneNumber='${phoneNumber}'`;
+    const query = `SELECT * FROM tbl_ours_trading WHERE name ='${name}' AND cellphone='${phoneNumber}'`;
 
     connection.query(query, (error, result) => {
         if (error) {
@@ -93,7 +93,7 @@ app.post('/delete', (req, res) => {
     console.log("연결", req.body);
     const { date, name } = req.body;
 
-    const query = `DELETE FROM ours WHERE name='${name}' AND date='${date}'`;
+    const query = `DELETE FROM tbl_ours_trading WHERE name='${name}' AND date='${date}'`;
 
     connection.query(query, (error, result) => {
         if (error) {
