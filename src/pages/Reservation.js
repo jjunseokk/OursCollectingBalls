@@ -75,6 +75,7 @@ const Reservation = () => {
 
   // 이용약관 확인 함수
   const handleReservationConfirmation = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     if (!checked.checked) {
       alert("이용약관에 동의해주세요.");
     } else if (service.service.phoneNumber.length < 13) {
@@ -167,7 +168,7 @@ const Reservation = () => {
                   }}
                   onClick={isLastStep ? handleReservationConfirmation : handleNext}
                 >
-                  {isLastStep ? <FontAwesomeIcon icon={faArrowRight} /> : <FontAwesomeIcon icon={faArrowRight} />}
+                  <FontAwesomeIcon icon={faArrowRight} />
 
                 </button>
               </div>
