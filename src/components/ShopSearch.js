@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import '../style/reservation.scss';
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronLeft, faChevronRight, faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faChevronLeft, faChevronRight, faSearch, faAnglesRight, faAnglesLeft } from "@fortawesome/free-solid-svg-icons";
 
 import { useDispatch } from 'react-redux'
 import { addState, collectState } from "../redux/store";
@@ -13,12 +13,8 @@ import axios from "axios";
 
 const ShopSearch = () => {
 
+    const [qving, setQving] = useState([]);
 
-    // 시/도 선택 시 선택 값이 들어가는 state
-    const [Selected, setSelected] = useState("시/도");
-
-    // 시/군/구 선택 시 선택 값이 들어가는 state
-    const [Selected2, setSelected2] = useState("");
 
     // 검색 할때 저장하는 state
     const [searchTerm, setSearchTerm] = useState('');
@@ -37,151 +33,13 @@ const ShopSearch = () => {
 
     // 사용자가 입력한 지역, 매장명, 주소, 전화번호 저장
     const [formData, setFormData] = useState({
-        spot: '',
-        item: '',
-        place: '',
+        shop: '',
+        address: '',
         phone: ''
     });
 
     const dispatch = useDispatch();
 
-    // 지역 배열 값
-    let city = ["시/도를 선택해주세요", "서울특별시", "부산광역시", "대구광역시", "인천광역시", "광주광역시", "대전광역시", "울산광역시", "세종특별자치시", "경기도", "강원도", "충청북도", "충청남도", "전라북도", "전라남도", "경상남도", "경상북도", "제주특별자치도",]
-    let seoul = [
-        "강동구", "송파구", "강남구", "서초구", "관악구", "동작구", "영등포구", "금천구", "구로구", "강서구", "양천구", "마포구", "서대문구", "은평구", "노원구", "도봉구", "강북구", "성북구", "중랑구", "동대문구", "광진구", "성동구", "용산구", "중구", "종로구",
-    ]
-    let busan = [
-        "기장군", "사상구", "수영구", "연제구", "강서구", "금정구", "사하구", "해운대구", "북구", "남구", "동래구", "부산진구", "영도구", "동구", "서구", "중구",
-    ]
-    let deagu = [
-        "달성군", "달서구", "수정구", "북구", "남구", "서구", "동구", "중구"
-    ]
-    let incheon = [
-        "옹진군", "강화군", "서구", "계양구", "부평구", "남동구", "연수구", "미추홀구", "동구", "중구",
-    ]
-    let gwangjuMetropolitan = [
-        "광산구", "북구", "남구", "서구", "동구",
-    ]
-    let deajeon = [
-        "대덕구", "유성구", "서구", "중구", "동구",
-    ]
-    let ulsan = [
-        "울주군", "북구", "동구", "남구", "중구",
-    ]
-    let sejong = [
-        "반곡동", "소담동", "대평동", "보람동", "고운동", "종촌동", "아름동", "해밀동", "도담동", "다정동", "새롬동", "한솔동", "소정면", "전동면", "전의면", "연서면", "장군면", "금남면", "부강면", "연동면", "연기면", "조치원읍",
-    ]
-    let gyeonggido = [
-        '고양시 덕양구', '고양시 일산구', '과천시', '광명시', '광주시', '구리시', '군포시', '김포시', '남양주시', '동두천시', '부천시 소사구', '부천시 오정구', '부천시 원미구', '성남시 분당구', '성남시 수정구', '성남시 중원구', '수원시 권선구', '수원시 장안구', '수원시 팔달구', '시흥시', '안산시 단원구', '안산시 상록구', '안성시', '안양시 동안구', '안양시 만안구', '오산시', '용인시', '의왕시', '의정부시', '이천시', '파주시', '평택시', '하남시', '화성시', '가평군', '양주군', '양평군', '여주군', '연천군', '포천군'
-    ]
-    let gangwondo = [
-        "양양군", "고성군", "인제군", "양구군", "화천군", "철원군", "정선군", "평창군", "영월군", "횡성군", "홍천군", "삼척시", "속초시", "태백시", "동해시", "강릉시", "원주시", "춘천시",
-    ]
-    let chungbuk = [
-        "단양군", "음성군", "괴산군", "진천군", "증평군", "영동군", "옥천군", "보은군", "제천시", "충주시", "청주시 청원구", "청주시 흥덕구", "청주시 서원구", "청주시 상당구", "청주시",
-    ]
-
-    let chungnam = [
-        "태안군", "예산군", "홍성군", "청양군", "서천군", "부여군", "금산군", "당진시", "계롱시", "논산시", "서산시", "아산시", "보령시", "공주시", "천한시 서북구", "천안시 동남구", "천안시"
-    ]
-    let jeonbuk = [
-        "부안군", "고창군", "순창군", "임실군", "장수군", "무주군", "진안군", "완주군", "김제시", "남원시", "정읍시", "익산시", "군산시", "전주시 덕진구", "전주시 완산구", "전주시"
-    ]
-    let jeonnam = [
-        "신안군", "진도군", "완도군", "장성군", "영광군", "함평군", "무안군", "영암군", "해남군", "강진군", "장흥군", "화순군", "보성군", "고흥군", "구례군", "곡성군", "담양군", "광양시", "나주시", "순천시", "여수시", "목포시"
-    ]
-    let gyeongbuk = [
-        "울릉군", "울진군", "봉화군", "예천군", "칠곡군", "성주군", "고령군", "청도군", "영덕군", "영양군", "청송군", "의성군", "군위군", "경산시", "문경시", "상주시", "영천시", "영주시", "구미시", "안동시", "김천시", "경주시", "포항시 북구", "포항시 남구", "포항시"
-    ]
-    let gyeongnam = [
-        "함천군", "거창군", "함양군", "산청군", "하동군", "남해군", "고성군", "창녕군", "함안군", "의령군", "양산시", "거제시", "밀양시", "김해시", "사천시", "통영시", "진주시", "창원시 진해구", "창원시 마산회원구", "창원시 마산합포구", "창원시 성산구", "창원시 의창구", "창원시"
-    ]
-    let jeju = [
-        "서귀포시", "제주시"
-    ]
-
-
-    //----시도..
-    let opt;
-    const showSelect = (e) => {
-        let add = 0;
-        setSelected(e.target.value);
-        const Option = document.getElementById("modal");
-        if (e.target.value === "서울특별시") {
-            add = seoul;
-        } else if (e.target.value === "부산광역시") {
-            add = busan;
-        } else if (e.target.value === "대구광역시") {
-            add = deagu;
-        } else if (e.target.value === "인천광역시") {
-            add = incheon;
-        } else if (e.target.value === "광주광역시") {
-            add = gwangjuMetropolitan;
-        } else if (e.target.value === "대전광역시") {
-            add = deajeon;
-        } else if (e.target.value === "울산광역시") {
-            add = ulsan;
-        } else if (e.target.value === "세종특별자치시") {
-            add = sejong;
-        } else if (e.target.value === "경기도") {
-            add = gyeonggido;
-        } else if (e.target.value === "강원도") {
-            add = gangwondo;
-        } else if (e.target.value === "충청북도") {
-            add = chungbuk;
-        } else if (e.target.value === "충청남도") {
-            add = chungnam;
-        } else if (e.target.value === "전라북도") {
-            add = jeonbuk;
-        } else if (e.target.value === "전라남도") {
-            add = jeonnam;
-        } else if (e.target.value === "경상북도") {
-            add = gyeongbuk;
-        } else if (e.target.value === "경상남도") {
-            add = gyeongnam;
-        } else if (e.target.value === "제주특별자치도") {
-            add = jeju;
-        }
-
-        Option.options.length = 1;
-
-        for (let i = 0; i < add.length; i++) {
-            opt = document.createElement("option");
-            opt.value = add[i];
-            opt.innerHTML = add[i];
-            Option.append(opt);
-        }
-    }
-
-
-    // 테이블 항목을 위한 데이터
-    const [tableData, setTableData] = useState([
-        { spot: '서울특별시', shop: "Item 1", address: '서울특별시 강동구 00가 1211 스크린 골프장', phone: '00-000-0000' },
-        { spot: '대구광역시', shop: "Item 2", address: '대구광역시 중구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-        { spot: '경기도', shop: "Item 3", address: '경기성남시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-        { spot: '부산광역시', shop: "Item 4", address: '부산광역시 북구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-        { spot: '경상남도', shop: "Item 5", address: '창원시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-        { spot: '서울특별시', shop: "Item 6", address: '서울특별시 강남구 00가 1211 스크린 골프장', phone: '00-000-0000' },
-        { spot: '대구광역시', shop: "Item 7", address: '대구광역시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-        { spot: '경기도', shop: "Item 8", address: '경기성남시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-        { spot: '부산광역시', shop: "Item 9", address: '부산광역시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-        { spot: '경상남도', shop: "Item 5", address: '창원시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-        { spot: '서울특별시', shop: "Item 1", address: '서울특별시 강서구 00가 1211 스크린 골프장', phone: '00-000-0000' },
-        { spot: '대구광역시', shop: "Item 2", address: '대구광역시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-        { spot: '경기도', shop: "Item 3", address: '경기성남시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-        { spot: '부산광역시', shop: "Item 4", address: '부산광역시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-        { spot: '경상남도', shop: "Item 5", address: '창원시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-        { spot: '서울특별시', shop: "Item 1", address: '서울특별시 강동구 00가 1211 스크린 골프장', phone: '00-000-0000' },
-        { spot: '대구광역시', shop: "Item 2", address: '대구광역시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-        { spot: '경기도', shop: "Item 3", address: '경기성남시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-        { spot: '부산광역시', shop: "Item 4", address: '부산광역시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-        { spot: '경상남도', shop: "Item 5", address: '창원시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-        { spot: '서울특별시', shop: "Item 1", address: '서울특별시 서초구 00가 1211 스크린 골프장', phone: '00-000-0000' },
-        { spot: '대구광역시', shop: "Item 2", address: '대구광역시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-        { spot: '경기도', shop: "Item 3", address: '경기성남시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-        { spot: '부산광역시', shop: "Item 4", address: '부산광역시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-        { spot: '경상남도', shop: "Item 5", address: '창원시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-    ]);
 
     // 페이지네이션을 위한 변수들
     const itemsPerPage = 10; // 페이지당 보여줄 항목 수
@@ -192,19 +50,15 @@ const ShopSearch = () => {
     const filterItems = (items) => {
         const combinedSearchTerm = searchTerm.toLowerCase();
         return items.filter((item) => {
-            const combinedItemData = `${item.spot} ${item.shop} ${item.address} ${item.phone}`.toLowerCase();
-            const selectedRegion = Selected === '시/도' ? '' : Selected;
-            const selectedArea = Selected2 === '구/군을 선택해주세요.' ? '' : Selected2;
+            const combinedItemData = ` ${item.com_code_store_name} ${item.com_address1} ${item.hphone}`.toLowerCase();
             return (
-                (combinedItemData.includes(combinedSearchTerm) || searchTerm.trim() === '') &&
-                (selectedRegion === '' || item.spot.includes(selectedRegion)) &&
-                (selectedArea === '' || item.address.includes(selectedArea))
+                (combinedItemData.includes(combinedSearchTerm) || searchTerm.trim() === '')
             );
         });
     };
 
     // 검색어 및 지역에 따라 필터링된 항목들을 반환
-    const filteredItems = filterItems(tableData);
+    const filteredItems = filterItems(qving);
 
     const totalPages = Math.ceil(filteredItems.length / itemsPerPage); // 총 페이지 수
 
@@ -214,16 +68,55 @@ const ShopSearch = () => {
         currentPage * itemsPerPage
     );
 
-    // 구/군 선택
-    const showDetailSelect = (e) => {
-        setSelected2(e.target.value);
-        setCurrentPage(1);
-    }
-
     // 페이지 변경 함수
     const handleChangePage = (page) => {
         setCurrentPage(page);
     };
+
+    // 페이지 변경 함수 - 첫 페이지로 이동
+    const handleFirstPage = () => {
+        setCurrentPage(1);
+    };
+
+    // 페이지 변경 함수 - 마지막 페이지로 이동
+    const handleLastPage = () => {
+        setCurrentPage(totalPages);
+    };
+
+    // 페이지네이션 버튼들을 표시하기 위한 배열 생성
+    const paginationButtons = [];
+    const maxVisibleButtons = 10; // 최대 표시할 버튼 수
+
+    let startPage = 1;
+    let endPage = totalPages;
+
+
+    // 현재 페이지를 중심으로 최대 표시할 버튼 수를 유지하도록 startPage와 endPage를 설정
+    if (totalPages > maxVisibleButtons) {
+        const halfVisibleButtons = Math.floor(maxVisibleButtons / 2);
+        if (currentPage <= halfVisibleButtons) {
+            endPage = maxVisibleButtons;
+        } else if (currentPage + halfVisibleButtons > totalPages) {
+            startPage = totalPages - maxVisibleButtons + 1;
+        } else {
+            startPage = currentPage - halfVisibleButtons;
+            endPage = currentPage + halfVisibleButtons;
+        }
+    }
+
+    // 페이지네이션 버튼 생성
+    for (let i = startPage; i <= endPage; i++) {
+        paginationButtons.push(
+            <button
+                key={i}
+                className={currentPage === i ? "event-active" : ""}
+                onClick={() => handleChangePage(i)}
+            >
+                {i}
+            </button>
+        );
+    }
+
 
     // input 검색
     const handleSearch = (event) => {
@@ -268,14 +161,18 @@ const ShopSearch = () => {
         e.preventDefault();
         if (formData.phone.length == 13) {
             alert('성공적으로 추가되었습니다.')
-            setTableData((prevData) => [...prevData, formData]);
 
-            // 추가된 데이터를 로컬 스토리지에 저장
-            localStorage.setItem('tableData', JSON.stringify([...tableData, formData]));
+            axios.post('/addData', formData)
+                .then((response) => {
+                    console.log(response)
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
+            console.log(formData);
 
             // 입력값 초기화
             setFormData({
-                spot: '',
                 shop: '',
                 address: '',
                 phone: ''
@@ -287,24 +184,26 @@ const ShopSearch = () => {
 
         console.log(formData);
 
-        //----지우면 안됌--------------
-        // axios.post('/addData', formData)
-        //     .then((response) => {
-        //         console.log(response)
-        //     })
-        //     .catch((error) => {
-        //         console.error(error);
-        //     });
-        // console.log(formData);
-        //----지우면 안됌--------------
+
 
     };
+
+    // 큐빙 데이터 가져오기
+    useEffect(() => {
+        axios.post('/qving')
+            .then(response => {
+                setQving(response.data.data);
+                // console.log("큐빙 get", response.data.data);
+            })
+            .catch(error => console.error(error))
+    }, [])
+    // ------------------------------------------------
 
     // 주소 선택 값이 바뀌면 dispatch로 redux에 저장
     useEffect(() => {
         if (add) {
-            const { spot, shop, address } = add;
-            dispatch(addState({ spot, shop, address }));
+            const { com_code_store_name, com_address1 } = add; // 수정된 부분: shop -> com_code_store_name, address -> com_address1
+            dispatch(addState({ shop: com_code_store_name, address: com_address1 })); // 수정된 부분: spot, shop, address의 변수명 변경
         }
     }, [add, dispatch]);
 
@@ -314,41 +213,7 @@ const ShopSearch = () => {
     }, [collect, dispatch])
 
 
-    // -----임시---------
-    useEffect(() => {
-        const storedData = localStorage.getItem('tableData');
-        if (storedData) {
-            setTableData(JSON.parse(storedData));
-        } else {
-            setTableData([
-                { spot: '서울특별시', shop: "Item 1", address: '서울특별시 강동구 00가 1211 스크린 골프장', phone: '00-000-0000' },
-                { spot: '대구광역시', shop: "Item 2", address: '대구광역시 중구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-                { spot: '경기도', shop: "Item 3", address: '경기성남시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-                { spot: '부산광역시', shop: "Item 4", address: '부산광역시 북구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-                { spot: '경상남도', shop: "Item 5", address: '창원시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-                { spot: '서울특별시', shop: "Item 6", address: '서울특별시 강남구 00가 1211 스크린 골프장', phone: '00-000-0000' },
-                { spot: '대구광역시', shop: "Item 7", address: '대구광역시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-                { spot: '경기도', shop: "Item 8", address: '경기성남시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-                { spot: '부산광역시', shop: "Item 9", address: '부산광역시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-                { spot: '경상남도', shop: "Item 5", address: '창원시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-                { spot: '서울특별시', shop: "Item 1", address: '서울특별시 강서구 00가 1211 스크린 골프장', phone: '00-000-0000' },
-                { spot: '대구광역시', shop: "Item 2", address: '대구광역시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-                { spot: '경기도', shop: "Item 3", address: '경기성남시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-                { spot: '부산광역시', shop: "Item 4", address: '부산광역시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-                { spot: '경상남도', shop: "Item 5", address: '창원시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-                { spot: '서울특별시', shop: "Item 1", address: '서울특별시 강동구 00가 1211 스크린 골프장', phone: '00-000-0000' },
-                { spot: '대구광역시', shop: "Item 2", address: '대구광역시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-                { spot: '경기도', shop: "Item 3", address: '경기성남시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-                { spot: '부산광역시', shop: "Item 4", address: '부산광역시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-                { spot: '경상남도', shop: "Item 5", address: '창원시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-                { spot: '서울특별시', shop: "Item 1", address: '서울특별시 서초구 00가 1211 스크린 골프장', phone: '00-000-0000' },
-                { spot: '대구광역시', shop: "Item 2", address: '대구광역시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-                { spot: '경기도', shop: "Item 3", address: '경기성남시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-                { spot: '부산광역시', shop: "Item 4", address: '부산광역시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-                { spot: '경상남도', shop: "Item 5", address: '창원시 00구 00가 1202 스크린 골프장', phone: '00-000-0000' },
-            ]);
-        }
-    }, []);
+
     return (
         <div className="reservation-result">
             <div className="shop-searchZone">
@@ -356,20 +221,10 @@ const ShopSearch = () => {
                     <div className="shop-search">
                         <h4>매장 찾기</h4>
                         <div className="shop-selectArea">
-                            <select name="h_area1" onChange={showSelect} value={Selected} className="shop-select">
-                                {city.map((item) => (
-                                    <option value={item} key={item}>
-                                        {item}
-                                    </option>
-                                ))}
-                            </select>
-                            <select name="h_area2" id="modal" onChange={showDetailSelect} className="shop-select">
-                                <option className='option'>구/군을 선택해주세요.</option>
-                                <option className='option'>{Selected2}</option>
-                            </select>
+
                         </div>
                         <input style={{ padding: 10 }} type="text" value={searchTerm} onChange={handleSearch} placeholder="매장명을 입력하세요." />
-                        <FontAwesomeIcon icon={faSearch} className="shop-search" />
+                        <FontAwesomeIcon icon={faSearch} className="shop-searchIcon" />
                     </div>
                     <div className="shop">
                         <h4><img src={golf} alt="" width="10px" /> 로스트볼 수거량</h4>
@@ -419,13 +274,6 @@ const ShopSearch = () => {
                     <form onSubmit={handleSubmit}>
                         <input
                             type="text"
-                            name="spot"
-                            placeholder="지역명을 입력하세요"
-                            value={formData.spot}
-                            onChange={handleChange}
-                        />
-                        <input
-                            type="text"
                             name="shop"
                             placeholder="매장명을 입력하세요"
                             value={formData.shop || ''}
@@ -454,7 +302,7 @@ const ShopSearch = () => {
                 <table>
                     <thead>
                         <tr>
-                            <th>지역</th>
+                            <th>번호</th>
                             <th>매장명</th>
                             <th>주소</th>
                             <th>전화번호</th>
@@ -462,50 +310,61 @@ const ShopSearch = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {currentItems.map((item, index) => (
-                            <tr key={`${item.spot}-${index}`}>
-                                <td>{item.spot}</td>
-                                <td>{item.shop}</td>
-                                <td>{item.address}</td>
-                                <td>{item.phone}</td>
-                                <td>
-                                    <input
-                                        type="checkbox"
-                                        checked={select === index} // 선택된 인덱스에만 checked 속성 추가
-                                        onChange={() => {
-                                            handleInputChange(index);
-                                        }}
-                                    />
-                                </td>
-                            </tr>
-                        ))}
+                        {currentItems.map((item, index) => {
+                            const currentIndex = (currentPage - 1) * itemsPerPage + index;
+                            return (
+                                <tr key={`${item.com_code_store_name}-${index}`}>
+                                    <td>{currentIndex+1}</td>
+                                    <td>{item.com_code_store_name}</td>
+                                    <td>{item.com_address1}</td>
+                                    <td>{item.hphone ? item.hphone : "번호없음"}</td>
+                                    <td>
+                                        <input
+                                            type="checkbox"
+                                            checked={select === index} // 선택된 인덱스에만 checked 속성 추가
+                                            onChange={() => {
+                                                handleInputChange(index);
+                                            }}
+                                        />
+                                    </td>
+                                </tr>
+                            )
+                        })}
                     </tbody>
                 </table>
                 <div className="event-pagination">
                     {currentPage > 1 && (
-                        <button
-                            className="event-pagination-button"
-                            onClick={() => handleChangePage(currentPage - 1)}
-                        >
-                            <FontAwesomeIcon icon={faChevronLeft} />
-                        </button>
+                        <>
+                            <button
+                                className="event-pagination-button"
+                                onClick={handleFirstPage}
+                            >
+                                <FontAwesomeIcon icon={faAnglesLeft} />
+                            </button>
+                            <button
+                                className="event-pagination-button"
+                                onClick={() => handleChangePage(currentPage - 1)}
+                            >
+                                <FontAwesomeIcon icon={faChevronLeft} />
+                            </button>
+                        </>
                     )}
-                    {Array.from({ length: totalPages }, (_, index) => (
-                        <button
-                            key={index}
-                            className={currentPage === index + 1 ? "event-active" : ""}
-                            onClick={() => handleChangePage(index + 1)}
-                        >
-                            {index + 1}
-                        </button>
-                    ))}
+                    {paginationButtons}
                     {currentPage < totalPages && (
-                        <button
-                            className="event-pagination-button"
-                            onClick={() => handleChangePage(currentPage + 1)}
-                        >
-                            <FontAwesomeIcon icon={faChevronRight} />
-                        </button>
+                        <>
+                            <button
+                                className="event-pagination-button"
+                                onClick={() => handleChangePage(currentPage + 1)}
+                            >
+                                <FontAwesomeIcon icon={faChevronRight} />
+                            </button>
+                            <button
+                                className="event-pagination-button"
+                                onClick={handleLastPage}
+                            >
+                                <FontAwesomeIcon icon={faAnglesRight} />
+                            </button>
+                        </>
                     )}
                 </div>
             </div>

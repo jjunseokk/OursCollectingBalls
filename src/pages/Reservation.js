@@ -30,6 +30,7 @@ const Reservation = () => {
   console.log("실제 데이터:", redux_data);
 
   // 다음 단계로 이동하는 함수
+  // 항목들을 선택했는지 비교
   const handleNext = () => {
     console.log(step);
     if (step === 0) {
@@ -50,15 +51,19 @@ const Reservation = () => {
       setStep((prevStep) => prevStep + 1);
     }
   };
+  // ------------------------------------------------
 
+
+  // 시간을 받아서 datetime 타입으로 변환해 redux 상태 관리 저장
   let currentDate = new Date();
   const currentDateTimeString = format(currentDate, 'yyyy-MM-dd HH:mm:ss');
-
-
 
   useEffect(() => {
     dispatch(timeState(currentDateTimeString));
   }, [])
+  //-------------------------------------------------
+
+
 
   // 이전 단계로 이동하는 함수
   const handlePrev = () => {
@@ -68,25 +73,34 @@ const Reservation = () => {
       setStep((prevStep) => prevStep - 1);
     }
   };
+  //------------------------------------------------
 
+
+  // 예약 취소 버튼 누를 싯 홈으로 이동
   const handleCancel = () => {
     navigate("/"); // 예약 취소 시 메인 페이지로 이동하는 함수
   };
+  // -------------------------------------------------
+
 
   // 이용약관 확인 함수
   const handleReservationConfirmation = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     if (!checked.checked) {
       alert("이용약관에 동의해주세요.");
-    } else if (service.service.phoneNumber.length < 13) {
-      alert("휴대전화 13자리를 입력하세요.")
-    } else if (!service.service.name || !service.service.phoneNumber) {
+    } else if ((!service || !service.service || !service.service.name) && (!service || !service.service || !service.service.phoneNumber)) {
       alert("성함과 휴대전화를 입력해주세요.");
+    } else if (!service || !service.service || !service.service.phoneNumber || service.service.phoneNumber.length < 13) {
+      alert("휴대전화 13자리를 입력하세요.");
+    } else if (!service || !service.service || !service.service.name) {
+      alert("성함을 입력하세요.");
     } else {
       setShowModal(true); // 예약 확인 모달 창을 보여주는 함수
     }
   };
+  // ---------------------------------------------------------
 
+  // 예약확정을 누르면 DB에 고객이 입력한 정보 저장
   const handelSuccess = () => {
     axios.post('/user', redux_data)
       .then(response => {
@@ -98,7 +112,9 @@ const Reservation = () => {
         console.error(error);
       });
   };
+  // ----------------------------------------------------------
 
+  // 다음 버튼을 눌렀을 때마다 component 변경
   const renderComponentAndProgressText = () => {
     let currentComponent;
     let progressText;
@@ -123,8 +139,13 @@ const Reservation = () => {
     return { currentComponent, progressText };
   };
 
-  const isLastStep = step === 2;
-  const { currentComponent, progressText } = renderComponentAndProgressText();
+  // ----------------------------------------------------------
+
+  const isLastStep = step === 2; //step 2로 저장한 이유는 step이 2번을 때 버튼 이벤트 함수를 바꾸려는 목적이다.
+
+  const { currentComponent, progressText } = renderComponentAndProgressText(); // 컴포넌트와 이미지를 저장
+
+  // 버튼 컴포넌트
   const buttonStyles = {
     width: 50,
     height: 50,
@@ -169,7 +190,6 @@ const Reservation = () => {
                   onClick={isLastStep ? handleReservationConfirmation : handleNext}
                 >
                   <FontAwesomeIcon icon={faArrowRight} />
-
                 </button>
               </div>
             </div>

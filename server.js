@@ -12,7 +12,7 @@ const connection = mysql.createConnection({
     port: 3306,
     user: 'dbmasteruser',
     password: 'tH}Gl|ePw([l1DI(a-Ve[9oQ.V|l%eTz',
-    database: 'xperon_pos_db',
+    database: 'ours',
 });
 
 connection.connect((error) => {
@@ -85,8 +85,8 @@ app.post('/check', (req, res) => {
             res.json({ exists: false });
         }
         console.log(result);
-    })
-})
+    });
+});
 
 //예약 내역 삭제!!!!
 app.post('/delete', (req, res) => {
@@ -101,6 +101,38 @@ app.post('/delete', (req, res) => {
         }
 
         res.json({ result })
+    });
+});
+
+
+// qving 매장 db 접근
+app.post('/qving', (req, res) => {
+    console.log("연결");
+
+    const query = `SELECT a.* FROM tbl_com_code_store a INNER JOIN tbl_machine_master b ON b.com_code_store_num = a.num AND b.mac_type IN ('QB','QK') WHERE NOT (com_code_store_name LIKE '%(철수)%' OR com_code_store_name LIKE '%테스트%' OR com_code_store_name LIKE '%LENOVO%' OR com_code_store_name LIKE '%성남4차매장%' OR com_code_store_name LIKE '%사이니지%')
+    UNION
+    SELECT * FROM tbl_ours_store`;
+
+    connection.query(query, (error, result) => {
+        if (error) {
+            console.error('delete 쿼리 오류:::', error);
+        }
+
+        res.json({ data: result });
+    })
+});
+
+// ours DB에 추가.
+app.post('/addData', (req, res) => {
+    const { shop, address, phone } = req.body;
+
+    const query = `INSERT INTO tbl_ours_store (com_code_store_name, com_address1, hphone) VALUES ('${shop}', '${address}', '${phone}')`;
+
+    connection.query(query, (error, result) => {
+        if (error) {
+            console.error('DB추가 오류', error);
+        }
+        res.json({ data: result });
     })
 })
 
@@ -109,9 +141,3 @@ process.on('SIGINT', () => {
     connection.end();
     process.exit();
 });
-
-
-
-
-
-
