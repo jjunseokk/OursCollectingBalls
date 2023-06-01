@@ -305,7 +305,7 @@ const ShopSearch = () => {
                             <th>번호</th>
                             <th>매장명</th>
                             <th>주소</th>
-                            <th>전화번호</th>
+                            {/* <th>전화번호</th> */}
                             <th>선택</th>
                         </tr>
                     </thead>
@@ -317,7 +317,7 @@ const ShopSearch = () => {
                                     <td>{currentIndex+1}</td>
                                     <td>{item.com_code_store_name}</td>
                                     <td>{item.com_address1}</td>
-                                    <td>{item.hphone ? item.hphone : "번호없음"}</td>
+                                    {/* <td>{item.hphone ? item.hphone : "번호없음"}</td> */}
                                     <td>
                                         <input
                                             type="checkbox"
