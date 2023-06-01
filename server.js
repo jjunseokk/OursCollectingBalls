@@ -109,7 +109,11 @@ app.post('/delete', (req, res) => {
 app.post('/qving', (req, res) => {
     console.log("연결");
 
-    const query = `SELECT a.* FROM tbl_com_code_store a INNER JOIN tbl_machine_master b ON b.com_code_store_num = a.num AND b.mac_type IN ('QB','QK') WHERE NOT (com_code_store_name LIKE '%(철수)%' OR com_code_store_name LIKE '%테스트%' OR com_code_store_name LIKE '%LENOVO%' OR com_code_store_name LIKE '%성남4차매장%' OR com_code_store_name LIKE '%사이니지%')
+    // const query = `SELECT a.* FROM tbl_com_code_store a INNER JOIN tbl_machine_master b ON b.com_code_store_num = a.num AND b.mac_type IN ('QB','QK') WHERE NOT (com_code_store_name LIKE '%(철수)%' OR com_code_store_name LIKE '%테스트%' OR com_code_store_name LIKE '%LENOVO%' OR com_code_store_name LIKE '%성남4차매장%' OR com_code_store_name LIKE '%사이니지%')
+    // UNION
+    // SELECT * FROM tbl_ours_store`;
+
+    const query = `SELECT a.* FROM tbl_com_code_store a INNER JOIN tbl_machine_master b ON b.com_code_store_num = a.num AND b.mac_type IN ('QB','QK') WHERE 1=1
     UNION
     SELECT * FROM tbl_ours_store`;
 
