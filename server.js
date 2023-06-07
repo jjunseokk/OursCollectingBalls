@@ -119,7 +119,7 @@ app.post('/qving', (req, res) => {
 
     connection.query(query, (error, result) => {
         if (error) {
-            console.error('delete 쿼리 오류:::', error);
+            console.error('qving 접근 쿼리 오류:::', error);
         }
 
         res.json({ data: result });
