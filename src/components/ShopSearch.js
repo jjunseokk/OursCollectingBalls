@@ -6,6 +6,7 @@ import { faChevronLeft, faChevronRight, faSearch, faAnglesRight, faAnglesLeft } 
 
 import { useDispatch } from 'react-redux'
 import { addState, collectState } from "../redux/store";
+import { useQuery } from 'react-query';
 
 import golf from '../img/golf.png';
 import warning from '../img/warning.png';
@@ -192,15 +193,16 @@ const ShopSearch = () => {
     };
 
     // 큐빙 데이터 가져오기
-    useEffect(() => {
+    useQuery('qving', () => {
         axios.post('/qving')
             .then(response => {
                 setQving(response.data.data);
                 // console.log("큐빙 get", response.data.data);
             })
             .catch(error => console.error(error))
-    }, [])
-    // ------------------------------------------------
+    }, {
+        refetchInterval: 5000, // 5초마다 쿼리를 보냄
+    })
 
     // 주소 선택 값이 바뀌면 dispatch로 redux에 저장
     useEffect(() => {
