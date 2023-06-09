@@ -33,15 +33,13 @@ const LinkBox = styled.div`
     background-size: cover;
 `
 
+
 const Home = () => {
 
     const navigate = useNavigate();
 
     return (
         <div className="home-container">
-            {/* <div className="home-main">
-                <img src={main} alt="" width='100%' height="100%" />
-            </div> */}
             <ParallaxBanner className="home-main" style={{ aspectRatio: '2 / 1' }}>
                 <ParallaxBannerLayer image={main} speed={-100} />
                 <ParallaxBannerLayer>
@@ -54,17 +52,17 @@ const Home = () => {
             <div className="home-wrap">
                 <div className="home-goLink">
                     <div>
-                        <LinkBox className="ball-animation" width="59%" padding="50px" onClick={() => {
+                        <LinkBox className="ball-animation box" width="59%" padding="50px" onClick={() => {
                             navigate('/reservation');
                         }}>
                             <p>
                                 헌볼  <br />
                                 수거 신청
                             </p>
-                            <img src={collectIcon} alt="" width='70px' height='70px' />
-                            <FontAwesomeIcon icon={faArrowRight} style={{ position: 'absolute', bottom: 50, right: 70, fontSize: '4em', fontWeight:'bold' }} />
+                            <img className="ours" src={collectIcon} alt="" width='70px' height='70px' />
+                            <FontAwesomeIcon className="ours-arrow" icon={faArrowRight}  />
                         </LinkBox>
-                        <LinkBox width="39%" padding="0" onClick={() => {
+                        <LinkBox className="box" width="39%" padding="0" onClick={() => {
                             window.location.href = "https://theours.imweb.me/"
                         }}>
                             <img style={{ borderRadius: 60 }} src={btnBackground} alt="" width='100%' />

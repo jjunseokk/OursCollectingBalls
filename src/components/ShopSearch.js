@@ -225,9 +225,6 @@ const ShopSearch = () => {
                 <div className="select-zone">
                     <div className="shop-search">
                         <h4>매장 찾기</h4>
-                        <div className="shop-selectArea">
-
-                        </div>
                         <input style={{ padding: 10 }} type="text" value={searchTerm} onChange={handleSearch} placeholder="매장명을 입력하세요." />
                         <FontAwesomeIcon icon={faSearch} className="shop-searchIcon" />
                     </div>

@@ -34,6 +34,12 @@
             }
         }
 
+        .event-img {
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+        }
+
         .notice {
             p {
                 border-bottom: 1px solid #C5C5C5;
@@ -79,5 +85,40 @@
         justify-content: center;
         font-weight: bold;
     }
+}
 
+
+@media screen and (max-width : 425px) {
+    .service-container {
+        width: 100%;
+        padding: 70px 0px;
+        margin: 0;
+
+        font-size: 0.7em;
+        background-color: #F7F7F9;
+
+
+        .event-area,
+        .counseling-area {
+            width: 100%;
+            border-bottom: 1px solid #C5C5C5;
+
+            .event-img {
+                width: 100%;
+                display: block;
+            }
+
+            .counseling-title {
+                p {
+                    font-size: 1.4em;
+                }
+
+                button {
+                    width: 25%;
+                    height: 30px;
+                }
+            }
+        }
+
+    }
 }

@@ -72,7 +72,7 @@ const Service = () => {
                 <div className="event-title">
                     <p>We are OURS</p>
                 </div>
-                <div style={{ width: '100%', display: 'flex', justifyContent: 'space-around' }}>
+                <div className="event-img">
                     <EventBox src={Ours_1} />
                     <EventBox src={Ours_2} />
                     <EventBox src={Ours_3} />

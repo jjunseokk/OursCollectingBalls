@@ -160,7 +160,7 @@ const Reservation = () => {
       <div className="reservation-container">
         <div className="progress-status">
           <div className="progress-text">
-            <img src={progressText} style={{ width: '50%', marginTop: 5 }} alt="" />
+            <img src={progressText} alt="" />
           </div>
         </div>
         <div className="reservation-area">

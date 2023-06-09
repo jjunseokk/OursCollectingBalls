@@ -18,9 +18,13 @@
 
         .progress-text {
             width: 100%;
-            height: 50%;
             padding: 300px 0px;
             text-align: center;
+
+            img {
+                width: 50%;
+                margin-top: 5px;
+            }
         }
     }
 
@@ -48,6 +52,7 @@
                 .select-zone {
                     display: flex;
                     padding: 0;
+
                     .shop {
                         width: 50%;
 
@@ -116,37 +121,46 @@
                         }
                     }
                 }
-                .input-zone{
+
+                .input-zone {
                     padding: 30px 0px;
                     position: relative;
-                    h4{
+
+                    h4 {
                         padding: 7px;
                     }
-                    p{
+
+                    p {
                         padding: 7px;
                         font-size: 0.8em;
                         color: #B7B7B7;
                     }
-                    form{
+
+                    form {
                         display: flex;
-                        input{
+
+                        input {
                             border: none;
                             border-bottom: 1px solid black;
                             margin: 0px 5px;
                             padding: 10px;
                             width: 15%;
-                            &:focus{
+
+                            &:focus {
                                 outline: none
                             }
-                            &:nth-child(2){
+
+                            &:nth-child(2) {
                                 width: 50%;
                             }
-                            &:nth-child(3){
+
+                            &:nth-child(3) {
                                 width: 30%;
                             }
                         }
                     }
-                    button{
+
+                    button {
                         position: absolute;
                         right: 0;
                         bottom: -10px;
@@ -458,6 +472,7 @@
 
         .modal-text {
             padding: 10px;
+
             p {
                 width: 30%;
                 display: inline-block;
@@ -499,4 +514,450 @@
 
 .none-modal {
     display: none;
+}
+
+
+// ---------------------모바일---------------------------------
+@media screen and (max-width : 425px) {
+    .reservation-container {
+        display: block;
+
+
+        .progress-status {
+            width: 100%;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            border-right: none;
+
+        }
+
+        .reservation-area {
+            width: 100%;
+            display: block;
+
+
+            .reservation-result {
+                width: 100%;
+
+                // ---------shopsearch---------
+                .shop-searchZone {
+
+                    .select-zone {
+                        display: block;
+
+                        .shop {
+                            width: 100%;
+                        }
+
+                        .shop-search {
+                            width: 100%;
+                        }
+                    }
+
+                    .input-zone {
+                        form {
+                            input {
+                                width: 30%;
+                                font-size: 0.6em;
+                            }
+                        }
+
+                        button {
+                            width: 20%;
+                        }
+                    }
+                }
+
+                .shop-table {
+
+                    td {
+                        font-size: 0.6em;
+                    }
+                }
+
+                .event-pagination {
+                    text-align: center;
+
+                    button {
+                        width: 20px;
+                        height: 20px;
+                        margin: 0px 2px;
+                        font-size: 0.8em;
+                    }
+
+                }
+
+                // ---------shopsearch---------
+
+                // ---------Schedule----------
+                .calendar-container {
+                    padding: 0px;
+
+                    h4 {
+                        font-size: 1.2em;
+                    }
+
+                    .calendar-header {
+                        width: 40%;
+                        margin-left: 60%;
+
+                        .prev-month-button,
+                        .next-month-button {
+                            margin: 0px 5px;
+                        }
+                    }
+                }
+
+                .clock-container {
+
+                    .clock-select {
+
+                        button {
+                            width: 15%;
+                            height: 30px;
+                            border-radius: 20px;
+                            border: 1px solid black;
+                            background-color: #F7F7F9;
+                            cursor: pointer;
+                            margin: 0px 10px;
+                        }
+
+                        .click {
+                            background-color: #AEFF1E;
+                            cursor: pointer;
+                        }
+
+                    }
+
+                }
+
+                // ---------Schedule----------
+
+                // ---------ScheduleCheck-----------
+                .check-infor {
+                    h4 {
+                        font-size: 1.2em;
+                    }
+
+                    form {
+                        label {
+                            span {
+                                display: inline-block;
+                                width: 24%;
+                            }
+
+                            input {
+                                width: 76%;
+                            }
+                        }
+                    }
+                }
+
+                .agree-zone {
+                    input[type="checkbox"] {
+                        width: 1em;
+                        height: 1em;
+                        border-radius: 50%;
+                        border: 1px solid #B7B7B7;
+                        cursor: pointer;
+                        /* 둥글게 만들기 */
+                        -webkit-appearance: none;
+                        -moz-appearance: none;
+                        appearance: none;
+                    }
+
+                    input[type="checkbox"]:checked {
+                        /* 체크된 상태에서 배경색 적용 */
+                        background: url(../img/check.png);
+                        background-size: cover;
+                    }
+
+                    .agree-check {
+                        border-bottom: 1px solid black;
+
+                        span {
+                            font-weight: bold;
+                        }
+                    }
+                }
+
+                // ---------ScheduleCheck-----------
+            }
+
+
+            .reservation-btnArea {
+                width: 100%;
+
+                button {
+                    background-color: white;
+                    border: 1px solid black;
+                }
+            }
+        }
+
+
+    }
+
+    .modal-container {
+
+        .success-modal {
+            width: 90%;
+            height: 90%;
+            padding: 10px;
+
+            h3 {
+                border-bottom: 1px solid black;
+                padding: 10px 0px;
+            }
+
+            .modal-text {
+                padding: 10px;
+
+                p {
+                    width: 100%;
+                    margin-right: 5px;
+
+                    &::before {
+                        content: "• ";
+                    }
+                }
+
+                span {
+                    width: 100%;
+                }
+            }
+
+            .btn-area {
+                width: 90%;
+                right: 10px;
+                bottom: 10px;
+            }
+        }
+    }
+}
+
+// ----------태블릿------------
+@media screen and (max-width : 1024px) {
+    .reservation-container {
+        display: block;
+
+
+        .progress-status {
+            width: 100%;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            border-right: none;
+
+            .progress-text {
+                img {
+                    width: 30%;
+                }
+            }
+        }
+
+        .reservation-area {
+            width: 100%;
+            display: block;
+
+
+            .reservation-result {
+                width: 100%;
+
+                // ---------shopsearch---------
+                .shop-searchZone {
+
+                    .select-zone {
+                        display: block;
+
+                        .shop {
+                            width: 100%;
+                        }
+
+                        .shop-search {
+                            width: 100%;
+                        }
+                    }
+
+                    .input-zone {
+                        form {
+                            input {
+                                width: 30%;
+                                font-size: 0.6em;
+                            }
+                        }
+
+                        button {
+                            width: 20%;
+                        }
+                    }
+                }
+
+                .shop-table {
+
+                    td {
+                        font-size: 0.6em;
+                    }
+                }
+
+                .event-pagination {
+                    text-align: center;
+
+                    button {
+                        width: 20px;
+                        height: 20px;
+                        margin: 0px 2px;
+                        font-size: 0.8em;
+                    }
+
+                }
+
+                // ---------shopsearch---------
+
+                // ---------Schedule----------
+                .calendar-container {
+                    padding: 0px;
+
+                    h4 {
+                        font-size: 1.2em;
+                    }
+
+                    .calendar-header {
+                        width: 40%;
+                        margin-left: 60%;
+
+                        .prev-month-button,
+                        .next-month-button {
+                            margin: 0px 5px;
+                        }
+                    }
+                }
+
+                .clock-container {
+
+                    .clock-select {
+
+                        button {
+                            width: 15%;
+                            height: 30px;
+                            border-radius: 20px;
+                            border: 1px solid black;
+                            background-color: #F7F7F9;
+                            cursor: pointer;
+                            margin: 0px 10px;
+                        }
+
+                        .click {
+                            background-color: #AEFF1E;
+                            cursor: pointer;
+                        }
+
+                    }
+
+                }
+
+                // ---------Schedule----------
+
+                // ---------ScheduleCheck-----------
+                .check-infor {
+                    h4 {
+                        font-size: 1.2em;
+                    }
+
+                    form {
+                        label {
+                            span {
+                                display: inline-block;
+                                width: 24%;
+                            }
+
+                            input {
+                                width: 76%;
+                            }
+                        }
+                    }
+                }
+
+                .agree-zone {
+                    input[type="checkbox"] {
+                        width: 1em;
+                        height: 1em;
+                        border-radius: 50%;
+                        border: 1px solid #B7B7B7;
+                        cursor: pointer;
+                        /* 둥글게 만들기 */
+                        -webkit-appearance: none;
+                        -moz-appearance: none;
+                        appearance: none;
+                    }
+
+                    input[type="checkbox"]:checked {
+                        /* 체크된 상태에서 배경색 적용 */
+                        background: url(../img/check.png);
+                        background-size: cover;
+                    }
+
+                    .agree-check {
+                        border-bottom: 1px solid black;
+
+                        span {
+                            font-weight: bold;
+                        }
+                    }
+                }
+
+                // ---------ScheduleCheck-----------
+            }
+
+
+            .reservation-btnArea {
+                width: 100%;
+
+                button {
+                    background-color: white;
+                    border: 1px solid black;
+                }
+            }
+        }
+
+
+    }
+
+    .modal-container {
+
+        .success-modal {
+            width: 90%;
+            height: 90%;
+            padding: 10px;
+
+            h3 {
+                border-bottom: 1px solid black;
+                padding: 10px 0px;
+            }
+
+            .modal-text {
+                padding: 10px;
+
+                p {
+                    width: 100%;
+                    margin-right: 5px;
+
+                    &::before {
+                        content: "• ";
+                    }
+                }
+
+                span {
+                    width: 100%;
+                }
+            }
+
+            .btn-area {
+                width: 90%;
+                right: 10px;
+                bottom: 10px;
+            }
+        }
+    }
 }

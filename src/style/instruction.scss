@@ -91,6 +91,10 @@
     .section3 {
         margin: 0px;
         padding: 0px;
+
+        img {
+            width: 100%;
+        }
     }
 
     .section4 {
@@ -104,21 +108,6 @@
             border-radius: 40px;
         }
 
-    }
-
-    .section5 {
-        margin: 0px;
-        padding: 20px 0px;
-
-        .img-area {
-            display: flex;
-            justify-content: space-between;
-
-            img {
-                width: 45%;
-                border-radius: 40px;
-            }
-        }
     }
 
     .section6 {
@@ -163,5 +152,74 @@
             }
         }
     }
+}
 
+
+@media screen and (max-width : 425px) {
+    .instruction-container {
+        width: 100%;
+        padding: 0px;
+        background-color: #F7F7F9;
+
+
+        .section1 {
+            .title {
+                font-size: 1.5em;
+            }
+
+
+            .collectBox {
+                padding: 10px 20px;
+                margin: 0;
+                display: block;
+
+                .component {
+
+                    .first,
+                    .second {
+                        font-size: 0.8em;
+                    }
+                }
+            }
+        }
+
+        .section2 {
+            padding: 0px 10px;
+
+            button {
+                width: 40%;
+            }
+        }
+
+        .section3 {
+            margin: 0px;
+            padding: 0px 10px;
+
+        }
+
+        .section4 {
+            padding: 20px 10px;
+            margin: 0px;
+
+            p {
+                font-size: 0.8em;
+            }
+
+        }
+
+        .section6 {
+            padding: 0px 10px;
+        }
+    }
+}
+
+@media screen and (min-width:426px) and (max-width : 768px) {
+    .instruction-container {
+        padding: 80px 10px;
+        .section2 {
+            button {
+                width: 30%;
+            }
+        }
+    }
 }

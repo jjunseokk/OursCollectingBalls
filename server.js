@@ -44,7 +44,7 @@ app.get("/*", (req, res) => {
 // 예약확정
 app.post('/user', (req, res) => {
     const { address, date, service, event, collect, time } = req.body;
-    console.log(time);
+    console.log(address, date, service, event, collect, time);
     if (!address || !date || !service || !collect) {
         res.status(400).json({ error: 'address, date, service, collect 필드가 필요합니다.' });
         return;
@@ -84,7 +84,7 @@ app.post('/check', (req, res) => {
             // 레코드가 존재하지 않는 경우
             res.json({ exists: false });
         }
-        console.log(result);
+        // console.log(result);
     });
 });
 

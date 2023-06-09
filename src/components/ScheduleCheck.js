@@ -215,7 +215,7 @@ const AgreeBox = (props) => {
         checked={checked}
         onChange={onChange}
       />
-      <span style={{ display: 'inline-block', marginBottom: 10 }}>{title}</span>
+      <span style={{ display: 'inline-block', marginBottom: 10, width : '90%' }}>{title}</span>
       <div
         style={{
           border: '1px solid black',

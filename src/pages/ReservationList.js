@@ -7,6 +7,7 @@ import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons
 
 import { useSelector } from "react-redux";
 import axios from "axios";
+import { format } from "date-fns";
 
 
 const ReservationList = () => {
@@ -40,6 +41,8 @@ const ReservationList = () => {
     const currentItems =
         dbData &&
         dbData.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+
+    console.log("데이터", dbData);
 
     // 페이지 변경 함수
     const handleChangePage = (page) => {
@@ -94,7 +97,6 @@ const ReservationList = () => {
                         <thead>
                             <tr>
                                 <th>번호</th>
-                                <th>지역</th>
                                 <th>매장명</th>
                                 <th>주소</th>
                                 <th>예약일시</th>
@@ -106,16 +108,14 @@ const ReservationList = () => {
                                 <React.Fragment key={index}>
                                     <tr key={index}>
                                         <td>{(currentPage - 1) * itemsPerPage + index + 1}</td>
-                                        <td>{item.spot}</td>
                                         <td>{item.shop}</td>
                                         <td>{item.place}</td>
-                                        <td>{item.date}</td>
-                                        <td>{item.time}</td>
+                                        <td>{format(new Date(item.date), "yyyy-MM-dd")}</td>
+                                        <td>{format(new Date(item.time), "yyyy-MM-dd HH:mm:ss")}</td>
                                         <td style={{ padding: 0 }}>
                                             <button onClick={() => { setModal(true) }}
-                                                style={{ width: '100%', height: '30px', border: 'none', margin: 0, backgroundColor: "#AEFF1E", cursor: 'pointer' }}
-                                            >
-                                                예약취소
+                                                className="reserverBtn" >
+                                                취소
                                             </button>
                                         </td>
                                     </tr>

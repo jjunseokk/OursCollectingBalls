@@ -15,7 +15,7 @@ a {
   font-family: "Noto Sans KR", sans-serif;
 }
 
-div{
+div {
   padding: 10px;
 }
 .home-container {
@@ -35,6 +35,32 @@ div{
   border-bottom: 2px solid gray;
 
   padding: 0;
+}
+
+.phone {
+  justify-content: space-between;
+  padding: 0px 20px;
+}
+
+.phone-menu {
+  width: 100%;
+  height: 40%;
+  background-color: white;
+  padding: 0;
+  text-align: center;
+  display: none;
+}
+.active {
+  padding: 20px 0px;
+  display: block;
+}
+
+.phone-menu p {
+  color: black;
+  opacity: 1;
+  font-size: 1.2em;
+  padding: 5px;
+  z-index: -1;
 }
 
 .navbar-menu {
@@ -64,9 +90,12 @@ div{
 }
 
 .footer-logo {
-  width: 90px;
+  width: 200px;
   height: 90px;
   margin-top: 10px;
+}
+.footer-logo img{
+  width: 100%;
 }
 
 .footer-infor p {
@@ -75,6 +104,53 @@ div{
 }
 
 .footer-link img {
-  width: 30px;
+  width: 40px;
   margin: 10px 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .footer-container {
+    display: block;
+  }
+  
+  .footer-logo {
+    width: 90px;
+    height: 50px;
+    margin-top: 10px;
+  }
+  .footer-logo img{
+    width: 100px;
+  }
+  
+  .footer-infor p {
+    font-size: 0.8em;
+    margin: 0px 0px;
+  }
+  
+  .footer-link img {
+    width: 30px;
+    margin: 5px 0px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+
+  .footer-logo {
+    width: 90px;
+    height: 50px;
+    margin-top: 10px;
+  }
+  .footer-logo img{
+    width: 100px;
+  }
+  
+  .footer-infor p {
+    font-size: 0.8em;
+    margin: 5px 0px;
+  }
+  
+  .footer-link img {
+    width: 30px;
+    margin: 5px 0px;
+  }
 }

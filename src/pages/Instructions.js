@@ -75,13 +75,7 @@ const Instruction = () => {
         <h3>신청 자격 기준</h3>
         <p>골프장과 로스트볼을 갖고 있는 점주는 누구나 신청 가능!</p>
       </div>
-      <div className="section5">
-        <h3>OURS BOX가 제공하는 또다른 혜택</h3>
-        <div className="img-area">
-          <img src={delivery} alt="" />
-          <img src={navigation} alt="" />
-        </div>
-      </div>
+
       <div className="section6">
         <h3>상담안내</h3>
         <p>

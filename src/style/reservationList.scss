@@ -1,6 +1,6 @@
 .reservationList-container {
     width: 100%;
-    height: 100vh;
+    height: auto;
     padding: 0;
     margin: 0;
     background-color: #FFFFFF;
@@ -69,6 +69,16 @@
             }
 
             tbody {
+                .reserverBtn {
+                    width: 100%;
+                    height: 40px;
+                    border: none;
+                    margin: 0;
+                    font-size: 1em;
+                    background-color: transparent;
+                    cursor: pointer;
+                }
+
                 .modal {
                     position: absolute;
                     top: 50%;
@@ -80,38 +90,47 @@
                     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
                     padding: 20px;
                     border-radius: 40px;
+
+
+
+
                     h3 {
                         padding: 10px;
                         border-bottom: 1px solid black;
                     }
-                    p{
+
+                    p {
                         width: 100%;
                         text-align: center;
                         margin: 25% auto;
                     }
-                    .modal-btnArea{
+
+                    .modal-btnArea {
                         width: 40%;
                         position: absolute;
                         bottom: 10px;
                         right: 10px;
-                        
-                        button{
+
+                        button {
                             width: 45%;
                             height: 35px;
                             margin: 0px 5px;
                             border: 1px solid black;
                             cursor: pointer;
                             border-radius: 40px;
-                            &:first-child{
+
+                            &:first-child {
                                 background-color: white;
                             }
-                            &:last-child{
+
+                            &:last-child {
                                 background-color: #AEFF1E;
                             }
                         }
                     }
                 }
-                .none{
+
+                .none {
                     display: none;
                 }
             }
@@ -141,5 +160,72 @@
             }
         }
     }
+}
 
+// ----------모바일, 태블릿-------------------
+@media screen and (max-width : 1024px) {
+    .reservationList-container {
+        height: auto;
+
+        .reservationList-text {
+            width: 100%;
+            height: auto;
+        }
+
+        .reservationList-area {
+            div {
+                width: 100%;
+                padding: 0;
+
+                table,
+                th,
+                td {
+                    font-size: 0.5em;
+                }
+
+                .table {
+                    width: 100%;
+                }
+
+                td {
+                    &:last-child {
+                        width: 20px;
+            
+                    }
+                }
+
+                tbody {
+                    .reserverBtn {
+                        font-size: 0.5em;
+                    }
+                    .modal {
+                        width: 100%;
+
+                        .modal-btnArea {
+                            width: 100%;
+                        }
+                    }
+                }
+
+                .event-pagination {
+                    text-align: center;
+                    margin: 0 auto;
+
+                    button {
+                        width: 20px;
+                        height: 20px;
+                        margin: 0px 5px;
+                        font-size: 10px;
+                        background-color: white;
+                        border: 1px solid black;
+                        cursor: pointer;
+                    }
+
+                    .event-active {
+                        background-color: #AEFF1E;
+                    }
+                }
+            }
+        }
+    }
 }

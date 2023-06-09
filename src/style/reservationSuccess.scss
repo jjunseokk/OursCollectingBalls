@@ -41,3 +41,25 @@
         }
     }
 }
+
+// -------------모바일, 태블릿
+@media screen and (max-width : 1024px) {
+    .reservationSuccess-container{
+        .reservationSuccess-text{
+            width: 80%;
+            div{
+                width: 100%;
+                button{
+                    width: 50%;
+                    margin: 0 5px;
+                    &:first-child{
+                        background-color: white;
+                    }
+                    &:last-child{
+                        background-color: #AEFF1E;
+                    }
+                }
+            }
+        }
+    }
+}
