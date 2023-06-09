@@ -264,7 +264,7 @@ const ShopSearch = () => {
                                 5톤 이상
                             </button>
                         </div>
-                        <p style={{ color: 'red', fontSize: 2, marginTop: 5 }}>
+                        <p style={{ color: 'red', fontSize: '10px', marginTop: 5 }}>
                             <img src={warning} alt="" width="10px" /> 1톤 이하의 볼 수거는 추가 비용이 발생합니다.
                         </p>
                     </div>

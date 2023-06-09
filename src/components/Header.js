@@ -41,7 +41,7 @@ const Header = () => {
                         }}><img src={Logo} style={{width : 100, marginTop : 6}} alt="" />
                         </div>
                         <div>
-                            <FontAwesomeIcon icon={faBars} style={{ fontSize: 25 }} onClick={() => {
+                            <FontAwesomeIcon icon={faBars} style={{ fontSize: 25, cursor:'pointer' }} onClick={() => {
                                 setShowMenu(!showMenu);
                             }} />
                         </div>

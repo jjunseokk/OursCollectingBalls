@@ -21,6 +21,7 @@ div {
 .home-container {
   font-size: 1em;
   width: 100vw;
+  z-index: 10;
 }
 
 .home-navbar {
@@ -53,6 +54,7 @@ div {
 .active {
   padding: 20px 0px;
   display: block;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .phone-menu p {

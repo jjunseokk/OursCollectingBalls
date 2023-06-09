@@ -180,7 +180,7 @@
                 table,
                 th,
                 td {
-                    font-size: 0.5em;
+                    font-size: 0.8em;
                 }
 
                 .table {
@@ -190,19 +190,21 @@
                 td {
                     &:last-child {
                         width: 20px;
-            
                     }
                 }
 
                 tbody {
                     .reserverBtn {
-                        font-size: 0.5em;
+                        font-size: 0.9em;
                     }
                     .modal {
-                        width: 100%;
+                        width: 90%;
 
                         .modal-btnArea {
-                            width: 100%;
+                            width: 90%;
+                            text-align: center;
+                            right: 50%;
+                            transform: translate(50%);
                         }
                     }
                 }
@@ -215,7 +217,7 @@
                         width: 20px;
                         height: 20px;
                         margin: 0px 5px;
-                        font-size: 10px;
+                        font-size: 15px;
                         background-color: white;
                         border: 1px solid black;
                         cursor: pointer;
