@@ -15,6 +15,14 @@ const connection = mysql.createConnection({
     database: 'ours',
 });
 
+const pool = mysql.createPool({
+  host: 'ls-73437f1140087ff57815f637d3fad565a1b67dd9.ct49gfaignpb.ap-northeast-2.rds.amazonaws.com',
+  user: 'dbmasteruser',
+  password: 'tH}Gl|ePw([l1DI(a-Ve[9oQ.V|l%eTz',
+  database: 'ours',
+});
+
+
 connection.connect((error) => {
     if (error) {
         console.error('연결 실패:', error);
@@ -23,6 +31,14 @@ connection.connect((error) => {
     http.createServer(app).listen(port, () => {
         console.log(`app listening at ${port}`);
     });
+});
+
+pool.query('SELECT * FROM tbl_ours_trading', (error, results, fields) => {
+  if (error) {
+    console.error('Error executing query:', error);
+    return;
+  }
+  console.log('Query results:', results);
 });
 
 const app = express();
