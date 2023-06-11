@@ -13,14 +13,9 @@ const connection = mysql.createConnection({
     user: 'dbmasteruser',
     password: 'tH}Gl|ePw([l1DI(a-Ve[9oQ.V|l%eTz',
     database: 'ours',
+	keepAlive: true
 });
 
-const pool = mysql.createPool({
-  host: 'ls-73437f1140087ff57815f637d3fad565a1b67dd9.ct49gfaignpb.ap-northeast-2.rds.amazonaws.com',
-  user: 'dbmasteruser',
-  password: 'tH}Gl|ePw([l1DI(a-Ve[9oQ.V|l%eTz',
-  database: 'ours',
-});
 
 
 connection.connect((error) => {
@@ -33,13 +28,6 @@ connection.connect((error) => {
     });
 });
 
-pool.query('SELECT * FROM tbl_ours_trading', (error, results, fields) => {
-  if (error) {
-    console.error('Error executing query:', error);
-    return;
-  }
-  console.log('Query results:', results);
-});
 
 const app = express();
 app.use(express.json());
