@@ -3,7 +3,7 @@ const express = require('express');
 const path = require('path');
 const cors = require('cors');
 const http = require("http");
-const port = 5000;
+const port = 80;
 
 require('dotenv').config();
 
@@ -13,16 +13,6 @@ const connection = mysql.createConnection({
     user: 'dbmasteruser',
     password: 'tH}Gl|ePw([l1DI(a-Ve[9oQ.V|l%eTz',
     database: 'ours',
-});
-
-connection.connect((error) => {
-    if (error) {
-        console.error('연결 실패:', error);
-        return;
-    }
-    http.createServer(app).listen(port, () => {
-        console.log(`app listening at ${port}`);
-    });
 });
 
 const app = express();
@@ -39,6 +29,17 @@ app.get("/*", (req, res) => {
         Date: Date.now()
     });
     res.sendFile(path.join(__dirname, "build", "index.html"));
+});
+
+http.createServer(app).listen(port, () => {
+    console.log(`서버가 ${port}번 포트에서 실행 중입니다.`);
+});
+
+connection.connect((error) => {
+    if (error) {
+        console.error('연결 실패:', error);
+        return;
+    }
 });
 
 // 예약확정
@@ -138,10 +139,4 @@ app.post('/addData', (req, res) => {
         }
         res.json({ data: result });
     })
-})
-
-// 서버 종료 시 MySQL 연결을 끊습니다.
-process.on('SIGINT', () => {
-    connection.end();
-    process.exit();
 });
