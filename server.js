@@ -13,6 +13,7 @@ const connection = mysql.createConnection({
     user: 'dbmasteruser',
     password: 'tH}Gl|ePw([l1DI(a-Ve[9oQ.V|l%eTz',
     database: 'ours',
+	keepAlive: true
 });
 
 const app = express();
