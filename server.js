@@ -53,6 +53,7 @@ app.post('/user', (req, res) => {
 
     const query = `INSERT INTO tbl_ours_trading (name, cellphone, email, spot ,place, shop, date, timezone, collect, inquiry, event, time) VALUES ('${service.service.name}','${service.service.phoneNumber}','${service.service.email}','${address.add.spot}','${address.add.address}','${address.add.shop}','${date.date}','${date.time}','${collect.collect}','${service.service.inquiry}','${event.event}', '${time.time}' )`;
     const values = [address, date, service, event, collect];
+    console.log("추가")
 
     connection.query(query, values, (error, results) => {
         if (error) {
@@ -61,6 +62,7 @@ app.post('/user', (req, res) => {
             return;
         }
         res.json({ success: results });
+
     });
 });
 
@@ -95,14 +97,14 @@ app.post('/delete', (req, res) => {
     const { key, name } = req.body;
 
 
-    const query = `DELETE FROM tbl_ours_trading WHERE name='${name}' AND keyid='${key}'`;
+    const query = `DELETE FROM tbl_ours_trading WHERE name='${name}' AND keyid=${key}`;
 
     connection.query(query, (error, result) => {
         if (error) {
             console.error("delete 쿼리 오류:::", error);
         }
 
-        res.json({ result })
+        res.json({ result });
     });
 });
 
