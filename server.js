@@ -3,7 +3,7 @@ const express = require('express');
 const path = require('path');
 const cors = require('cors');
 const http = require("http");
-const port = 80;
+const port = 5000;
 
 require('dotenv').config();
 
@@ -13,7 +13,6 @@ const connection = mysql.createConnection({
     user: 'dbmasteruser',
     password: 'tH}Gl|ePw([l1DI(a-Ve[9oQ.V|l%eTz',
     database: 'ours',
-	keepAlive: true
 });
 
 const app = express();
@@ -93,9 +92,10 @@ app.post('/check', (req, res) => {
 //예약 내역 삭제!!!!
 app.post('/delete', (req, res) => {
     console.log("연결", req.body);
-    const { date, name } = req.body;
+    const { key, name } = req.body;
 
-    const query = `DELETE FROM tbl_ours_trading WHERE name='${name}' AND date='${date}'`;
+
+    const query = `DELETE FROM tbl_ours_trading WHERE name='${name}' AND keyid='${key}'`;
 
     connection.query(query, (error, result) => {
         if (error) {

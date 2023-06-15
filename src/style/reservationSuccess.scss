@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
-.reservationSuccess-container{
+
+.reservationSuccess-container {
     width: 100vw;
     height: 100vh;
     font-size: 1em;
@@ -10,31 +11,37 @@
     font-family: 'Noto Sans KR', sans-serif;
 
     text-align: center;
-    .reservationSuccess-text{
+
+    .reservationSuccess-text {
         width: 60%;
 
         font-size: 0.8em;
 
-        h3, p, div{
+        h3,
+        p,
+        div {
             margin: 5px 0px;
         }
-        div{
+
+        div {
             width: 50%;
             display: flex;
             justify-content: space-around;
             margin: 0 auto;
 
-            button{
+            button {
                 width: 40%;
                 height: 40px;
                 color: black;
                 cursor: pointer;
                 border-radius: 50px;
                 border: 1px solid black;
-                &:first-child{
+
+                &:first-child {
                     background-color: white;
                 }
-                &:last-child{
+
+                &:last-child {
                     background-color: #AEFF1E;
                 }
             }
@@ -42,22 +49,64 @@
     }
 }
 
-// -------------모바일, 태블릿
-@media screen and (max-width : 1024px) {
-    .reservationSuccess-container{
-        .reservationSuccess-text{
-            width: 80%;
-            div{
+
+@media screen and (max-width : 480px) {
+    .reservationSuccess-container {
+        .reservationSuccess-text {
+            width: 100%;
+            font-size: 0.9em;
+
+            div {
                 width: 100%;
-                button{
-                    width: 50%;
-                    margin: 0 5px;
-                    &:first-child{
-                        background-color: white;
-                    }
-                    &:last-child{
-                        background-color: #AEFF1E;
-                    }
+                display: flex;
+                justify-content: space-around;
+                margin: 0 auto;
+
+                button {
+                    width: 30%;
+                    font-size: 0.8em;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width : 481px) and (max-width : 768px) {
+    .reservationSuccess-container {
+        .reservationSuccess-text {
+            width: 100%;
+            font-size: 0.9em;
+
+            div {
+                width: 100%;
+                display: flex;
+                justify-content: space-around;
+                margin: 0 auto;
+
+                button {
+                    width: 30%;
+                    font-size: 0.8em;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width : 769px) and (max-width : 1023px) {
+    .reservationSuccess-container {
+        .reservationSuccess-text {
+            width: 100%;
+            font-size: 0.9em;
+
+            div {
+                width: 70%;
+                display: flex;
+                justify-content: space-around;
+                margin: 0 auto;
+
+                button {
+                    width: 40%;
+                    font-size: 0.8em;
                 }
             }
         }

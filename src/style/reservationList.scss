@@ -41,7 +41,7 @@
         align-items: center;
 
         div {
-            width: 80%;
+            width: 90%;
 
             table,
             th,
@@ -70,10 +70,10 @@
 
             tbody {
                 .reserverBtn {
-                    width: 100%;
+                    width: 40px;
                     height: 40px;
                     border: none;
-                    margin: 0;
+                    margin: 50% 0%;
                     font-size: 1em;
                     background-color: transparent;
                     cursor: pointer;
@@ -84,15 +84,12 @@
                     top: 50%;
                     left: 50%;
                     transform: translate(-50%, -50%);
-                    width: 40%;
-                    height: 50%;
+                    width: 50%;
+                    height: 40%;
                     background-color: white;
                     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
                     padding: 20px;
                     border-radius: 40px;
-
-
-
 
                     h3 {
                         padding: 10px;
@@ -101,15 +98,15 @@
 
                     p {
                         width: 100%;
+                        margin: 9% 0%;
                         text-align: center;
-                        margin: 25% auto;
                     }
 
                     .modal-btnArea {
-                        width: 40%;
+                        width: 50%;
                         position: absolute;
-                        bottom: 10px;
-                        right: 10px;
+                        bottom: 5%;
+                        right: 5%;
 
                         button {
                             width: 45%;
@@ -136,7 +133,7 @@
             }
 
             td {
-                padding: 15px 0px;
+                padding: 15px 10px;
                 text-align: center;
             }
 
@@ -162,51 +159,82 @@
     }
 }
 
-// ----------모바일, 태블릿-------------------
-@media screen and (max-width : 1024px) {
-    .reservationList-container {
-        height: auto;
 
+@media screen and (max-width : 480px) {
+    .reservationList-container {
         .reservationList-text {
             width: 100%;
-            height: auto;
         }
 
         .reservationList-area {
             div {
                 width: 100%;
-                padding: 0;
 
                 table,
                 th,
                 td {
-                    font-size: 0.8em;
+                    border-collapse: collapse;
+                    padding: 5px;
                 }
 
-                .table {
-                    width: 100%;
+                th {
+                    background-color: #E9E9E9;
+                    font-size: 0.7em;
+
+                    &:first-child {
+                        width: 10%;
+                    }
+
+                    &:last-child {
+                        width: 10%;
+                    }
                 }
 
                 td {
-                    &:last-child {
-                        width: 20px;
-                    }
+                    font-size: 0.7em;
+                }
+
+
+                table {
+                    width: 100%;
                 }
 
                 tbody {
                     .reserverBtn {
-                        font-size: 0.9em;
+                        width: 40px;
+                        height: 40px;
+                        margin: 15px 0px;
+                        font-size: 0.7em;
                     }
+
+
                     .modal {
-                        width: 90%;
+                        width: 80%;
+                        height: 40%;
+
+                        p {
+                            margin: 13% 0%;
+                        }
 
                         .modal-btnArea {
-                            width: 90%;
+                            width: 100%;
+                            right: 0%;
                             text-align: center;
-                            right: 50%;
-                            transform: translate(50%);
+
+                            button {
+                                width: 40%;
+                            }
                         }
                     }
+
+                    .none {
+                        display: none;
+                    }
+                }
+
+                td {
+                    padding: 15px 0px;
+                    text-align: center;
                 }
 
                 .event-pagination {
@@ -217,7 +245,201 @@
                         width: 20px;
                         height: 20px;
                         margin: 0px 5px;
-                        font-size: 15px;
+                        font-size: 10px;
+                        background-color: white;
+                        border: 1px solid black;
+                        cursor: pointer;
+                    }
+
+                    .event-active {
+                        background-color: #AEFF1E;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width : 481px) and (max-width : 768px) {
+    .reservationList-container {
+        .reservationList-text {
+            width: 100%;
+        }
+
+        .reservationList-area {
+            div {
+                width: 100%;
+
+                table,
+                th,
+                td {
+                    border-collapse: collapse;
+                    padding: 10px;
+                }
+
+                th {
+                    background-color: #E9E9E9;
+                    font-size: 0.7em;
+
+                    &:first-child {
+                        width: 10%;
+                    }
+
+                    &:last-child {
+                        width: 10%;
+                    }
+                }
+
+                td {
+                    font-size: 0.7em;
+                }
+
+
+                table {
+                    width: 100%;
+                }
+
+                tbody {
+                    .reserverBtn {
+                        width: 40px;
+                        height: 40px;
+                        margin: 15px 0px;
+                        font-size: 0.7em;
+                    }
+
+                    .modal {
+                        width: 80%;
+                        height: 40%;
+
+                        .modal-btnArea {
+                            width: 100%;
+                            right: 0px;
+                            text-align: center;
+
+                            button {
+                                width: 40%;
+                            }
+                        }
+                    }
+
+                    .none {
+                        display: none;
+                    }
+                }
+
+                td {
+                    padding: 15px 0px;
+                    text-align: center;
+                }
+
+                .event-pagination {
+                    text-align: center;
+                    margin: 0 auto;
+
+                    button {
+                        width: 20px;
+                        height: 20px;
+                        margin: 0px 5px;
+                        font-size: 10px;
+                        background-color: white;
+                        border: 1px solid black;
+                        cursor: pointer;
+                    }
+
+                    .event-active {
+                        background-color: #AEFF1E;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and (min-width : 769px) and (max-width : 1023px) {
+    .reservationList-container {
+        .reservationList-text {
+            width: 100%;
+        }
+
+        .reservationList-area {
+            div {
+                width: 100%;
+
+                table,
+                th,
+                td {
+                    border-collapse: collapse;
+                    padding: 10px;
+                }
+
+                th {
+                    background-color: #E9E9E9;
+                    font-size: 0.7em;
+
+                    &:first-child {
+                        width: 10%;
+                    }
+
+                    &:last-child {
+                        width: 10%;
+                    }
+                }
+
+                td {
+                    font-size: 0.9em;
+                }
+
+
+                table {
+                    width: 100%;
+                }
+
+                tbody {
+                    .reserverBtn {
+                        width: 40px;
+                        height: 40px;
+                        margin: 15px 0px;
+                        font-size: 0.7em;
+                    }
+
+                    .modal {
+                        width: 80%;
+                        height: 40%;
+
+                        p {
+                            margin: 5% 0%;
+                        }
+
+                        .modal-btnArea {
+                            width: 100%;
+                            right: 0px;
+                            text-align: center;
+                            button {
+                                width: 40%;
+                            }
+                        }
+                    }
+
+                    .none {
+                        display: none;
+                    }
+                }
+
+                td {
+                    padding: 15px 0px;
+                    text-align: center;
+                }
+
+                .event-pagination {
+                    text-align: center;
+                    margin: 0 auto;
+
+                    button {
+                        width: 20px;
+                        height: 20px;
+                        margin: 0px 5px;
+                        font-size: 10px;
                         background-color: white;
                         border: 1px solid black;
                         cursor: pointer;

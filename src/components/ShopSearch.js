@@ -225,7 +225,7 @@ const ShopSearch = () => {
                 <div className="select-zone">
                     <div className="shop-search">
                         <h4>매장 찾기</h4>
-                        <input style={{ padding: 10 }} type="text" value={searchTerm} onChange={handleSearch} placeholder="매장명을 입력하세요." />
+                        <input style={{ padding: 10 }} type="text" value={searchTerm} onChange={handleSearch} placeholder="매장명이나 지역을 입력해주세요." />
                         <FontAwesomeIcon icon={faSearch} className="shop-searchIcon" />
                     </div>
                     <div className="shop">
@@ -264,8 +264,8 @@ const ShopSearch = () => {
                                 5톤 이상
                             </button>
                         </div>
-                        <p style={{ color: 'red', fontSize: '10px', marginTop: 5 }}>
-                            <img src={warning} alt="" width="10px" /> 1톤 이하의 볼 수거는 추가 비용이 발생합니다.
+                        <p style={{ color: 'red', fontSize: '13px', marginTop: 5 }}>
+                            <img src={warning} alt="" width="13px" /> 1톤 이하의 볼 수거는 추가 비용이 발생합니다.
                         </p>
                     </div>
                 </div>

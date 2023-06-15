@@ -52,15 +52,20 @@
         }
     }
 }
-// -----------모바일, 태블릿---------
-@media screen and (max-width : 1024px) {
+
+@media screen and (max-width : 1023px) {
     .reservationCheck-container {
         form {
             width: 100%;
 
             button {
                 width: 40%;
-                font-size: 0.8em;
+                height: 50px;
+                border: 1px solid black;
+                background-color: #AEFF1E;
+                font-size: 1.2em;
+                border-radius: 50px;
+                cursor: pointer;
             }
         }
     }

@@ -15,7 +15,6 @@ const ReservationList = () => {
 
     const [dbData, setDbData] = useState([]);
     const [modal, setModal] = useState(false);
-    console.log(dbData);
 
 
     useEffect(() => {
@@ -51,10 +50,11 @@ const ReservationList = () => {
 
     // 예약내역취소 함수
     const cancelReservation = (index) => {
-        const reservationDate = dbData[index].date;
+        
+        const reservationkey = dbData[index].keyid;
         const reservationName = dbData[index].name;
         axios
-            .post("/delete", { date: reservationDate, name: reservationName })
+            .post("/delete", { key: reservationkey, name: reservationName })
             .then((response) => {
                 console.log(response);
                 const updatedData = dbData.filter((item, i) => i !== index);
@@ -67,6 +67,7 @@ const ReservationList = () => {
             });
 
         setModal(false);
+        console.log(reservationkey);
     };
 
     return (
@@ -100,7 +101,7 @@ const ReservationList = () => {
                                 <th>매장명</th>
                                 <th>주소</th>
                                 <th>예약일시</th>
-                                <th colSpan='2'>예약등록시간</th>
+                                <th>예약등록시간</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -112,12 +113,12 @@ const ReservationList = () => {
                                         <td>{item.place}</td>
                                         <td>{format(new Date(item.date), "yyyy-MM-dd")}</td>
                                         <td>{format(new Date(item.time), "yyyy-MM-dd HH:mm:ss")}</td>
-                                        <td style={{ padding: 0 }}>
-                                            <button onClick={() => { setModal(true) }}
-                                                className="reserverBtn" >
-                                                취소
-                                            </button>
-                                        </td>
+                                        {/* <td style={{ padding: 0 }}> */}
+                                        <button onClick={() => { setModal(true) }}
+                                            className="reserverBtn" >
+                                            취소
+                                        </button>
+                                        {/* </td> */}
                                     </tr>
                                     <div className={modal ? "modal" : "none"}>
                                         <h3>예약 내역 취소하기</h3>

@@ -2,7 +2,7 @@ import React from "react";
 import '../style/home.scss';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAngleDoubleDown, faArrowRight, faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import { faAngleDoubleDown, faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from "react-router-dom";
 import { ParallaxBanner, ParallaxBannerLayer } from 'react-scroll-parallax';
 
@@ -60,7 +60,7 @@ const Home = () => {
                                 수거 신청
                             </p>
                             <img className="ours" src={collectIcon} alt="" width='70px' height='70px' />
-                            <FontAwesomeIcon className="ours-arrow" icon={faArrowRight}  />
+                            <FontAwesomeIcon className="ours-arrow" icon={faArrowRight} />
                         </LinkBox>
                         <LinkBox className="box" width="39%" padding="0" onClick={() => {
                             window.location.href = "https://theours.imweb.me/"
@@ -75,7 +75,7 @@ const Home = () => {
                         <h1><span>OURS BOX</span>는 폐기물로 자원 순환을 만듭니다.</h1>
                         <img src={collectIcon} alt="" />
                     </div>
-                    <img src={process} alt="" width='100%'/>
+                    <img src={process} alt="" width='100%' />
                     {/* <Swiper
                         spaceBetween={30}
                         slidesPerView={3}
@@ -95,10 +95,10 @@ const Home = () => {
                     </Swiper> */}
                 </div>
                 <div className="home-counseling">
-                    <p>
-                        <strong>OURS BOX 이용에 궁금한 점이 있나요?</strong> <br />
+                    <div>
+                        <strong>OURS BOX 이용에 궁금한 점이 있나요?</strong> <br/>
                         온라인 상담으로 문제를 해결해 보세요.
-                    </p>
+                    </div>
                     <button onClick={() => {
                         navigate('/Service');
                     }}>고객센터</button>

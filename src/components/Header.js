@@ -32,7 +32,7 @@ const Header = () => {
 
     return (
         <>
-            {windowWidth <= 768 ? (
+            {windowWidth <= 1023 ? (
                 <>
                     <div className="home-navbar phone">
 
