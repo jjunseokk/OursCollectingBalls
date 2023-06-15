@@ -164,7 +164,7 @@ const ShopSearch = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (formData.phone.length == 13) {
-            alert('성공적으로 추가되었습니다.')
+            alert('아래 리스트에 추가 되었습니다. 추가하신 매장명이나 주소를 검색해주세요.')
 
             axios.post('/addData', formData)
                 .then((response) => {
@@ -184,12 +184,11 @@ const ShopSearch = () => {
         } else {
             alert('전화번호 13자리를 올바르게 입력하세요.')
         }
-
-
         console.log(formData);
+    };
 
-
-
+    const removeLastFourDigits = (name) => {
+        return name.replace(/\s\d{4}$/, '');
     };
 
     // 큐빙 데이터 가져오기
@@ -317,7 +316,7 @@ const ShopSearch = () => {
                             return (
                                 <tr key={`${item.com_code_store_name}-${index}`}>
                                     <td>{currentIndex + 1}</td>
-                                    <td>{item.com_code_store_name}</td>
+                                    <td>{removeLastFourDigits(item.com_code_store_name)}</td>
                                     <td>{item.com_address1}</td>
                                     {/* <td>{item.hphone ? item.hphone : "번호없음"}</td> */}
                                     <td>
