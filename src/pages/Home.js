@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import '../style/home.scss';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDoubleDown, faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from "react-router-dom";
 import { ParallaxBanner, ParallaxBannerLayer } from 'react-scroll-parallax';
+import axios from "axios";
 
 // import { Swiper, SwiperSlide } from "swiper/react";
 // import { Pagination, Navigation } from "swiper";
@@ -37,7 +38,14 @@ const LinkBox = styled.div`
 const Home = () => {
 
     const navigate = useNavigate();
-
+    // 큐빙 데이터 가져오기
+    useEffect(() => {
+        axios.post('/qving')
+            .then(response => {
+                console.log("큐빙 get", response.data.data);
+            })
+            .catch(error => console.error(error))
+    }, [])
     return (
         <div className="home-container">
             <ParallaxBanner className="home-main" style={{ aspectRatio: '2 / 1' }}>
@@ -96,7 +104,7 @@ const Home = () => {
                 </div>
                 <div className="home-counseling">
                     <div>
-                        <strong>OURS BOX 이용에 궁금한 점이 있나요?</strong> <br/>
+                        <strong>OURS BOX 이용에 궁금한 점이 있나요?</strong> <br />
                         온라인 상담으로 문제를 해결해 보세요.
                     </div>
                     <button onClick={() => {

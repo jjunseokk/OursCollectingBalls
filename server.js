@@ -13,6 +13,7 @@ const connection = mysql.createConnection({
     user: 'dbmasteruser',
     password: 'tH}Gl|ePw([l1DI(a-Ve[9oQ.V|l%eTz',
     database: 'ours',
+
 });
 
 const app = express();
@@ -33,6 +34,15 @@ app.get("/*", (req, res) => {
 
 http.createServer(app).listen(port, () => {
     console.log(`서버가 ${port}번 포트에서 실행 중입니다.`);
+});
+
+connection.on('error', function (err) {
+    if (err.code === 'PROTOCOL_CONNECTION_LOST') {
+        console.log('Database connection was closed.');
+        connection.connect(); // 재연결 시도
+    } else {
+        throw err;
+    }
 });
 
 connection.connect((error) => {
