@@ -46,6 +46,7 @@ const Home = () => {
             })
             .catch(error => console.error(error))
     }, [])
+    
     return (
         <div className="home-container">
             <ParallaxBanner className="home-main" style={{ aspectRatio: '2 / 1' }}>
