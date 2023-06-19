@@ -3,7 +3,7 @@ const express = require('express');
 const path = require('path');
 const cors = require('cors');
 const http = require("http");
-const port = 5001;
+const port = 5000;
 
 require('dotenv').config();
 
