@@ -42,6 +42,7 @@ const ReservationCheck = () => {
                 if (response.data.exists) {
                     dispatch(dbState(response.data.result));
                     navigate('/ReservationList');
+                    console.log("데이터가 알려줘", response)
                 }
             })
             .catch(error => {

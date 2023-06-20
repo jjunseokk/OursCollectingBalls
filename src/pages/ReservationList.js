@@ -50,7 +50,7 @@ const ReservationList = () => {
 
     // 예약내역취소 함수
     const cancelReservation = (index) => {
-        
+
         const reservationkey = dbData[index].keyid;
         const reservationName = dbData[index].name;
         axios
@@ -102,6 +102,8 @@ const ReservationList = () => {
                                 <th>주소</th>
                                 <th>예약일시</th>
                                 <th>예약등록시간</th>
+                                <th>현재진행상태</th>
+                                <th>수거진행사항</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -113,6 +115,8 @@ const ReservationList = () => {
                                         <td>{item.place}</td>
                                         <td>{format(new Date(item.date), "yyyy-MM-dd")}</td>
                                         <td>{format(new Date(item.time), "yyyy-MM-dd HH:mm:ss")}</td>
+                                        <td>{item.state}</td>
+                                        <td>{item.comments ? item.comments : "-"}</td>
                                         {/* <td style={{ padding: 0 }}> */}
                                         <button onClick={() => { setModal(true) }}
                                             className="reserverBtn" >

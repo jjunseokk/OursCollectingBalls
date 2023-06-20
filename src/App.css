@@ -18,6 +18,7 @@ a {
 div {
   padding: 10px;
 }
+
 .home-container {
   font-size: 1em;
   width: 100vw;
@@ -27,7 +28,6 @@ div {
 .home-navbar {
   width: 100%;
   height: 100px;
-
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -36,10 +36,11 @@ div {
   border-bottom: 2px solid gray;
 
   padding: 0;
+
 }
 
 .navbar-logo img {
-  width: 100%;
+  width: 50%;
 }
 
 .phone {
@@ -72,6 +73,7 @@ div {
 .navbar-menu {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .navbar-menu li {
@@ -113,6 +115,7 @@ div {
 }
 
 @media screen and (max-width: 767px) {
+
   .footer-container {
     display: block;
   }

@@ -226,43 +226,27 @@ const ShopSearch = () => {
                         <FontAwesomeIcon icon={faSearch} className="shop-searchIcon" />
                     </div>
                     <div className="shop">
-                        <h4><img src={golf} alt="" width="10px" /> 로스트볼 수거량</h4>
+                        <h4><img src={golf} alt="" width="10px" /> 로스트볼 수거량 (40kg 기준)</h4>
                         <div className="collect-weight">
                             <button
                                 onClick={() => {
-                                    colletSelect('1톤 이하');
+                                    colletSelect('50포대 이하');
                                 }}
-                                className={active === '1톤 이하' ? 'selected' : ''}
+                                className={active === '50포대 이하' ? 'selected' : ''}
                             >
-                                1톤 이하
+                                50포대 이하
                             </button>
                             <button
                                 onClick={() => {
-                                    colletSelect('1톤 이상');
+                                    colletSelect('50포대 이상');
                                 }}
-                                className={active === '1톤 이상' ? 'selected' : ''}
+                                className={active === '50포대 이상' ? 'selected' : ''}
                             >
-                                1톤 이상
-                            </button>
-                            <button
-                                onClick={() => {
-                                    colletSelect('2톤 이상');
-                                }}
-                                className={active === '2톤 이상' ? 'selected' : ''}
-                            >
-                                2톤 이상
-                            </button>
-                            <button
-                                onClick={() => {
-                                    colletSelect('5톤 이상');
-                                }}
-                                className={active === '5톤 이상' ? 'selected' : ''}
-                            >
-                                5톤 이상
+                                50포대 이상
                             </button>
                         </div>
                         <p style={{ color: 'red', fontSize: '13px', marginTop: 5 }}>
-                            <img src={warning} alt="" width="13px" /> 1톤 이하의 볼 수거는 추가 비용이 발생합니다.
+                            <img src={warning} alt="" width="13px" /> 50포대 이하는 추가 비용이 발생하실 수 있으므로 상담 요청 부탁드립니다.
                         </p>
                     </div>
                 </div>

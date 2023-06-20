@@ -3,7 +3,7 @@ const express = require('express');
 const path = require('path');
 const cors = require('cors');
 const http = require("http");
-const port = 6000;
+const port = 5000;
 
 require('dotenv').config();
 
@@ -12,8 +12,7 @@ const connection = mysql.createConnection({
     port: 3306,
     user: 'dbmasteruser',
     password: 'tH}Gl|ePw([l1DI(a-Ve[9oQ.V|l%eTz',
-    database: 'ours',
-
+    database: 'xperon_pos_db',
 });
 
 const app = express();
@@ -123,9 +122,9 @@ app.post('/delete', (req, res) => {
 app.post('/qving', (req, res) => {
     console.log("연결");
 
-    const query = `SELECT a.* FROM tbl_com_code_store a INNER JOIN tbl_machine_master b ON b.com_code_store_num = a.num AND b.mac_type IN ('QB','QK') WHERE NOT (com_code_store_name LIKE '%(철수)%' OR com_code_store_name LIKE '%테스트%' OR com_code_store_name LIKE '%LENOVO%' OR com_code_store_name LIKE '%성남4차매장%' OR com_code_store_name LIKE '%사이니지%')
+    const query = `SELECT a.num,a.com_code_num,a.com_code_dealer_num,a.store_type,a.store_type_flag,a.com_code_store_id,a.com_code_store_name,a.com_type,a.com_style,a.owner_name,a.com_man_knum,a.tel,a.fax,a.hphone,a.store_area,a.com_post,a.com_address1,a.com_address2,a.com_num,a.com_email,a.open_day,a.close_day,a.is_valid,a.thumbnail,a.write_day,a.manager_name,a.bank_name,a.bank_num,a.pay_day,a.memo,a.gps_lat,a.gps_long,a.gps_lng,a.rep_tel_1,a.rep_tel_2,a.van_code,a.van_tid FROM tbl_com_code_store a INNER JOIN tbl_machine_master b ON b.com_code_store_num = a.num AND b.mac_type IN ('QB','QK') WHERE NOT (com_code_store_name LIKE '%(철수)%' OR com_code_store_name LIKE '%테스트%' OR com_code_store_name LIKE '%LENOVO%' OR com_code_store_name LIKE '%성남4차매장%' OR com_code_store_name LIKE '%사이니지%')
     UNION
-    SELECT * FROM tbl_ours_store`;
+    SELECT num,com_code_num,com_code_dealer_num,store_type,store_type_flag,com_code_store_id,com_code_store_name,com_type,com_style,owner_name,com_man_knum,tel,fax,hphone,store_area,com_post,com_address1,com_address2,com_num,com_email,open_day,close_day,is_valid,thumbnail,write_day,manager_name,bank_name,bank_num,pay_day,memo,gps_lat,gps_long,gps_lng,rep_tel_1,rep_tel_2,van_code,van_tid FROM tbl_ours_store`;
 
     // const query = `SELECT a.* FROM tbl_com_code_store a INNER JOIN tbl_machine_master b ON b.com_code_store_num = a.num AND b.mac_type IN ('QB','QK') WHERE 1=1
     // UNION
