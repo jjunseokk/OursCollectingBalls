@@ -100,7 +100,7 @@ const ReservationList = () => {
                                 <th>번호</th>
                                 <th>매장명</th>
                                 <th>주소</th>
-                                <th>예약일시</th>
+                                <th>수거신청일시</th>
                                 <th>예약등록시간</th>
                                 <th>현재진행상태</th>
                                 <th>수거진행사항</th>

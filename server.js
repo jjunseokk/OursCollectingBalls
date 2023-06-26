@@ -126,10 +126,6 @@ app.post('/qving', (req, res) => {
     UNION
     SELECT num,com_code_num,com_code_dealer_num,store_type,store_type_flag,com_code_store_id,com_code_store_name,com_type,com_style,owner_name,com_man_knum,tel,fax,hphone,store_area,com_post,com_address1,com_address2,com_num,com_email,open_day,close_day,is_valid,thumbnail,write_day,manager_name,bank_name,bank_num,pay_day,memo,gps_lat,gps_long,gps_lng,rep_tel_1,rep_tel_2,van_code,van_tid FROM tbl_ours_store`;
 
-    // const query = `SELECT a.* FROM tbl_com_code_store a INNER JOIN tbl_machine_master b ON b.com_code_store_num = a.num AND b.mac_type IN ('QB','QK') WHERE 1=1
-    // UNION
-    // SELECT * FROM tbl_ours_store`;
-
     connection.query(query, (error, result) => {
         if (error) {
             console.error('qving 접근 쿼리 오류:::', error);
