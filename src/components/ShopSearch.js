@@ -199,7 +199,7 @@ const ShopSearch = () => {
                 console.log("큐빙 get", response.data.data);
             })
             .catch(error => console.error(error))
-    },[])
+    }, [])
 
     // 주소 선택 값이 바뀌면 dispatch로 redux에 저장
     useEffect(() => {
@@ -246,8 +246,8 @@ const ShopSearch = () => {
                             </button>
                         </div>
                         <p style={{ color: 'red', fontSize: '13px', marginTop: 5 }}>
-                            <img src={warning} alt="" width="13px" /> 50포대 이하는 추가 비용이 발생하실 수 있으므로 상담 요청 부탁드립니다. <br/>
-                            <img src={warning} alt="" width="13px" style={{display:'inline-block'}} /> Ours 전용 포대로 수거 진행되는점 참고 바랍니다.(수거 시 Ours 전용 포대를 지급해드립니다.)
+                            <img src={warning} alt="" width="13px" /> 50포대 이하는 추가 비용이 발생하실 수 있으므로 상담 요청 부탁드립니다. <br />
+                            <img src={warning} alt="" width="13px" style={{ display: 'inline-block' }} /> Ours 전용 포대로 수거 진행되는점 참고 바랍니다.<br />(수거 시 Ours 전용 포대를 지급해드립니다.)
                         </p>
                     </div>
                 </div>
