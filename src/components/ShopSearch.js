@@ -232,7 +232,7 @@ const ShopSearch = () => {
                                 onClick={() => {
                                     colletSelect('30포대 이하');
                                 }}
-                                className={active === '50포대 이하' ? 'selected' : ''}
+                                className={active === '30포대 이하' ? 'selected' : ''}
                             >
                                 30포대 이하
                             </button>
@@ -240,7 +240,7 @@ const ShopSearch = () => {
                                 onClick={() => {
                                     colletSelect('30포대 이상');
                                 }}
-                                className={active === '50포대 이상' ? 'selected' : ''}
+                                className={active === '30포대 이상' ? 'selected' : ''}
                             >
                                 30포대 이상
                             </button>
