@@ -42,7 +42,8 @@ const ReservationCheck = () => {
                 if (response.data.exists) {
                     dispatch(dbState(response.data.result));
                     navigate('/ReservationList');
-                    console.log("데이터가 알려줘", response)
+                } else{
+                    alert('예약자명과 휴대전화를 맞게 입력했는지 확인해주세요.');
                 }
             })
             .catch(error => {
