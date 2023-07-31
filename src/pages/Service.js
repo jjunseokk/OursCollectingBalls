@@ -95,7 +95,7 @@ const Service = () => {
                     <button><img src={Inquiry} width='20%' alt="" /> <a href="https://pf.kakao.com/_xnGFTT">1:1 문의</a></button>
                 </div>
                 <div className="counseling" style={{ padding: 40 }}>
-                    <p style={{ fontSize: '1em', color: '#616161', margin: '10px 0px' }}>xperon 상담 운영시간</p>
+                    <p style={{ fontSize: '1em', color: '#616161', margin: '10px 0px' }}>ours 상담 운영시간</p>
                     <p style={{ fontWeight: 'bold', margin: '10px 0px' }}>전화 <span style={{ margin: '5px 0px 5px 5px' }}>031-742-5009</span> <span style={{ fontSize: '0.7em', marginLeft: '4%', margin: '5px 0px', color: '#616161' }}>평일 09:00~18:00 (공휴일 휴무)</span></p>
                     <p style={{ fontWeight: 'bold', margin: '5px 0px' }}>채팅(카카오톡) <span style={{ fontSize: '0.7em', marginLeft: '4%', margin: '5px 0px', color: '#616161' }}>평일 09:00~18:00 (공휴일 휴무)</span></p>
 
