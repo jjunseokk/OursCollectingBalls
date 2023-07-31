@@ -46,18 +46,26 @@ const Home = () => {
             })
             .catch(error => console.error(error))
     }, [])
-    
+
     return (
         <div className="home-container">
-            <ParallaxBanner className="home-main" style={{ aspectRatio: '2 / 1' }}>
-                <ParallaxBannerLayer image={main} speed={-100} />
+            {/* <ParallaxBanner className="home-main" style={{ aspectRatio: '2 / 1' }}>
+                <ParallaxBannerLayer image={main} speed={-100} width="100%" />
                 <ParallaxBannerLayer>
                     <div className="parallax-text">
                         <img src={text} alt="" />
                         <FontAwesomeIcon className="downIcon" icon={faAngleDoubleDown} />
                     </div>
                 </ParallaxBannerLayer>
-            </ParallaxBanner>
+            </ParallaxBanner> */}
+            <div className="home-main">
+                <img src={main} alt="" width='100%' />
+                <div className="parallax-text">
+                    <img src={text} alt="" />
+                    <FontAwesomeIcon className="downIcon" icon={faAngleDoubleDown} />
+                </div>
+            </div>
+
             <div className="home-wrap">
                 <div className="home-goLink">
                     <div>
@@ -72,7 +80,7 @@ const Home = () => {
                             <FontAwesomeIcon className="ours-arrow" icon={faArrowRight} />
                         </LinkBox>
                         <LinkBox className="box" width="39%" padding="0" onClick={() => {
-                            window.location.href = "https://theours.imweb.me/"
+                            window.location.href = "http://52.78.112.88/"
                         }}>
                             <img style={{ borderRadius: 60 }} src={btnBackground} alt="" width='100%' />
                         </LinkBox>
