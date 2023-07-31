@@ -39,7 +39,7 @@ const Service = () => {
                 <div>
                     <h1 style={{ fontWeight: 'bold' }}>고객센터</h1>
                     <h2 style={{ fontWeight: 'bold' }}>
-                        OURS BOX 고객센터입니다 <br />
+                        OURS TRADING 고객센터입니다 <br />
                         무엇을 도와드릴까요?
                     </h2>
                 </div>

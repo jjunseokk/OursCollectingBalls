@@ -38,7 +38,7 @@ const Collect = () => {
         <div className="collect-container">
             <div className="collect-reservation">
                 <CollectBox style={{ padding: 10 }}>
-                    <h1>OURS BOX</h1>
+                    <h1>OURS TRADING</h1>
                     <p style={{ marginBottom: 100 }}>
                         포스트볼 수거하고 다양한 혜택 받자! <br />
                         골프장 점주 수거 무료! <br />

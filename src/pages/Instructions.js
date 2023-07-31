@@ -58,7 +58,7 @@ const Instruction = () => {
       <div className="section2">
         <h3>수거신청 전에 알아보세요.</h3>
         <button onClick={onButtonClick}>
-          OURS BOX 브로슈어
+          OURS TRADING 브로슈어
           <FontAwesomeIcon style={{ marginLeft: 5 }} icon={faDownload} />
         </button>
       </div>
@@ -84,7 +84,7 @@ const Instruction = () => {
         </p>
         <div>
           <p>
-            OURS BOX 고객센터 <strong>031-742-5009</strong>
+            OURS TRADING 고객센터 <strong>031-742-5009</strong>
           </p>
           <p>평일 09:00~18:00 (주말/공휴일 휴무)</p>
         </div>

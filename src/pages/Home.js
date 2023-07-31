@@ -81,7 +81,7 @@ const Home = () => {
                 <div className="home-area">
                     <div className="title">
                         <img src={collectIcon} alt="" />
-                        <h1><span>OURS BOX</span>는 폐기물로 자원 순환을 만듭니다.</h1>
+                        <h1><span>OURS TRADING</span>는 폐기물로 자원 순환을 만듭니다.</h1>
                         <img src={collectIcon} alt="" />
                     </div>
                     <img src={process} alt="" width='100%' />
@@ -105,7 +105,7 @@ const Home = () => {
                 </div>
                 <div className="home-counseling">
                     <div>
-                        <strong>OURS BOX 이용에 궁금한 점이 있나요?</strong> <br />
+                        <strong>OURS TRADING 이용에 궁금한 점이 있나요?</strong> <br />
                         온라인 상담으로 문제를 해결해 보세요.
                     </div>
                     <button onClick={() => {
