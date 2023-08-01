@@ -1,0 +1,45 @@
+.TermsOfUseContainer {
+    width: 80%;
+    margin: 50px auto;
+
+    h3 {
+        margin: 50px 0px;
+    }
+
+    h4 {
+        margin-top: 20px;
+    }
+
+    .TermsOl {
+        margin-left: 40px;
+        margin-top: 10px;
+    }
+
+    .TermsPushOl {
+        margin-left: 40px;
+    }
+
+    p {
+        margin: 10px 0px;
+    }
+
+    li {
+        margin: 15px 0px;
+    }
+
+    ul {
+        li {
+            list-style: none;
+        }
+    }
+
+    table {
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 15px;
+        }
+    }
+
+}

@@ -11,6 +11,10 @@ import ReservationSuccess from './pages/ReservationSuccess';
 import ReservationList from './pages/ReservationList';
 import Instruction from './pages/Instructions';
 import Service from './pages/Service';
+import TermsOfUse from './pages/TermsOfUse';
+import RefuseCollectEmail from './pages/RefuseCollectEmail';
+import Privacy from './pages/Privacy';
+import About from './pages/About';
 
 function App() {
   return (
@@ -34,6 +38,14 @@ function App() {
           <Route path='/Instruction' element={<Instruction />} />
           {/* 고객센터 */}
           <Route path='/Service' element={<Service />} />
+          {/* 이용약관 */}
+          <Route path='/TermsOfUse' element={<TermsOfUse />} />
+          {/* 이메일무단수집거부 */}
+          <Route path='/RefuseCollectEmail' element={<RefuseCollectEmail />} />
+          {/* 개인정보 취급방침 */}
+          <Route path='/Privacy' element={<Privacy />} />
+          {/* 회사소개 */}
+          <Route path='/About' element={<About />} />
         </Routes>
         <Footer />
       </div>

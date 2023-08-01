@@ -36,7 +36,11 @@ div {
   border-bottom: 2px solid gray;
 
   padding: 0;
-
+}
+.navbar-logo {
+  cursor: pointer;
+  text-align: center;
+  padding: 0;
 }
 
 .navbar-logo img {
@@ -97,25 +101,25 @@ div {
 }
 
 .footer-logo {
-  width: 20%;
   margin-top: 10px;
-}
-.footer-logo img {
-  width: 100%;
 }
 
 .footer-infor p {
   font-size: 0.8em;
   margin: 15px 0px;
 }
-
+.footer-infor span {
+  cursor: pointer;
+}
+.footer-infor span:hover {
+  color: #84c514;
+}
 .footer-link img {
   width: 20%;
   margin: 10px 10px;
 }
 
 @media screen and (max-width: 767px) {
-
   .footer-container {
     display: block;
   }

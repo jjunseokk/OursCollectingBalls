@@ -1,12 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import "../style/instruction.scss";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDownload } from "@fortawesome/free-solid-svg-icons";
 
 import process from "../img/process.png";
-import delivery from "../img/delivery.png";
-import navigation from "../img/navigation.png";
 
 const Instruction = () => {
   // let [clickTab, setClickTap] = useState(0);
@@ -63,17 +61,16 @@ const Instruction = () => {
         </button>
       </div>
       <div className="section3">
-        <h3>로스트볼 수거 프로세스</h3>
+        <h3>헌볼 수거 프로세스</h3>
         <img
           style={{ marginBottom: 20 }}
           src={process}
           alt=""
-          width="70%"
         />
       </div>
       <div className="section4">
         <h3>신청 자격 기준</h3>
-        <p>골프장과 로스트볼을 갖고 있는 점주는 누구나 신청 가능!</p>
+        <p>헌 골프공 수거신청을 원하는 점주는 누구나 신청 가능!</p>
       </div>
 
       <div className="section6">

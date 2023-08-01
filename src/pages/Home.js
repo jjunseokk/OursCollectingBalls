@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import '../style/home.scss';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faAngleDoubleDown, faArrowRight } from '@fortawesome/free-solid-svg-icons'
+import { faCaretRight, faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from "react-router-dom";
-import { ParallaxBanner, ParallaxBannerLayer } from 'react-scroll-parallax';
+// import { ParallaxBanner, ParallaxBannerLayer } from 'react-scroll-parallax';
 import axios from "axios";
 
 // import { Swiper, SwiperSlide } from "swiper/react";
@@ -21,6 +21,10 @@ import collectIcon from '../img/collectIcon.png';
 import btnBackground from '../img/btnBackground.png';
 import process from '../img/miniProcess.png';
 import btnBack from '../img/btnBack.png';
+import tradingText from '../img/Trading-text.png';
+import trading from '../img/Trading.png';
+import oursBoxText from '../img/OursBox-text.png';
+import oursBox from '../img/OursBox.png';
 
 const LinkBox = styled.div`
     width: ${props => props.width};
@@ -45,7 +49,26 @@ const Home = () => {
                 console.log("큐빙 get", response.data.data);
             })
             .catch(error => console.error(error))
-    }, [])
+    }, []);
+
+
+
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+        // 창 너비 변경 시 이벤트 핸들러
+        const handleResize = () => {
+            setWindowWidth(window.innerWidth);
+        };
+
+        // 이벤트 핸들러 등록
+        window.addEventListener('resize', handleResize);
+
+        // 컴포넌트 언마운트 시 이벤트 핸들러 제거
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
 
     return (
         <div className="home-container">
@@ -62,7 +85,8 @@ const Home = () => {
                 <img src={main} alt="" width='100%' />
                 <div className="parallax-text">
                     <img src={text} alt="" />
-                    <FontAwesomeIcon className="downIcon" icon={faAngleDoubleDown} />
+                    {/* <FontAwesomeIcon className="downIcon" icon={faAngleDoubleDown} /> */}
+                    <button onClick={() => { navigate('/reservation'); }}><p>신청하기</p><FontAwesomeIcon icon={faCaretRight} /></button>
                 </div>
             </div>
 
@@ -120,6 +144,35 @@ const Home = () => {
                         navigate('/Service');
                     }}>고객센터</button>
                 </div>
+                {windowWidth <= 500 ? (
+                    <>
+                        <div className="home-project">
+                            <div>
+                                <img src={trading} alt="" />
+                                <img src={tradingText} alt="" />
+                            </div>
+                            <div>
+                                <img src={oursBox} alt="" />
+                                <img src={oursBoxText} alt="" />
+                            </div>
+                            <button onClick={() => { navigate('/Service') }}>무상설치문의</button>
+                        </div>
+                    </>
+                ) : (
+                    <>
+                        <div className="home-project">
+                            <div>
+                                <img src={tradingText} alt="" />
+                                <img src={trading} alt="" />
+                            </div>
+                            <div>
+                                <img src={oursBox} alt="" />
+                                <img src={oursBoxText} alt="" />
+                            </div>
+                            <button onClick={() => { navigate('/Service') }}>무상설치문의</button>
+                        </div>
+                    </>
+                )}
             </div>
         </div>
     )

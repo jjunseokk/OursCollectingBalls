@@ -94,7 +94,7 @@
         padding: 0px;
 
         img {
-            width: 100%;
+            width: 90%;
         }
     }
 
@@ -158,14 +158,17 @@
 @media screen and (max-width : 1023px) {
     .instruction-container {
         padding: 0px 10px;
+
         div {
             h3 {
                 margin: 10px 0px;
             }
         }
-    
+
+
+
         .section1 {
-    
+
             .title {
                 padding: 5px 0px;
                 margin: 10px;
@@ -176,72 +179,72 @@
                 color: #7A7A7A;
                 cursor: pointer;
             }
-    
+
             .collectBox {
                 padding: 5px;
                 display: block;
-    
+
                 .component {
                     padding: 5px;
                     margin: 0px auto;
                 }
             }
         }
-    
+
         .section2 {
             padding: 30px 0px;
             margin: 0px;
-    
+
             button {
                 width: 50%;
             }
         }
-    
+
         .section3 {
             margin: 0px;
             padding: 0px;
-    
+
             img {
                 width: 100%;
             }
         }
-    
+
         .section4 {
             padding: 20px 0px;
             margin: 0px;
-    
+
             p {
                 margin: 0;
                 padding: 40px 30px;
                 background-color: white;
                 border-radius: 40px;
             }
-    
+
         }
-    
+
         .section6 {
             margin: 0px;
             padding: 0px;
-    
+
             h3 {
                 font-size: 2em;
                 padding: 0px 10px;
                 margin: 0;
             }
-    
+
             p {
                 padding: 5px 10px;
                 border-bottom: 1px solid black;
                 margin-bottom: 40px;
                 color: #7A7A7A;
                 font-size: 0.8em;
-    
+
                 &:last-child {
                     text-align: right;
                     border-bottom: none;
                     color: black;
                     font-size: 1em;
-    
+
                 }
             }
         }
@@ -250,6 +253,30 @@
 
 @media screen and (max-width : 480px) {
     .instruction-container {
+        .section2 {
+            button {
+                width: 50%;
+                height: 40px;
+                font-size: 0.5em;
+            }
+        }
+
+        .collectBox {
+
+            .component {
+
+                .first,
+                .second {
+
+                    font-size: 0.8em;
+                }
+            }
+        }
+        .section4{
+            p{
+                font-size: 0.65em;
+            }
+        }
         .section6 {
             p {
                 padding: 5px 10px;
@@ -257,15 +284,16 @@
                 margin-bottom: 40px;
                 color: #7A7A7A;
                 font-size: 0.8em;
-    
+
                 &:last-child {
                     text-align: left;
                     border-bottom: none;
                     color: black;
                     font-size: 1em;
-    
+
                 }
             }
+
             div {
                 display: block;
                 justify-content: space-between;
@@ -273,7 +301,7 @@
                 margin-bottom: 20px;
                 background-color: white;
                 border-radius: 40px;
-    
+
                 p {
                     margin-bottom: 0px;
                     border-bottom: none;
