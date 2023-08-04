@@ -6,7 +6,6 @@ import { faChevronLeft, faChevronRight, faSearch, faAnglesRight, faAnglesLeft } 
 
 import { useDispatch } from 'react-redux'
 import { addState, collectState } from "../redux/store";
-import { useQuery } from 'react-query';
 
 import golf from '../img/golf.png';
 import warning from '../img/warning.png';

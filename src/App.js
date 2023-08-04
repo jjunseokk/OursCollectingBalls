@@ -15,6 +15,9 @@ import TermsOfUse from './pages/TermsOfUse';
 import RefuseCollectEmail from './pages/RefuseCollectEmail';
 import Privacy from './pages/Privacy';
 import About from './pages/About';
+import Event from './pages/Event';
+import Ours from './pages/Ours';
+import Factory from './pages/Factory';
 
 function App() {
   return (
@@ -46,6 +49,12 @@ function App() {
           <Route path='/Privacy' element={<Privacy />} />
           {/* 회사소개 */}
           <Route path='/About' element={<About />} />
+          {/* 이벤트 페이지 */}
+          <Route path='/Event' element={<Event />} />
+          {/* 아워스 */}
+          <Route path='/Ours' element={<Ours />} />
+          {/* 팩토리 */}
+          <Route path='/Factory' element={<Factory />} />
         </Routes>
         <Footer />
       </div>

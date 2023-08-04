@@ -1,0 +1,465 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.eventContainer {
+    padding: 0;
+    margin: 0;
+
+    z-index: 0;
+
+    .banner {
+        height: 100vh;
+        padding: 0;
+        margin: 0;
+        z-index: 0;
+        position: relative;
+
+        .event {
+            width: 30%;
+            position: absolute;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+
+            img {
+                width: 100%;
+            }
+
+        }
+
+        .down {
+            color: white;
+            font-size: 2em;
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translate(-50%);
+            animation: downArrow linear 1s infinite;
+        }
+    }
+
+    .EventWrap {
+        width: 100%;
+
+        .oursBusiness {
+            text-align: center;
+            padding: 0;
+
+            .businessText {
+                margin: 100px 0px;
+
+                .showLine {
+                    position: relative;
+                    background: linear-gradient(to top, #AEFF1E 40%, transparent 40%);
+                    background-size: 0% 5px;
+                    background-repeat: no-repeat;
+                    /* 배경 중복 반복 제거 */
+                    background-position: left bottom;
+
+                    transition: background-size 1s ease;
+                    /* background-size를 0.3초동안 서서히 나타냄 */
+
+                    /* 위치 기준을 왼쪽 아래로 */
+
+                }
+
+                .showLine.active {
+                    background-size: 100% 40px;
+
+                }
+
+                img {
+                    height: 25px;
+                    margin-right: 5px;
+                }
+            }
+
+            .businessImg {
+                display: flex;
+                justify-content: space-around;
+                background: url(../img/businessBack.png) no-repeat;
+                background-size: 60%;
+                background-position: 0% 100%;
+                margin: 0;
+                padding: 100px 0px;
+
+                .ImgBox {
+                    position: relative;
+                    padding: 0;
+                    margin: 0;
+                    width: 30%;
+
+                    .back {
+                        width: 100%;
+                    }
+
+                    .text {
+                        display: block;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        width: 50%;
+                    }
+
+                    .SeeMore {
+                        color: white;
+                        font-weight: bold;
+                        position: absolute;
+                        bottom: 10px;
+                        right: 10px;
+                        cursor: pointer;
+                    }
+                }
+
+            }
+
+            .businessHello {
+                width: 100%;
+                margin: 100px 0px 0px 0px;
+                position: relative;
+
+                .contact {
+                    width: 95%;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+
+                    button {
+                        width: 20%;
+                        height: 50px;
+                        border-radius: 20px;
+                        font-size: 1.5em;
+                        font-weight: bold;
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            .businessContact {
+                width: 100%;
+                height: 90vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                position: relative;
+                font-size: 1.2em;
+
+                h1 {
+                    margin-bottom: 100px;
+                }
+
+                img {
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                    width: 50%;
+                }
+            }
+
+            .OursEnvironment {
+                width: 100%;
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                h1 {
+                    width: 50%;
+                    height: 60%;
+
+                    img {
+                        height: 25px;
+                        margin-right: 5px;
+                    }
+                }
+
+                div {
+                    text-align: left;
+                    width: 50%;
+
+                    h1 {
+                        width: 100%;
+                        font-size: 3em;
+                    }
+
+                    hr {
+                        margin: 70px 0px;
+                        border: 1px solid #AEFF1E;
+                    }
+
+                    .pen {
+                        width: 120px;
+                        box-shadow: inset 0 -20px 0 #AEFF1E;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes downArrow {
+    0% {
+        bottom: 70px
+    }
+
+    100% {
+        bottom: 50px
+    }
+}
+
+
+@media screen and (max-width : 480px) {
+    .eventContainer {
+        .banner {
+
+            .event {
+                width: 80%;
+            }
+        }
+
+        .EventWrap {
+            .oursBusiness {
+                text-align: center;
+                padding: 0;
+
+                .businessText {
+                    h1 {
+                        font-size: 1.4em;
+                    }
+
+                    img {
+                        height: 20px;
+                    }
+                }
+
+                .businessImg {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                    background: none;
+                    padding: 0px 0px;
+
+                    .ImgBox {
+                        width: 90%;
+                    }
+
+                }
+
+                .businessHello {
+                    margin-top: 40px;
+
+                    .contact {
+                        width: 90%;
+
+                        img {
+                            width: 50%;
+                        }
+
+                        button {
+                            width: 30%;
+                            height: 40px;
+                            font-size: 0.8em;
+                        }
+                    }
+                }
+
+                .businessContact {
+                    font-size: 1em;
+
+                }
+
+                .OursEnvironment {
+                    width: 100%;
+                    height: 80vh;
+                    display: flex;
+                    flex-direction: column;
+
+                    h1 {
+                        text-align: left;
+                        width: 100%;
+                        height: 20%;
+
+                        img {
+                            height: 25px;
+                            margin-right: 5px;
+                        }
+                    }
+
+                    div {
+                        text-align: left;
+                        width: 100%;
+
+                        h1 {
+                            width: 100%;
+                            font-size: 2em;
+                        }
+
+                        hr {
+                            margin: 70px 0px;
+                            border: 1px solid #AEFF1E;
+                        }
+
+                        .pen {
+                            width: 120px;
+                            height: 40px;
+                            box-shadow: inset 0 -15px 0 #AEFF1E;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width : 481px) and (max-width : 768px) {
+    .eventContainer {
+        .banner {
+
+            .event {
+                width: 50%;
+            }
+        }
+
+        .EventWrap {
+            .oursBusiness {
+                text-align: center;
+                padding: 0;
+
+                .businessText {
+                    h1 {
+                        font-size: 1.4em;
+                    }
+
+                    img {
+                        height: 20px;
+                    }
+                }
+
+                .businessImg {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                    background: none;
+                    padding: 0px 0px;
+
+                    .ImgBox {
+                        width: 90%;
+                    }
+
+                }
+
+                .businessHello {
+                    margin-top: 40px;
+
+                    .contact {
+                        width: 90%;
+
+                        img {
+                            width: 50%;
+                        }
+
+                        button {
+                            width: 30%;
+                            height: 40px;
+                            font-size: 0.8em;
+                        }
+                    }
+                }
+
+                .businessContact {
+                    height: 50vh;
+                    font-size: 1.3em;
+                }
+
+                .OursEnvironment {
+                    width: 100%;
+                    height: 60vh;
+                    display: block;
+                    margin: 100px 0px;
+
+                    h1 {
+                        text-align: left;
+                        width: 100%;
+                        height: 20%;
+
+                        img {
+                            height: 25px;
+                            margin-right: 5px;
+                        }
+                    }
+
+                    div {
+                        text-align: left;
+                        width: 100%;
+
+                        h1 {
+                            width: 100%;
+                            font-size: 2em;
+                        }
+
+                        hr {
+                            margin: 70px 0px;
+                            border: 1px solid #AEFF1E;
+                        }
+
+                        .pen {
+                            width: 120px;
+                            box-shadow: inset 0 -20px 0 #AEFF1E;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+@media screen and (min-width : 1800px) {
+    .eventContainer {
+
+        .EventWrap {
+            width: 60%;
+            margin: 0 auto;
+
+            .oursBusiness {
+                .businessImg {
+                    background: none;
+                }
+
+                .businessContact {
+                    height: 30vh;
+                    font-size: 1.3em;
+                }
+
+                .OursEnvironment {
+                    width: 100%;
+                    height: 40vh;
+
+                    h1 {
+                        text-align: left;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -45,13 +45,13 @@ const Header = () => {
                             }} />
                         </div>
                     </div>
-                    <div className={showMenu ? "phone-menu active" : "phone-menu"}>
-                        <p onClick={() => handleMenuClick('/')}>아워스</p>
+                    <div className={showMenu ? "phone-menu phone-menuActive" : "phone-menu"}>
+                        <p onClick={() => handleMenuClick('/Ours')}>아워스</p>
                         <p onClick={() => handleMenuClick('/reservation')}>수거예약</p>
                         <p onClick={() => handleMenuClick('/ReservationCheck')}>예약확인</p>
                         <p onClick={() => handleMenuClick('/Instruction')}>이용안내</p>
                         <p onClick={() => handleMenuClick('/Service')}>고객센터</p>
-                        <p onClick={() => handleMenuClick('/')}>이벤트</p>
+                        <p onClick={() => handleMenuClick('/Event')}>이벤트</p>
                     </div>
                 </>
             ) :
@@ -62,12 +62,12 @@ const Header = () => {
                         }}><img src={Logo} alt="" />
                         </div>
                         <ul className="navbar-menu">
-                            <li onClick={() => handleMenuClick('/')}>아워스</li>
+                            <li onClick={() => handleMenuClick('/Ours')}>아워스</li>
                             <li onClick={() => handleMenuClick('/reservation')}>수거예약</li>
                             <li onClick={() => handleMenuClick('/ReservationCheck')}>예약확인</li>
                             <li onClick={() => handleMenuClick('/Instruction')}>이용안내</li>
                             <li onClick={() => handleMenuClick('/Service')}>고객센터</li>
-                            <li onClick={() => handleMenuClick('/')}>이벤트</li>
+                            <li onClick={() => handleMenuClick('/Event')}>이벤트</li>
                         </ul>
                         <div className="outSite">
                             <span><a href="http://service.qving.co.kr/">큐빙</a></span>

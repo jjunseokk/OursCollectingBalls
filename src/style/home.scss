@@ -107,8 +107,6 @@
                     font-size: 2em;
                 }
 
-                .ours {}
-
                 .ours-arrow {
                     position: absolute;
                     bottom: 50px;
@@ -651,5 +649,12 @@
         90% {
             transform: scale(1.03);
         }
+    }
+}
+
+@media screen and (min-width : 1800px) {
+    .home-container {
+        width: 70%;
+        margin: 0 auto;
     }
 }

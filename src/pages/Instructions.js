@@ -19,14 +19,14 @@ const Instruction = () => {
   // };
 
   const onButtonClick = () => {
-    fetch("ours_Brochure.pdf").then(
+    fetch("Ours_about.pdf").then(
       (response) => {
         response.blob().then((blob) => {
           const fileURL = window.URL.createObjectURL(blob);
           let alink = document.createElement("a");
           alink.href = fileURL;
           alink.download =
-            "ours_Brochure.pdf";
+            "Ours_about.pdf";
           alink.click();
         });
       }

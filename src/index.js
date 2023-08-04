@@ -7,6 +7,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './redux/store';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import ScrollToTop from './components/ScrollToTap';
 
 const queryClient = new QueryClient()
 
@@ -15,6 +16,7 @@ root.render(
   <QueryClientProvider client={queryClient}>
     <Provider store={store}>
       <BrowserRouter>
+        <ScrollToTop />
         <App />
       </BrowserRouter>
     </Provider>

@@ -5,7 +5,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight, faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import styled from 'styled-components';
 
-import test from '../img/testimg.png';
 import Inquiry from '../img/Inquiry.png';
 import service from '../img/service.png';
 import Ours_1 from '../img/weAreOurs1.png';

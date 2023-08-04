@@ -272,11 +272,13 @@
                 }
             }
         }
-        .section4{
-            p{
+
+        .section4 {
+            p {
                 font-size: 0.65em;
             }
         }
+
         .section6 {
             p {
                 padding: 5px 10px;
@@ -310,5 +312,12 @@
                 }
             }
         }
+    }
+}
+
+@media screen and (min-width : 1800px) {
+    .instruction-container {
+        width: 70%;
+        margin: 0 auto;
     }
 }
