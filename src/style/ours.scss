@@ -86,8 +86,9 @@ body {
                     width: 30%;
 
                     h2 {
-                        width: 40%;
-                        background: linear-gradient(to top, #AEFF1E 40%, transparent 40%);
+                        span {
+                            background: linear-gradient(to top, #AEFF1E 40%, transparent 40%);
+                        }
                     }
 
                     p {
@@ -119,7 +120,7 @@ body {
                 div {
                     color: white;
                     position: absolute;
-                    bottom: 17%;
+                    bottom: 13%;
                     left: 38%;
                     font-size: 1.5em;
                     font-weight: bold;

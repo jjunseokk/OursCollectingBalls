@@ -51,7 +51,6 @@ const Header = () => {
                         <p onClick={() => handleMenuClick('/ReservationCheck')}>예약확인</p>
                         <p onClick={() => handleMenuClick('/Instruction')}>이용안내</p>
                         <p onClick={() => handleMenuClick('/Service')}>고객센터</p>
-                        <p onClick={() => handleMenuClick('/Event')}>이벤트</p>
                     </div>
                 </>
             ) :
@@ -67,7 +66,6 @@ const Header = () => {
                             <li onClick={() => handleMenuClick('/ReservationCheck')}>예약확인</li>
                             <li onClick={() => handleMenuClick('/Instruction')}>이용안내</li>
                             <li onClick={() => handleMenuClick('/Service')}>고객센터</li>
-                            <li onClick={() => handleMenuClick('/Event')}>이벤트</li>
                         </ul>
                         <div className="outSite">
                             <span><a href="http://service.qving.co.kr/">큐빙</a></span>

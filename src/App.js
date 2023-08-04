@@ -50,9 +50,9 @@ function App() {
           {/* 회사소개 */}
           <Route path='/About' element={<About />} />
           {/* 이벤트 페이지 */}
-          <Route path='/Event' element={<Event />} />
+          <Route path='/Ours' element={<Event />} />
           {/* 아워스 */}
-          <Route path='/Ours' element={<Ours />} />
+          <Route path='/Event' element={<Ours />} />
           {/* 팩토리 */}
           <Route path='/Factory' element={<Factory />} />
         </Routes>

@@ -25,13 +25,14 @@ const Event = () => {
         {
             backSrc: businessImg_1,
             textSrc: businessText_1,
-            UrlSrc: "/Instruction",
+            UrlSrc: "/reservation",
             alt: 'Image 1',
         },
         {
             backSrc: businessImg_2,
             textSrc: businessText_2,
             alt: 'Image 2',
+            UrlSrc : '/Event'
         },
         {
             backSrc: businessImg_3,

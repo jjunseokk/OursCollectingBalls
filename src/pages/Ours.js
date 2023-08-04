@@ -138,7 +138,7 @@ const Ours = () => {
                         <div className='title'>
                             <hr className='line' />
                             <div>
-                                <h2>아워박스 플랫폼</h2>
+                                <h2><span>아워박스 플랫폼</span></h2>
                                 <p>전국 골프장에서 만나는 <span>골프공 교환 플랫폼</span></p>
                             </div>
                         </div>
