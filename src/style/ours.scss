@@ -621,19 +621,19 @@ body {
             margin: 0 auto;
 
             .technologyArea {
-
+                height: 700px;
                 img {
                     width: 30%;
                 }
 
                 .technology1 {
                     top: 10%;
-                    left: 5%;
+                    left: 15%;
                 }
 
                 .technology2 {
                     top: 5%;
-                    left: 35%;
+                    left: 40%;
                 }
 
                 .technology3 {
@@ -653,7 +653,10 @@ body {
                     }
 
                     div {
-                        bottom: 52%;
+                        left: 30%;
+                        bottom: 45%;
+                        font-size: 2em;
+                        
                     }
                 }
 

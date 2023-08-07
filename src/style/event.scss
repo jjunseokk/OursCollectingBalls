@@ -10,7 +10,7 @@ body {
     z-index: 0;
 
     .banner {
-        height: 100vh;
+        height: 1200px;
         padding: 0;
         margin: 0;
         z-index: 0;
@@ -176,6 +176,7 @@ body {
             .OursEnvironment {
                 width: 100%;
                 height: 600px;
+                margin-top: 100px;
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -192,7 +193,7 @@ body {
 
                 div {
                     text-align: left;
-                    width: 50%;
+                    width: 60%;
 
                     h1 {
                         width: 100%;
@@ -446,7 +447,7 @@ body {
                 }
 
                 .businessContact {
-                    height: 30vh;
+                    height: 500px;
                     font-size: 1.3em;
                 }
 
