@@ -35,6 +35,10 @@ import dot from '../img/dot.png';
 
 import map from '../img/map.png';
 
+import one from '../img/1.png';
+import two from '../img/2.png';
+import three from '../img/3.png';
+
 const settings = {
     className: "center",
     centerMode: true,
@@ -101,35 +105,52 @@ const Ours = () => {
         }
     }, []); // 컴포넌트가 처음 마운트 될때와 언마운트 될 때 실행
 
+
     console.log(windowSize);
     return (
         <div className='oursContainer' >
             <div className='banner'>
-                {windowSize.width <= 494 ? <img className='background' src={oursMobileBack} alt='' /> : <img className='background' src={oursBack} alt='' />}
+                {windowSize.width <= 500 ? <img className='background' src={oursMobileBack} alt='' /> : <img className='background' src={oursBack} alt='' />}
                 <div className='bannerContent'>
                     <img src={oursText} alt='' />
                     <img src={ours} alt='' />
                 </div>
             </div>
             <div className='oursWrap'>
-                {windowSize.width <= 494 ? (
+                {windowSize.width <= 500 ? (
                     <div className='MobileTechnologyArea'>
                         <div className='MobileTechnology1'>
-                            <img src={MobileTechnology_1} alt='' />
+                            <img className='back' src={MobileTechnology_1} alt='' />
+                            <p><span>OURS BOX</span>에 탑재된 인공지능은 재활용 가능한 <br /> 골프공을 회수하여, 에코보상을 제공합니다. </p>
+                            <img className='one' src={one} alt='' />
                         </div>
                         <div className='MobileTechnology2'>
-                            <img src={MobileTechnology_2} alt='' />
+                            <img className='back' src={MobileTechnology_2} alt='' />
+                            <p><span>OURS BOX</span>에 탑재된 인공지능은 재활용 가능한 <br /> 골프공을 회수하여, 에코보상을 제공합니다. </p>
+                            <img className='two' src={two} alt='' />
                         </div>
                         <div className='MobileTechnology3'>
-                            <img src={MobileTechnology_3} alt='' />
+                            <img className='back' src={MobileTechnology_3} alt='' />
+                            <p><span>OURS BOX</span>에 탑재된 인공지능은 재활용 가능한 <br /> 골프공을 회수하여, 에코보상을 제공합니다. </p>
+                            <img className='three' src={three} alt='' />
                         </div>
 
                     </div>
                 ) : (
                     <div className='technologyArea'>
-                        <img className='technology1' src={technology_1} alt='' />
-                        <img className='technology2' src={technology_2} alt='' />
-                        <img className='technology3' src={technology_3} alt='' />
+                        <div className='technology1'>
+                            <img src={technology_1} alt='' />
+                            <p><span>OURS BOX</span>에 탑재된 인공지능은 재활용 가능한 골프공을 회수하여, 에코보상을 제공합니다. </p>
+                        </div>
+                        <div className='technology2'>
+                            <img src={technology_3} alt='' />
+                            <p><span>OURS BOX</span>에 탑재된 인공지능은 재활용 가능한 골프공을 회수하여, 에코보상을 제공합니다. </p>
+                        </div><div className='technology3'>
+                            <img src={technology_2} alt='' />
+                            <p><span>OURS BOX</span>에 탑재된 인공지능은 재활용 가능한 골프공을 회수하여, 에코보상을 제공합니다. </p>
+                        </div>
+
+
                     </div>
                 )}
 
@@ -155,7 +176,7 @@ const Ours = () => {
                             <p className='re'>RE:100 CAMPAIGN</p>
                         </div>
                     </div>
-                    <div className='process' style={{ height: `${windowSize.width >= 1800? `${windowSize.width / 1.5}px`:`${windowSize.width / 1.2}`}px` }}>
+                    <div className='process' style={{ height: `${windowSize.width >= 1800 ? `${windowSize.width / 1.5}px` : `${windowSize.width / 1.2}`}px` }}>
                         <h1>OURS BOX PROCESS</h1>
                         <p>
                             간단하게, 그러나 가치있게! <br />

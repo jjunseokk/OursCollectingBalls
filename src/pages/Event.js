@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import '../style/event.scss';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useNavigate } from 'react-router-dom';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDoubleDown, faArrowRight, faCaretRight } from '@fortawesome/free-solid-svg-icons';
 
 import eventBanner from '../img/eventBanner.png';

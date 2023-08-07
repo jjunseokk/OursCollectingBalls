@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import '../style/home.scss';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCaretRight, faArrowRight } from '@fortawesome/free-solid-svg-icons'
+import { faArrowRight, faAngleDoubleDown } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from "react-router-dom";
 // import { ParallaxBanner, ParallaxBannerLayer } from 'react-scroll-parallax';
 import axios from "axios";
@@ -16,7 +16,6 @@ import axios from "axios";
 // import EventCard from "../components/EventCard";
 
 import main from '../img/main.png';
-import text from '../img/text.png';
 import collectIcon from '../img/collectIcon.png';
 import btnBackground from '../img/btnBackground.png';
 import process from '../img/miniProcess.png';
@@ -25,6 +24,8 @@ import tradingText from '../img/Trading-text.png';
 import trading from '../img/Trading.png';
 import oursBoxText from '../img/OursBox-text.png';
 import oursBox from '../img/OursBox.png';
+import eventBannerText from '../img/eventBannerText.png';
+import eventBannerText2 from '../img/eventBannerText2.png';
 
 const LinkBox = styled.div`
     width: ${props => props.width};
@@ -72,23 +73,20 @@ const Home = () => {
 
     return (
         <div className="home-container">
-            {/* <ParallaxBanner className="home-main" style={{ aspectRatio: '2 / 1' }}>
-                <ParallaxBannerLayer image={main} speed={-100} width="100%" />
-                <ParallaxBannerLayer>
-                    <div className="parallax-text">
-                        <img src={text} alt="" />
-                        <FontAwesomeIcon className="downIcon" icon={faAngleDoubleDown} />
-                    </div>
-                </ParallaxBannerLayer>
-            </ParallaxBanner> */}
+
             <div className="home-main">
                 <img src={main} alt="" width='100%' />
                 <div className="parallax-text">
-                    <img src={text} alt="" />
-                    {/* <FontAwesomeIcon className="downIcon" icon={faAngleDoubleDown} /> */}
-                    <button onClick={() => { navigate('/reservation'); }}><p>신청하기</p><FontAwesomeIcon icon={faCaretRight} /></button>
+                    <div className="bannerText">
+                        <img src={eventBannerText} alt="" />
+                        <img style={{ marginTop: 20 }} src={eventBannerText2} alt='' />
+                    </div>
+
+                    <FontAwesomeIcon className="downIcon" icon={faAngleDoubleDown} />
+                    {/* <button onClick={() => { navigate('/reservation'); }}><p>신청하기</p><FontAwesomeIcon icon={faCaretRight} /></button> */}
                 </div>
             </div>
+
 
             <div className="home-wrap">
                 <div className="home-goLink">
@@ -117,23 +115,6 @@ const Home = () => {
                         <img src={collectIcon} alt="" />
                     </div>
                     <img src={process} alt="" width='100%' />
-                    {/* <Swiper
-                        spaceBetween={30}
-                        slidesPerView={3}
-                        navigation={true}
-                        modules={[Pagination, Navigation]}
-                        className="mySwiper"
-                    >
-                        <SwiperSlide><EventCard title="event1" /></SwiperSlide>
-                        <SwiperSlide><EventCard title="event1" /></SwiperSlide>
-                        <SwiperSlide><EventCard title="event1" /></SwiperSlide>
-                        <SwiperSlide><EventCard title="event1" /></SwiperSlide>
-                        <SwiperSlide><EventCard title="event1" /></SwiperSlide>
-                        <SwiperSlide><EventCard title="event1" /></SwiperSlide>
-                        <SwiperSlide><EventCard title="event1" /></SwiperSlide>
-                        <SwiperSlide><EventCard title="event1" /></SwiperSlide>
-                        <SwiperSlide><EventCard title="event1" /></SwiperSlide>
-                    </Swiper> */}
                 </div>
                 <div className="home-counseling">
                     <div>
