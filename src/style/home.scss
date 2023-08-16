@@ -6,24 +6,28 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&family=Noto+Sans+KR&display=swap');
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
 
 .home-container {
     width: 100%;
     font-size: 1em;
-    background-color: #F7F7F9;
+    background-color: white;
     padding: 0;
-    font-family: 'Noto Sans KR', sans-serif;
 
     .home-main {
         position: relative;
         padding: 0;
+        margin: 0;
 
         .parallax-text {
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
+            text-align: center;
             color: white;
+            padding: 0;
+            margin: 0;
 
             .bannerText {
                 position: absolute;
@@ -36,32 +40,18 @@
                 flex-direction: column;
                 margin: 0;
                 padding: 0;
+                font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+                font-weight: bold;
+                text-shadow: 6px 6px 2px black;
 
-                img {
-                    width: 70%;
+                h1 {
+                    font-size: 5em;
                 }
 
+                p {
+                    font-size: 2em;
+                }
             }
-
-            // button {
-            //     width: 200px;
-            //     height: 50px;
-            //     border: none;
-            //     border-radius: 20px;
-            //     background: #9ECC4C;
-            //     color: white;
-            //     font-weight: bold;
-            //     position: absolute;
-            //     bottom: 20%;
-            //     right: 5%;
-            //     font-size: 1.2em;
-            //     cursor: pointer;
-            //     display: flex;
-            //     justify-content: center;
-            //     align-items: center;
-            // }
-
-
 
             .downIcon {
                 font-size: 1.5em;
@@ -73,328 +63,366 @@
     }
 
     .home-wrap {
-        padding: 70px 120px;
-
-        p {
-            font-size: 2em;
-            margin-bottom: 20px;
-        }
-    }
-
-    .home-goLink {
-        padding: 0;
-        margin-bottom: 100px;
-
-        div {
-            display: flex;
-            justify-content: space-between;
-            font-family: 'Noto Sans KR', sans-serif;
-            font-weight: 700;
-
-            .ball-animation {
-                &:hover {
-                    animation: Scale linear 1s infinite;
-                }
-            }
-
-            .box {
-                p {
-                    font-size: 2em;
-                }
-
-                .ours-arrow {
-                    position: absolute;
-                    bottom: 50px;
-                    right: 70px;
-                    font-size: 4em;
-                    font-weight: bold;
-                }
-
-            }
-        }
-    }
-}
-
-.home-area {
-    width: 100%;
-    margin-bottom: 100px;
-
-    .title {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        img {
-            width: 40px;
-            height: 40px;
-            margin: 0px 20px;
-        }
-
-        span {
-            background-color: #AEFF1E;
-        }
-    }
-
-    .event_card {
-        width: 100%;
-        height: 300px;
-        position: relative;
-        background-color: #777777;
-        border-radius: 60px;
-
-        .event_text {
-            position: absolute;
-            left: 30px;
-            bottom: 30px;
-
-            color: white;
-        }
-    }
-}
-
-.home-counseling {
-    width: 98%;
-    height: 150px;
-    margin: 0 auto;
-    padding: 0px 40px;
-    background-color: #AEFF1E;
-    border-radius: 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    div {
-        font-size: 20px;
-
-        strong {
-            font-size: 30px;
-        }
-    }
-
-
-    button {
-        width: 150px;
-        height: 70px;
-
-        border: 1px solid black;
-        background-color: #FFFFFF;
-        border-radius: 50px;
-        cursor: pointer;
-        font-size: 1.2em;
-
-        a {
-            text-decoration: none;
-            color: black;
-            width: 100%;
-            height: 100%;
-            display: block;
-            padding: 30px 0px;
-        }
-    }
-}
-
-.home-project {
-    position: relative;
-
-    div {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        margin: 100px 0px;
-
-        img {
-            width: 40%;
-        }
-    }
-
-    button {
-        position: absolute;
-        bottom: 10%;
-        right: 10%;
-        width: 150px;
-        height: 40px;
-        background: #AEFF1E;
-        border: 1px solid black;
-        border-radius: 20px;
-        cursor: pointer;
-    }
-}
-
-@keyframes upDown {
-    0% {
-        bottom: 10%;
-    }
-
-    80% {
-        bottom: 5%;
-    }
-}
-
-@keyframes Scale {
-    0% {
-        transform: scale(1);
-    }
-
-    90% {
-        transform: scale(1.03);
-    }
-}
-
-@media screen and (max-width : 480px) {
-    .home-container {
-
-        .home-main {
-            position: relative;
-
-            .parallax-text {
-                .bannerText {
-                    width: 50%;
-                    top: 40%;
-                    left: 50%;
-
-                    img {
-                        width: 60%;
-                    }
-                }
-
-                .downIcon {
-                    font-size: 1.5em;
-                    position: absolute;
-                    bottom: 15%;
-                    animation: upDown linear 1s infinite;
-                }
-
-
-            }
-        }
-
-        .home-wrap {
-            padding: 70px 0px;
-
-            p {
-                font-size: 2em;
-                margin-bottom: 20px;
-            }
-        }
+        padding: 100px 0px 0px 0px;
 
         .home-goLink {
             padding: 0;
-            margin-bottom: 50px;
+            position: relative;
 
-            div {
-                display: flex;
-                justify-content: space-between;
-                font-family: 'Noto Sans KR', sans-serif;
-                font-weight: 700;
-
-                .ball-animation {
-                    &:hover {
-                        animation: Scale linear 1s infinite;
-                    }
-                }
-
-                .box {
-                    font-size: 0.7em;
-                    height: 170px;
-
-                    p {
-                        font-size: 1.7em;
-                    }
-
-                    .ours {
-                        width: 30px;
-                        height: 30px;
-                    }
-
-                    .ours-arrow {
-                        position: absolute;
-                        bottom: 20px;
-                        right: 50px;
-                        font-size: 2.5em;
-                    }
-                }
+            .back {
+                width: 100%;
             }
-        }
-    }
 
-    .home-area {
-        width: 100%;
-        margin-bottom: 50px;
+            .text {
+                position: absolute;
+                top: -10%;
+                left: 50%;
+                transform: translate(-50%);
+                width: 40%;
+            }
 
-        .title {
-            font-size: 0.5em;
-
-            img {
-                width: 20px;
-                height: 20px;
-                margin: 0px 20px;
+            .ball {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 50%;
             }
         }
 
-
-    }
-
-    .home-counseling {
-        height: 100px;
-        padding: 0px 20px;
-        border-radius: 30px;
-        font-size: 1em;
-
-        div {
-            font-size: 10px;
-
-            strong {
-                font-size: 15px;
-            }
+        .animationBox {
+            width: 100%;
+            height: 400px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-weight: bold;
+            font-size: 1.2em;
         }
 
-        button {
-            width: 150px;
-            height: 70px;
-
-            border: 1px solid black;
-            background-color: #FFFFFF;
-            border-radius: 50px;
-            cursor: pointer;
-            font-size: 1em;
-            color: black;
-
-        }
-    }
-
-    .home-project {
-        div {
+        .WeAreOurs {
             display: flex;
             justify-content: space-around;
             align-items: center;
-            flex-direction: column;
-            margin: 100px 0px;
+            margin: 20px 0px;
 
-            img {
-                width: 70%;
+            div {
+                width: 33%;
+
+                .title {
+                    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+                    font-size: 2.3em;
+                    font-weight: bold;
+                    margin: 20px 0px;
+                }
+
+                .subTitle {
+                    font-size: 1.2em;
+                    font-weight: bold;
+                    margin-bottom: 30px;
+                }
+
+                .content {
+                    font-size: 0.9em;
+                    font-weight: bold;
+
+                    span {
+                        color: #00C105;
+                    }
+                }
+            }
+
+            .Line {
+                height: 300px;
+            }
+
+            .weAre {
+                width: 40%;
             }
         }
 
-        button {
-            position: absolute;
-            bottom: 4%;
-            right: 5%;
-            width: 150px;
-            height: 40px;
-            background: #AEFF1E;
-            border: 1px solid black;
-            border-radius: 20px;
+        .imgArea {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+
+            div {
+                width: 25%;
+                padding: 0;
+                position: relative;
+
+                img {
+                    width: 100%;
+                }
+
+            }
+
+            .bottom {
+                .text {
+                    width: 50%;
+                    position: absolute;
+
+                    bottom: 5%;
+                    left: 5%;
+                }
+
+                .content {
+                    width: 50%;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
+            }
+
+            .top {
+                .text {
+                    width: 50%;
+                    position: absolute;
+
+                    top: 5%;
+                    left: 5%;
+                }
+
+                .content {
+                    width: 50%;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
+            }
         }
 
+        .middleText {
+            font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+            font-weight: bold;
+            text-shadow: 5px 5px 1px #ccc;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 400px;
+
+            h1 {
+                font-size: 5em;
+            }
+
+            p {
+                font-size: 2em;
+            }
+        }
+
+        .linkBoxArea {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 50% 50%;
+            padding: 0px;
+            margin-bottom: 100px;
+
+            div {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                padding: 0;
+                width: 100%;
+                height: 350px;
+
+                img {
+                    width: 50%;
+                }
+
+                .learnMore {
+                    color: #00D44D;
+                    cursor: pointer;
+                    margin-top: 20px;
+                }
+            }
+
+            .one {
+                background: url(../img/linkBox_1.png) no-repeat;
+                background-size: cover;
+            }
+
+            .two {
+                background: url(../img/linkBox_2.png) no-repeat;
+                background-size: cover;
+            }
+
+            .three {
+                background: url(../img/linkBox_3.png) no-repeat;
+                background-size: cover;
+            }
+
+            .four {
+                background: url(../img/linkBox_4.png) no-repeat;
+                background-size: cover;
+            }
+        }
+
+        .productionArea {
+            padding: 0;
+            width: 100%;
+            height: 1000px;
+            position: relative;
+
+            img {
+                width: 100%;
+            }
+
+            .productionText {
+                position: absolute;
+                z-index: 1;
+                top: 450px;
+                left: 5%;
+                font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+                padding: 0;
+
+                p {
+                    margin-top: 20px;
+                    font-weight: bold;
+                }
+            }
+
+            .whiteBox {
+                width: 80%;
+                background: white;
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                position: absolute;
+                top: 200px;
+                border-top-left-radius: 70px;
+                right: 0;
+                padding: 5% 0% 5% 5%;
+                font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+
+                div {
+                    text-align: center;
+                    width: 30%;
+
+                    h1 {
+                        margin-top: 20px;
+                    }
+                }
+            }
+        }
+
+        .ecoBallsArea {
+            padding: 0;
+            margin: 0;
+            position: relative;
+            height: 1000px;
+
+            .bg {
+                width: 100%;
+            }
+
+            .text {
+                width: 50%;
+                position: absolute;
+                top: 50%;
+                left: 5%;
+                z-index: 1;
+            }
+        }
+
+        .contactUs {
+            background-color: black;
+            width: 100%;
+            height: 1000px;
+
+            .contact-area {
+                width: 100%;
+                text-align: right;
+                padding-right: 10%;
+
+                .contact-title {
+                    font-family: 'Noto Sans KR', sans-serif;
+                    -webkit-text-stroke: 1px white;
+
+                    img {
+                        width: 10%;
+                        padding: 1% 1%;
+                    }
+                }
+            }
+
+            .contact-us {
+                width: 60%;
+                margin: 0 auto;
+
+                form {
+                    width: 100%;
+                    padding: 10% 0%;
+
+                    label {
+                        display: block;
+                        border-bottom: 1px solid white;
+
+                        &:last-child {
+                            border-bottom: none;
+                        }
+
+                        span {
+                            color: white;
+                            width: 10%;
+                            display: inline-block;
+                            padding: 2% 0%
+                        }
+
+                        input {
+                            width: 90%;
+                            color: white;
+                            padding: 20px;
+                            background: transparent;
+                            border: none;
+                            outline: none;
+                        }
+
+                        textarea {
+                            display: block;
+                            width: 100%;
+                            padding: 10px;
+                            font-size: 1.2em;
+                        }
+                    }
+
+                    .btnArea {
+                        text-align: right;
+
+                        .contact-btn {
+                            width: 15%;
+                            height: 40px;
+                            border: 1px solid white;
+                            background-color: transparent;
+                            color: white;
+                            margin-top: 3%;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+        }
     }
+
+
 
     @keyframes upDown {
         0% {
-            bottom: 15%;
+            bottom: 10%;
         }
 
         80% {
-            bottom: 10%;
+            bottom: 5%;
         }
     }
 
@@ -409,99 +437,403 @@
     }
 }
 
-@media screen and (min-width : 481px) and (max-width : 768px) {
+@media screen and (max-width : 480px) {
     .home-container {
-        .home-main {
-            .parallax-text {
-                .bannerText {
-                    width: 50%;
-                    top: 40%;
-                    left: 50%;
 
-                    img {
-                        width: 65%;
+        .home-main {
+
+            .parallax-text {
+
+                .bannerText {
+                    width: 100%;
+                    text-shadow: 6px 6px 1px black;
+
+                    h1 {
+                        font-size: 2em;
                     }
+
+                    p {
+                        font-size: 1em;
+                    }
+                }
+
+                .downIcon {
+                    font-size: 1em;
                 }
             }
         }
 
         .home-wrap {
-            padding: 70px 0px;
-        }
+            padding: 70px 0px 0px 0px;
 
-        .home-goLink {
-            margin-bottom: 50px;
+            .home-goLink {
+                .text {
+                    width: 50%;
+                }
+            }
 
-            div {
+            .animationBox {
+                font-size: 0.8em;
+            }
 
-                .box {
-                    font-size: 0.9em;
-                    height: 220px;
+            .WeAreOurs {
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                flex-direction: column;
+                margin: 20px 0px;
+
+                div {
+                    width: 100%;
+
+                    .title {
+                        font-size: 2em;
+                    }
+
+                    .subTitle {
+                        font-size: 0.9em;
+                    }
+
+                    .content {
+                        font-size: 0.8em;
+                    }
+                }
+
+                .weAre {
+                    width: 100%;
+                }
+            }
+
+            .imgArea {
+                flex-direction: column;
+
+                div {
+                    width: 95%;
+                }
+            }
+
+            .middleText {
+                h1 {
+                    font-size: 2.3em;
+                    margin-bottom: 10px;
+                }
+
+                p {
+                    font-size: 0.8em;
+                }
+            }
+
+            .linkBoxArea {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+
+                div {
+                    .learnMore {
+                        color: #00D44D;
+                        cursor: pointer;
+                        margin-top: 20px;
+                        font-size: 0.6em;
+                    }
+                }
+            }
+
+            .productionArea {
+                height: auto;
+                position: relative;
+
+                img {
+                    width: 100%;
+                }
+
+                .productionText {
+                    position: initial;
+                    padding: 5%;
 
                     p {
-                        font-size: 1.7em;
+                        margin-top: 20px;
+                        font-weight: bold;
+                    }
+                }
+
+                .whiteBox {
+                    width: 100%;
+                    top: 100px;
+                    border-top-left-radius: 0px;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                    background: white;
+                    position: initial;
+                    padding: 0%;
+
+                    div {
+                        text-align: center;
+                        width: 100%;
+
+                        h1 {
+                            margin-top: 20px;
+                            font-size: 1.5em;
+                        }
+                    }
+                }
+            }
+
+            .ecoBallsArea {
+                height: auto;
+            }
+
+            .contactUs {
+                height: auto;
+
+                .contact-us {
+                    width: 95%;
+                    margin: 0 auto;
+
+                    form {
+
+                        label {
+
+                            span {
+                                color: white;
+                                width: 100%;
+                                padding: 2% 0%
+                            }
+
+                            input {
+                                padding: 10px;
+                            }
+                        }
+
+                        .btnArea {
+                            text-align: right;
+
+                            .contact-btn {
+                                width: 15%;
+                                height: 40px;
+                                border: 1px solid white;
+                                background-color: transparent;
+                                color: white;
+                                margin-top: 3%;
+                                cursor: pointer;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        @keyframes upDown {
+            0% {
+                bottom: 15%;
+            }
+
+            80% {
+                bottom: 10%;
+            }
+        }
+
+        @keyframes Scale {
+            0% {
+                transform: scale(1);
+            }
+
+            90% {
+                transform: scale(1.03);
+            }
+        }
+    }
+}
+
+@media screen and (min-width : 481px) and (max-width : 768px) {
+    .home-container {
+        .home-main {
+
+            .parallax-text {
+
+                .bannerText {
+                    width: 100%;
+                    text-shadow: 6px 6px 1px black;
+
+                    h1 {
+                        font-size: 2em;
                     }
 
-                    .ours {
-                        width: 40px;
-                        height: 40px;
+                    p {
+                        font-size: 1em;
+                    }
+                }
+
+                .downIcon {
+                    font-size: 1em;
+                }
+            }
+        }
+
+        .home-wrap {
+            padding: 70px 0px 0px 0px;
+
+            .home-goLink {
+                .text {
+                    width: 50%;
+                }
+            }
+
+            .animationBox {
+                font-size: 0.8em;
+            }
+
+            .WeAreOurs {
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                flex-direction: column;
+                margin: 20px 0px;
+
+                div {
+                    width: 100%;
+
+                    .title {
+                        font-size: 2em;
                     }
 
-                    .ours-arrow {
-                        bottom: 20px;
-                        right: 50px;
-                        font-size: 2.5em;
+                    .subTitle {
+                        font-size: 0.9em;
+                    }
+
+                    .content {
+                        font-size: 0.8em;
+                    }
+                }
+
+                .weAre {
+                    width: 100%;
+                }
+            }
+
+            .imgArea {
+                flex-direction: column;
+
+                div {
+                    width: 95%;
+                }
+            }
+
+            .middleText {
+                h1 {
+                    font-size: 2.3em;
+                    margin-bottom: 10px;
+                }
+
+                p {
+                    font-size: 0.8em;
+                }
+            }
+
+            .linkBoxArea {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+
+                div {
+                    .learnMore {
+                        color: #00D44D;
+                        cursor: pointer;
+                        margin-top: 20px;
+                        font-size: 0.6em;
+                    }
+                }
+            }
+
+            .productionArea {
+                height: auto;
+                position: relative;
+
+                img {
+                    width: 100%;
+                }
+
+                .productionText {
+                    position: initial;
+                    padding: 5%;
+
+                    p {
+                        margin-top: 20px;
+                        font-weight: bold;
+                    }
+                }
+
+                .whiteBox {
+                    width: 100%;
+                    top: 100px;
+                    border-top-left-radius: 0px;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                    background: white;
+                    position: initial;
+                    padding: 0%;
+
+                    div {
+                        text-align: center;
+                        width: 100%;
+
+                        h1 {
+                            margin-top: 20px;
+                            font-size: 1.5em;
+                        }
+                    }
+                }
+            }
+
+            .ecoBallsArea {
+                height: auto;
+            }
+
+            .contactUs {
+                height: auto;
+
+                .contact-us {
+                    width: 95%;
+                    margin: 0 auto;
+
+                    form {
+
+                        label {
+
+                            span {
+                                color: white;
+                                width: 100%;
+                                padding: 2% 0%
+                            }
+
+                            input {
+                                padding: 10px;
+                            }
+                        }
+
+                        .btnArea {
+                            text-align: right;
+
+                            .contact-btn {
+                                width: 15%;
+                                height: 40px;
+                                border: 1px solid white;
+                                background-color: transparent;
+                                color: white;
+                                margin-top: 3%;
+                                cursor: pointer;
+                            }
+                        }
                     }
                 }
             }
         }
     }
 
-    .home-area {
-        margin-bottom: 50px;
 
-        .title {
-            font-size: 0.6em;
-
-            img {
-                width: 30px;
-                height: 30px;
-            }
-        }
-    }
-
-    .home-counseling {
-        height: 100px;
-        padding: 0px 20px;
-        border-radius: 30px;
-        font-size: 1em;
-
-        div {
-            font-size: 14px;
-
-            strong {
-                font-size: 17px;
-            }
-        }
-
-        button {
-            width: 120px;
-            height: 50px;
-        }
-    }
-
-    .home-project {
-        div {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            margin: 100px 0px;
-
-            img {
-                width: 50%;
-            }
-        }
-    }
 
     @keyframes upDown {
         0% {
@@ -526,83 +858,94 @@
 
 @media screen and (min-width : 769px) and (max-width : 1023px) {
     .home-container {
+
         .home-main {
 
             .parallax-text {
 
-                button {
-                    width: 150px;
-                    height: 40px;
-                    font-size: 1em;
+                .bannerText {
+
+                    h1 {
+                        font-size: 2.5em;
+                    }
+
+                    p {
+                        font-size: 1em;
+                    }
                 }
 
+                .downIcon {
+                    font-size: 1.5em;
+                }
             }
         }
 
         .home-wrap {
-            padding: 70px 0px;
-        }
 
-        .home-goLink {
-            margin-bottom: 50px;
+            .WeAreOurs {
+                margin-bottom: 100px;
 
-            div {
+                div {
+                    width: 33%;
 
-                .box {
-                    font-size: 0.9em;
-                    height: 250px;
-
-                    p {
-                        font-size: 1.7em;
+                    .subTitle {
+                        font-size: 0.8em;
                     }
 
-                    .ours {
-                        width: 40px;
-                        height: 40px;
+                    .content {
+                        font-size: 0.7em;
+                        font-weight: bold;
                     }
+                }
+            }
 
-                    .ours-arrow {
-                        bottom: 20px;
-                        right: 50px;
-                        font-size: 2.5em;
+            .productionArea {
+                height: 700px;
+
+                .productionText {
+                    top: 390px;
+                }
+
+                .whiteBox {
+                    div {
+                        h1 {
+                            margin-top: 20px;
+                            font-size: 1em;
+                        }
                     }
+                }
+            }
+
+            .ecoBallsArea {
+                padding: 0;
+                margin: 0;
+                position: relative;
+                height: 900px;
+
+                .bg {
+                    width: 100%;
+                }
+
+                .text {
+                    width: 50%;
+                    position: absolute;
+                    top: 50%;
+                    left: 5%;
+                    z-index: 1;
+                }
+            }
+
+            .contactUs {
+                height: auto;
+
+                .contact-us {
+                    width: 90%;
                 }
             }
         }
     }
 
-    .home-area {
-        margin-bottom: 50px;
 
-        .title {
-            font-size: 0.6em;
-
-            img {
-                width: 30px;
-                height: 30px;
-            }
-        }
-    }
-
-    .home-counseling {
-        height: 100px;
-        padding: 0px 20px;
-        border-radius: 30px;
-        font-size: 1em;
-
-        div {
-            font-size: 14px;
-
-            strong {
-                font-size: 17px;
-            }
-        }
-
-        button {
-            width: 120px;
-            height: 50px;
-        }
-    }
 
     @keyframes upDown {
         0% {
@@ -627,7 +970,23 @@
 
 @media screen and (min-width : 1800px) {
     .home-container {
-        width: 70%;
-        margin: 0 auto;
+        width: 100%;
+
+        .home-wrap {
+            width: 60%;
+            font-size: 1em;
+            margin: 0 auto;
+
+            .productionArea {
+
+                .productionText {
+                    top: 600px;
+                }
+            }
+
+            .ecoBallsArea {
+                height: 1500px;
+            }
+        }
     }
 }

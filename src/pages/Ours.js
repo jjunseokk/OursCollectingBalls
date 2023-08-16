@@ -1,232 +1,192 @@
-import React, { useState, useEffect } from 'react'
-import '../style/ours.scss'
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
+import React, { useEffect, useState } from 'react';
+import '../style/event.scss';
+import { useNavigate } from 'react-router-dom';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleDoubleDown, faArrowRight, faCaretRight} from '@fortawesome/free-solid-svg-icons';
 
-import oursBack from '../img/oursBack.png';
-import oursMobileBack from '../img/oursMobile.png';
-import oursText from '../img/oursText.png';
-import ours from '../img/ours.png';
-
-import technology_1 from '../img/Technology_1.png';
-import technology_2 from '../img/Technology_2.png';
-import technology_3 from '../img/Technology_3.png';
-import MobileTechnology_1 from '../img/MobileTechnology_1.png';
-import MobileTechnology_2 from '../img/MobileTechnology_2.png';
-import MobileTechnology_3 from '../img/MobileTechnology_3.png';
-
-import campaign_1 from '../img/campaign1.png';
-import campaign_2 from '../img/campaign2.png';
-
-import oursProcess from '../img/oursProcess.png';
-import content from '../img/contact.png';
-
-import oursSlider1 from '../img/oursSlider1.png';
-import oursSlider2 from '../img/oursSlider2.png';
-import oursSlider3 from '../img/oursSlider3.png';
-import oursSlider4 from '../img/oursSlider4.png';
-import oursSlider5 from '../img/oursSlider5.png';
-
-import campaignText_1 from '../img/campaignText1.png';
-import campaignText_2 from '../img/campaignText2.png';
-import dot from '../img/dot.png';
-
-import map from '../img/map.png';
-
-import one from '../img/1.png';
-import two from '../img/2.png';
-import three from '../img/3.png';
-
-const settings = {
-    className: "center",
-    centerMode: true,
-    infinite: true,
-    centerPadding: "100px",
-    slidesToShow: 3,
-    speed: 500,
-    autoplaySpeed: 3000,
-    autoplay: true,
-    arrows: false,
-    responsive: [
-        {
-            breakpoint: 480,
-            settings: {
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                centerPadding: "50px",
-
-            }
-        },
-        {
-            breakpoint: 768,
-            settings: {
-                slidesToShow: 3,
-                slidesToScroll: 1,
-                centerPadding: "10px",
-
-            }
-        },
-    ]
-};
+import eventBanner from '../img/eventBanner.png';
+import eventBannerText from '../img/eventBannerText.png';
+import businessText from '../img/businessText.png';
+import businessImg_1 from '../img/business_1.png';
+import businessImg_2 from '../img/business_2.png';
+import businessImg_3 from '../img/business_3.png';
+import businessText_1 from '../img/business_Text_1.png';
+import businessText_2 from '../img/business_Text_2.png';
+import businessText_3 from '../img/business_Text_3.png';
+import helloGreen from '../img/helloGreen.png';
+import helloText from '../img/helloText.png';
+import contact from '../img/contact.png';
+import Cycle from '../img/cycleImg.png';
+import management from '../img/management.png';
+import eventBannerText2 from '../img/eventBannerText2.png';
 
 const Ours = () => {
+    const businessBox = [
+        {
+            backSrc: businessImg_1,
+            textSrc: businessText_1,
+            UrlSrc: "/reservation",
+            alt: 'Image 1',
+        },
+        {
+            backSrc: businessImg_2,
+            textSrc: businessText_2,
+            alt: 'Image 2',
+            UrlSrc: '/Event'
+        },
+        {
+            backSrc: businessImg_3,
+            textSrc: businessText_3,
+            UrlSrc: "/Factory",
+            alt: 'Image 3',
+        },
+    ]
 
-    const [windowSize, setWindowSize] = useState({
-        width: undefined,
-        height: undefined,
-    });
+    const navigate = useNavigate();
+
+    const [isBusinessTextVisible, setIsBusinessTextVisible] = useState(false);
+    // 스크롤 시 숫자 증가를 위한 상태 변수
+    const [counter1, setCounter1] = useState(0);
+    const [counter2, setCounter2] = useState(0);
+    const targetValue1 = 100; // 목표치 1: 100%
+    const targetValue2 = 2500000000; // 목표치 2: 2,500,000,000
 
     useEffect(() => {
-        if (typeof window !== 'undefined') {
-
-            const handleResize = () => {
-                setWindowSize({
-                    // 현재 브라우저의 가로, 세로 길이로 셋팅
-                    width: window.innerWidth,
-                    height: window.innerHeight,
-
-                });
+        const handleScroll = () => {
+            const businessTextElement = document.querySelector('.showLine');
+            if (businessTextElement) {
+                const rect = businessTextElement.getBoundingClientRect();
+                const isVisible = rect.top < window.innerHeight && rect.bottom >= 0;
+                setIsBusinessTextVisible(isVisible);
             }
+        };
 
-            // resize 이벤트가 발생할 때 handleResize 함수가 실행되도록 한다.
-            window.addEventListener("resize", handleResize);
+        // 스크롤 이벤트 리스너 추가
+        window.addEventListener('scroll', handleScroll);
 
-            // 초기값을 설정할 수 있도록 handleResize 함수를 한 번 실행시킨다.
-            handleResize();
+        // 컴포넌트가 언마운트될 때 이벤트 리스너 제거
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
 
-            // 이벤트 리스너를 제거하여 이벤트 리스너가 리사이즈될 때마다 계속해서 생겨나지 않도록 처리한다. (clean up)
-            return () => window.removeEventListener("resize", handleResize);
-        } else {
-            return () => window.removeEventListener("resize", () => {
-                return null
-            });
-        }
-    }, []); // 컴포넌트가 처음 마운트 될때와 언마운트 될 때 실행
+    useEffect(() => {
+        // 스크롤 이벤트 리스너 추가
+        const handleScroll = () => {
+            const showAnimationElement = document.querySelector('.showAnimation');
+            if (showAnimationElement) {
+                const rect = showAnimationElement.getBoundingClientRect();
+                const isVisible = rect.top < window.innerHeight && rect.bottom >= 0;
 
+                // 스크롤이 .showAnimation에 도달하면 숫자를 올리는 애니메이션 시작
+                if (isVisible && counter1 < targetValue1) {
+                    // 0부터 목표치까지 1씩 증가시키며 애니메이션 효과 구현
+                    const interval1 = setInterval(() => {
+                        setCounter1((prevCounter) => {
+                            const increment = 1; // 증가량
+                            const nextCounter = prevCounter + increment;
+                            // 목표치 이상이면 목표치로 설정하고 애니메이션 종료
+                            if (nextCounter >= targetValue1) {
+                                clearInterval(interval1);
+                                return targetValue1;
+                            }
+                            return nextCounter;
+                        });
+                    }, 30); // 10ms마다 숫자 증가 (숫자 증가 속도 조절 가능)
+                }
 
-    console.log(windowSize);
+                // 스크롤이 .showAnimation에 도달하면 숫자를 올리는 애니메이션 시작
+                if (isVisible && counter2 < targetValue2) {
+                    // 0부터 목표치까지 1씩 증가시키며 애니메이션 효과 구현
+                    const interval2 = setInterval(() => {
+                        setCounter2((prevCounter) => {
+                            const increment = 100000; // 증가량 (25억)
+                            const nextCounter = prevCounter + increment;
+                            // 목표치 이상이면 목표치로 설정하고 애니메이션 종료
+                            if (nextCounter >= targetValue2) {
+                                clearInterval(interval2);
+                                return targetValue2;
+                            }
+                            return nextCounter;
+                        });
+                    }, 0.1); // 10ms마다 숫자 증가 (숫자 증가 속도 조절 가능)
+                }
+            }
+        };
+
+        // 스크롤 이벤트 리스너 추가
+        window.addEventListener('scroll', handleScroll);
+
+        // 컴포넌트가 언마운트될 때 이벤트 리스너 제거
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, [counter1, counter2]);
+
     return (
-        <div className='oursContainer' >
-            <div className='banner'>
-                {windowSize.width <= 500 ? <img className='background' src={oursMobileBack} alt='' /> : <img className='background' src={oursBack} alt='' />}
-                <div className='bannerContent'>
-                    <img src={oursText} alt='' />
-                    <img src={ours} alt='' />
+        <div className='eventContainer'>
+            <div className='banner' >
+                <img src={eventBanner} alt='' width='100%' height="100%" />
+                <div className='event'>
+                    <img className='text' src={eventBannerText} alt='' />
+                    <img style={{ marginTop: 80 }} className='text' src={eventBannerText2} alt='' />
                 </div>
+                <FontAwesomeIcon className='down' icon={faAngleDoubleDown} />
             </div>
-            <div className='oursWrap'>
-                {windowSize.width <= 500 ? (
-                    <div className='MobileTechnologyArea'>
-                        <div className='MobileTechnology1'>
-                            <img className='back' src={MobileTechnology_1} alt='' />
-                            <p><span>OURS BOX</span>에 탑재된 인공지능은 재활용 가능한 <br /> 골프공을 회수하여, 에코보상을 제공합니다. </p>
-                            <img className='one' src={one} alt='' />
-                        </div>
-                        <div className='MobileTechnology2'>
-                            <img className='back' src={MobileTechnology_2} alt='' />
-                            <p><span>OURS BOX</span>에 탑재된 인공지능은 재활용 가능한 <br /> 골프공을 회수하여, 에코보상을 제공합니다. </p>
-                            <img className='two' src={two} alt='' />
-                        </div>
-                        <div className='MobileTechnology3'>
-                            <img className='back' src={MobileTechnology_3} alt='' />
-                            <p><span>OURS BOX</span>에 탑재된 인공지능은 재활용 가능한 <br /> 골프공을 회수하여, 에코보상을 제공합니다. </p>
-                            <img className='three' src={three} alt='' />
-                        </div>
-
+            <div className='EventWrap'>
+                <div className='oursBusiness'>
+                    <div className='businessText'>
+                        <h1>친환경 순환 골프 비즈니스</h1>
+                        <h1><img src={businessText} alt='' />의 기술은</h1>
+                        <h1><span className={isBusinessTextVisible ? 'showLine active' : 'showLine'}>새로운 친환경 골프 시장</span>을 만듭니다.</h1>
                     </div>
-                ) : (
-                    <div className='technologyArea'>
-                        <div className='technology1'>
-                            <img src={technology_1} alt='' />
-                            <p><span>OURS BOX</span>에 탑재된 인공지능은 재활용 가능한 골프공을 회수하여, 에코보상을 제공합니다. </p>
-                        </div>
-                        <div className='technology2'>
-                            <img src={technology_3} alt='' />
-                            <p><span>OURS BOX</span>에 탑재된 인공지능은 재활용 가능한 골프공을 회수하여, 에코보상을 제공합니다. </p>
-                        </div><div className='technology3'>
-                            <img src={technology_2} alt='' />
-                            <p><span>OURS BOX</span>에 탑재된 인공지능은 재활용 가능한 골프공을 회수하여, 에코보상을 제공합니다. </p>
-                        </div>
-
-
-                    </div>
-                )}
-
-                <div className='platform'>
-                    {windowSize.width <= 494 ? (<div className='title'></div>) : (
-                        <div className='title'>
-                            <hr className='line' />
-                            <div>
-                                <h2><span>아워박스 플랫폼</span></h2>
-                                <p>전국 골프장에서 만나는 <span>골프공 교환 플랫폼</span></p>
+                    <div className='businessImg'>
+                        {businessBox.map((item, index) => (
+                            <div className='ImgBox' key={index}>
+                                <img className='back' src={item.backSrc} alt='' />
+                                <img className='text' src={item.textSrc} alt='' />
+                                <p onClick={() => { navigate(item.UrlSrc) }} className='SeeMore'>자세히 보기 <FontAwesomeIcon icon={faArrowRight} /></p>
                             </div>
-                        </div>
-                    )}
-
-                    <div className='campaignArea' style={{ height: `${windowSize.width / 1.8}px` }}>
-                        <img className='campaign1' src={campaign_1} alt='' />
-                        <img className='campaign2' src={campaign_2} alt='' />
-                        <div>
-                            <p>
-                                지속가능한 미래의 골프문화를 위한 브랜드 <br />
-                                OURS의 ESG를 통해 실천하는 새로운 ECO GOLF LIFESTYLE
-                            </p>
-                            <p className='re'>RE:100 CAMPAIGN</p>
+                        ))}
+                    </div>
+                    <div className='businessHello'>
+                        <img src={helloGreen} alt='helloGreen' width='100%' />
+                        <div className='contact'>
+                            <img src={helloText} alt='helloText' />
+                            <button><a href='http://52.78.112.88/'>자세히 보기</a> <FontAwesomeIcon icon={faCaretRight} /></button>
                         </div>
                     </div>
-                    <div className='process' style={{ height: `${windowSize.width >= 1800 ? `${windowSize.width / 1.5}px` : `${windowSize.width / 1.2}`}px` }}>
-                        <h1>OURS BOX PROCESS</h1>
+                    <div className='OursEnvironment'>
+                        <h1>
+                            <img src={businessText} alt='' />를 통해 <br />
+                            변경되는 환경
+                        </h1>
+                        <div className='showAnimation'>
+                            <p>매년 유실되는 골프공</p>
+                            <h1>{counter2.toLocaleString()}개 +</h1>
+                            <hr />
+                            <p>OURS 재활용</p>
+                            <h1 className='pen'>{counter1.toLocaleString()}%</h1>
+                            <hr />
+                        </div>
+                    </div>
+                    <div className='businessContact'>
+                        <h1>OURS의 친환경 골프란?</h1>
+
                         <p>
-                            간단하게, 그러나 가치있게! <br />
-                            친환경 골프의 시작을 골퍼들과 함께 합니다.
+                            OURS는 소비에서 폐기로 끝나는 시장이 아닌 소비에서 수거, 리싸이클링을 <br />
+                            통한 다시 재소비로 이루는 친환경 순환경제 골프시장을 목표로 합니다.<br />
+                            <br />
+                            순 환경제의 핵심은 헌 골프공을 수거하여 <br />
+                            '100% 재활용을 하는가, 0% 버려지는 것은 없는가' <br />
+                            이를 위해 인공지능 및 빅데이터와 자체적인 기술을 통해, ECO GOLF를 구축합니다.
                         </p>
-                        <img className='oursBox' src={oursProcess} alt='' />
-                        <img className='oursBack' src={content} alt='' />
+                        <img src={contact} alt='contact' />
                     </div>
-                    <div className='oursSlick'>
-                        <h1>OURS BOX CAMPAIGN</h1>
-                        <p>전국 골프장에서 만나는 골프공 교환 플랫폼</p>
-                        <Slider {...settings}>
-                            <div>
-                                <img src={oursSlider1} alt='' />
-                            </div>
-                            <div>
-                                <img src={oursSlider2} alt='' />
-                            </div>
-                            <div>
-                                <img src={oursSlider3} alt='' />
-                            </div>
-                            <div>
-                                <img src={oursSlider4} alt='' />
-                            </div>
-                            <div>
-                                <img src={oursSlider5} alt='' />
-                            </div>
-                        </Slider>
-                    </div>
-                    <div className='campaign'>
-                        <div>
-                            <img src={campaignText_1} alt='' />
-                        </div>
-                        <div className='campaignText2'>
-                            <img src={campaignText_2} alt='' />
-                        </div>
-                        <img className='dot' src={dot} alt='' />
-                        <div className='campaignText'>
-                            <h1>OURS 이제는 필수 캠페인으로!</h1>
-                            <p>OURS는 전국 골프장과 기업, 정부와 함께하는 공동체 캠페인 입니다.</p>
-                        </div>
-                        <div className='campaignMap'>
-                            <img src={map} alt='' />
-                            <div>
-                                <h4>OURS BOX 서울/경기지역 배치 골프장 LIST</h4>
-                                <p>안양CC/ 인서울27골프클럽 / 태릉체력단련장/ 고양컨트리클럽 / 뉴코리아컨트리클럽 /서울한양컨트리클럽 / 일산 스프링힐스컨트리클럽 / 올림픽컨트리클럽 / 한양파인컨트리클럽 / 123골프클럽/ 강남300컨트리클럽 / 곤지암골프클럽 / 그린힐컨트리클럽 / 남촌골프클럽 / 뉴서울컨트리클럽 / 서창퍼블릭골프클럽/이스트밸리컨트리클럽/ 중부컨트리클럽 / 큐로컨트리클럽 / 안양CC / 88 CC / 골드 CC / 글렌로스 CC / 남부 CC / 레이크사이드 CC / 레이크힐스용인 CC / 블루원용인 CC / 써닝포인트 CC세현 CC / 서서울 CC / 서원밸리 CC / 서원힐스 CC / 스마트KU골프파빌리온 / 타이거 CC / 파주 CC / 노스팜CC / 제이퍼플릭 G.C / 남양주 CC / 비전힐스 CC /양주 CC / 해비치 CC / 김포 씨사이드 CC / 레이크우드 CC / 송추 CC / 안성 베네스트 CC / 골프존 카운티 안성 W / 마에스트로 CC / 신안 CC / 아덴힐 CC / 에덴블루 CC /파인크리크CC / 골프존카운티 안성H / 골프존카운티 안성Q / 루나힐스 안성 / 안성CC / 윈체스트CC / 뉴스프링빌 CC / 더반 CC / 마이다스 CC / 블랙스톤이천 CC /비에비스타 CC / 이천 CC / 사우스스프링 / 화천스 CC / 더크로스비CC / 에이치원골프클럽 / 웰링턴CC / 스카이밸리 CC / 자유 CC / 트리니티CC / 이포CC /블루헤런CC / 360도CC / 스카이밸리CC / 여주신라CC / 캐슬파인CC / 여주썬밸리CC / 소피아그린CC / 페럼CC / 렉스필드CC / 세라지오CC / 해슬리 나인브릿지 /여주 금강 / 아리지CC / 빅토리아CC / 솔모로CC / 티클라우드 CC / 청북 CC / 베어크리크 CC / 포천힐스 CC / 대유몽베르 / 필로스CC / 락가든CC / 포천아도니스 /일동레이크 / 포레스트힐CC / 샴발라CC / 푸른솔포천CC / 참밸리CC / 리베라 CC / 라비돌리조트 CC / 링크나인 GC / 발리오스 CC / 화성 GC / 가평 베네스트 CC / 리앤리 CC / 썬힐CC / 베뉴지CC / 크리스탈밸리CC / 프리스틴밸리CC / 아난티서울CC / 남춘천CC / 더플레이어스GC / 라데나GC / 베어크리크 춘천 / 라비에벨CC /로드힐스 골프&리조트 / 스프링베일GC / 오너스GC / 제이드팰리스GC / 파가니카CC / 휘슬링락CC</p>
-                            </div>
+                    <img src={Cycle} alt='' width='100%' />
+                    <img src={management} alt='' width='100%' />
 
-                        </div>
-                    </div>
                 </div>
             </div>
 
@@ -234,4 +194,4 @@ const Ours = () => {
     )
 }
 
-export default Ours
+export default Ours;

@@ -1,10 +1,10 @@
-import './App.css';
+import './App.scss';
 import { ParallaxProvider } from "react-scroll-parallax";
 import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Header from "./components/Header";
 import Footer from './components/Footer';
-import Collect from './pages/Collect';
+// import Collect from './pages/Collect';
 import Reservation from './pages/Reservation';
 import ReservationCheck from './pages/ReservationCheck';
 import ReservationSuccess from './pages/ReservationSuccess';
@@ -15,7 +15,7 @@ import TermsOfUse from './pages/TermsOfUse';
 import RefuseCollectEmail from './pages/RefuseCollectEmail';
 import Privacy from './pages/Privacy';
 import About from './pages/About';
-import Event from './pages/Event';
+import OursBox from './pages/OursBox';
 import Ours from './pages/Ours';
 import Factory from './pages/Factory';
 
@@ -28,7 +28,7 @@ function App() {
           {/* 메인페이지 */}
           <Route path='/' element={<Home />} />
           {/* 수거 신청 */}
-          <Route path='/collect' element={<Collect />} />
+          {/* <Route path='/collect' element={<Collect />} /> */}
           {/* 예약페이지 */}
           <Route path='/reservation' element={<Reservation />} />
           {/* 예약확인 */}
@@ -49,10 +49,10 @@ function App() {
           <Route path='/Privacy' element={<Privacy />} />
           {/* 회사소개 */}
           <Route path='/About' element={<About />} />
-          {/* 이벤트 페이지 */}
-          <Route path='/Ours' element={<Event />} />
           {/* 아워스 */}
-          <Route path='/Event' element={<Ours />} />
+          <Route path='/Ours' element={<Ours />} />
+          {/* 아워스박스 */}
+          <Route path='/OursBox' element={<OursBox />} />
           {/* 팩토리 */}
           <Route path='/Factory' element={<Factory />} />
         </Routes>

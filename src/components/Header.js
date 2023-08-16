@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faCaretDown, faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
 import Logo from '../img/oursLogo.png';
 
@@ -14,6 +14,12 @@ const Header = () => {
     };
 
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    const [hoveredMenu, setHoveredMenu] = useState(null);
+
+
+    const handleMenuHover = (menu) => {
+        setHoveredMenu(menu);
+    };
 
     useEffect(() => {
         // 창 너비 변경 시 이벤트 핸들러
@@ -34,43 +40,92 @@ const Header = () => {
         <>
             {windowWidth <= 1023 ? (
                 <>
-                    <div className="home-navbar phone">
+                    <div className="phone">
                         <div className="navbar-logo" onClick={() => {
                             navigate('/')
-                        }}><img src={Logo} style={{width : 100, marginTop : 6}} alt="" />
+                        }}><img src={Logo} style={{ width: 100, marginTop: 6 }} alt="" />
                         </div>
                         <div>
-                            <FontAwesomeIcon icon={faBars} style={{ fontSize: 25, cursor:'pointer' }} onClick={() => {
+                            <FontAwesomeIcon icon={faBars} style={{ fontSize: 25, cursor: 'pointer' }} onClick={() => {
                                 setShowMenu(!showMenu);
                             }} />
                         </div>
                     </div>
+
                     <div className={showMenu ? "phone-menu phone-menuActive" : "phone-menu"}>
-                        <p onClick={() => handleMenuClick('/Ours')}>아워스</p>
-                        <p onClick={() => handleMenuClick('/reservation')}>수거예약</p>
-                        <p onClick={() => handleMenuClick('/ReservationCheck')}>예약확인</p>
-                        <p onClick={() => handleMenuClick('/Instruction')}>이용안내</p>
-                        <p onClick={() => handleMenuClick('/Service')}>고객센터</p>
+                        <h2>Trade</h2>
+                        <ul className="tradeMenu">
+                            <li onClick={() => { handleMenuClick('/reservation') }}>수거예약</li>
+                            <li onClick={() => { handleMenuClick('/ReservationCheck') }}>예약확인</li>
+                            <li onClick={() => { handleMenuClick('/Instruction') }}>이용안내</li>
+                        </ul>
+                        <ul className="mainMenu">
+                            <li onClick={() => handleMenuClick('/Ours')}>아워스</li>
+                            <li onClick={() => { }}> 프로젝트 <FontAwesomeIcon icon={faCaretDown} /></li>
+                            <li onClick={() => { }}>플랫폼 <FontAwesomeIcon icon={faCaretDown} /></li>
+                            <li onClick={() => { }}>캠페인 <FontAwesomeIcon icon={faCaretDown} /></li>
+                            <li onClick={() => handleMenuClick('/Service')}>고객지원</li>
+                        </ul>
+
                     </div>
                 </>
             ) :
                 (
                     <div className="home-navbar">
-                        <div className="navbar-logo"  onClick={() => {
+                        <div className="navbar-logo" onClick={() => {
                             navigate('/')
                         }}><img src={Logo} alt="" />
                         </div>
                         <ul className="navbar-menu">
                             <li onClick={() => handleMenuClick('/Ours')}>아워스</li>
-                            <li onClick={() => handleMenuClick('/reservation')}>수거예약</li>
-                            <li onClick={() => handleMenuClick('/ReservationCheck')}>예약확인</li>
-                            <li onClick={() => handleMenuClick('/Instruction')}>이용안내</li>
-                            <li onClick={() => handleMenuClick('/Service')}>고객센터</li>
+                            <li
+                                onMouseEnter={() => { handleMenuHover("project") }}
+                                onMouseLeave={() => { handleMenuHover(null) }}
+                            >
+                                프로젝트
+                                <ul className={hoveredMenu === "project" ? "active" : "subMenu"}>
+                                    <li>에코볼</li>
+                                    <li>수거 프로젝트</li>
+                                    <li onClick={() => { handleMenuClick('/Factory') }}>팩토리</li>
+                                </ul>
+                            </li>
+                            <li
+                                onMouseEnter={() => { handleMenuHover("platform") }}
+                                onMouseLeave={() => { handleMenuHover(null) }}
+                            >
+                                플랫폼
+                                <ul className={hoveredMenu === "platform" ? "active" : "subMenu"}>
+                                    <li onClick={() => { handleMenuClick('/OursBox') }}>아워박스</li>
+                                    <li>대용량 수거</li>
+                                </ul>
+                            </li>
+                            <li
+                                onMouseEnter={() => { handleMenuHover("campaign") }}
+                                onMouseLeave={() => { handleMenuHover(null) }}>
+                                캠페인
+                                <ul className={hoveredMenu === "campaign" ? "active" : "subMenu"}>
+                                    <li>대회 캠페인</li>
+                                    <li>사회적 캠페인</li>
+                                    <li>친환경 골프대회</li>
+                                </ul>
+                            </li>
+                            <li onClick={() => handleMenuClick('/Service')}>고객지원</li>
                         </ul>
                         <div className="outSite">
-                            <span><a href="http://service.qving.co.kr/">큐빙</a></span>
-                            <span><a href="http://www.xperon.co.kr/">엑스페론</a></span>
-                            <span><a href="http://dodreamjin.com/">두드림진</a></span>
+                            <FontAwesomeIcon className="cart" icon={faCartShopping} />
+                            <ul className="trade"
+                                onMouseEnter={() => { handleMenuHover("bar") }}
+                                onMouseLeave={() => { handleMenuHover(null) }}>
+                                <span className="menuBar">
+                                    <FontAwesomeIcon icon={faBars} />
+                                </span>
+
+                                <ul className={hoveredMenu === "bar" ? "tradeActive" : "tradeUl"}>
+                                    <li onClick={() => { handleMenuClick('/reservation') }}>수거예약</li>
+                                    <li onClick={() => { handleMenuClick('/ReservationCheck') }}>예약확인</li>
+                                    <li onClick={() => { handleMenuClick('/Instruction') }}>이용안내</li>
+                                </ul>
+                            </ul>
                         </div>
                     </div>
                 )

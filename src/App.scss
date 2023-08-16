@@ -1,0 +1,238 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+#root {
+  padding: 0;
+}
+
+.App {
+  padding: 0;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+div {
+  padding: 10px;
+}
+
+
+.home-navbar {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  position: relative;
+  border-bottom: 2px solid gray;
+
+  padding: 0;
+
+  .navbar-logo {
+    cursor: pointer;
+    text-align: center;
+    padding: 0;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .navbar-menu {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    li {
+      list-style: none;
+      margin: 0px 10px;
+      cursor: pointer;
+      position: relative;
+      padding: 10px;
+
+      .subMenu {
+        display: none;
+      }
+
+      .active {
+        position: absolute;
+        top: 105%;
+        left: 0%;
+        z-index: 1;
+        width: 200px;
+        background: white;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        display: block;
+
+        li {
+          margin: 5%;
+          cursor: pointer;
+
+          &:hover {
+            color: #00d44d;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+
+  .outSite {
+    font-size: 1em;
+
+    .cart {
+      font-size: 1.5em;
+      margin: 0px 10px;
+      cursor: pointer;
+    }
+
+    .trade {
+      display: inline-block;
+      position: relative;
+      width: 20%;
+
+      .menuBar {
+        font-size: 1.5em;
+        cursor: pointer;
+        margin: 0px 10px;
+        padding: 15%;
+      }
+
+      .tradeUl {
+        display: none;
+      }
+
+      .tradeActive {
+        position: absolute;
+        top: 105%;
+        left: 0%;
+        z-index: 1;
+        width: 200px;
+        background: white;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        display: block;
+
+        li {
+          margin: 10%;
+          cursor: pointer;
+
+          &:hover {
+            color: #00d44d;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+
+}
+
+.phone {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  border-bottom: 2px solid gray;
+  padding: 0px 20px;
+  position: relative;
+
+  .navbar-logo {
+    cursor: pointer;
+    text-align: center;
+    padding: 0;
+  }
+
+}
+
+.phone-menu {
+  position: absolute;
+  top: 0%;
+  z-index: 1;
+  width: 50%;
+  height: 100%;
+  background-color: white;
+  display: none;
+}
+
+.phone-menuActive {
+  display: block;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 0;
+  h2{
+    margin: 5%;
+  }
+  .tradeMenu {
+    padding: 5%;
+    border-bottom: 1px solid black;
+
+    li {
+      padding: 5px 0px;
+      cursor: pointer;
+    }
+  }
+  .mainMenu{
+    padding: 5%;
+    li{
+      padding: 5px 0px;
+      cursor: pointer;
+    }
+  }
+}
+
+/* --------footer----------------------- */
+
+.footer-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  background-color: #ffffff;
+  border-top: 1px solid black;
+}
+
+.footer-logo {
+  margin-top: 10px;
+}
+
+.footer-infor p {
+  font-size: 0.8em;
+  margin: 15px 0px;
+}
+
+.footer-infor span {
+  cursor: pointer;
+}
+
+.footer-infor span:hover {
+  color: #84c514;
+}
+
+.footer-link img {
+  width: 20%;
+  margin: 10px 10px;
+}
+
+@media screen and (max-width: 767px) {
+  .footer-container {
+    display: block;
+  }
+
+  .footer-link img {
+    width: 10%;
+    margin: 10px 0px;
+  }
+}
