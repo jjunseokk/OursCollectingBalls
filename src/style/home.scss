@@ -22,9 +22,9 @@
         .greenLine {
             text-align: center;
             width: 100%;
-            position: absolute;
-            top: 0;
             background: #CFFFCB;
+            font-size: 1.5em;
+            padding: 20px 0px;
         }
 
         .parallax-text {
@@ -101,17 +101,19 @@
 
         .animationBox {
             width: 100%;
-            height: 400px;
+            height: 600px;
             text-align: center;
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
             font-weight: bold;
-            font-size: 1.2em;
+            font-size: 2em;
         }
 
         .WeAreOurs {
+            width: 100%;
+            height: 600px;
             display: flex;
             justify-content: space-around;
             align-items: center;
@@ -122,19 +124,19 @@
 
                 .title {
                     font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
-                    font-size: 2.3em;
+                    font-size: 2.5em;
                     font-weight: bold;
                     margin: 20px 0px;
                 }
 
                 .subTitle {
-                    font-size: 1.2em;
+                    font-size: 1.5em;
                     font-weight: bold;
                     margin-bottom: 30px;
                 }
 
                 .content {
-                    font-size: 0.9em;
+                    font-size: 1.2em;
                     font-weight: bold;
 
                     span {
@@ -148,8 +150,8 @@
             }
 
             .weAre {
-                width: 45%;
-                scale: 1.2;
+                width: 28%;
+                scale: 1.5;
             }
         }
 
@@ -219,14 +221,15 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            height: 400px;
+            height: 600px;
+            line-height: 80px;
 
             h1 {
                 font-size: 5em;
             }
 
             p {
-                font-size: 2em;
+                font-size: 1.5em;
             }
         }
 
@@ -244,27 +247,31 @@
                 flex-direction: column;
                 padding: 0;
                 width: 100%;
-                height: 350px;
+                height: 420px;
 
                 img {
                     width: 50%;
                 }
 
-                .learnMore {
-                    color: #00D44D;
-                    cursor: pointer;
-                    margin-top: 20px;
-                }
+
+            }
+
+            .learnMore {
+                color: #00D44D;
+                cursor: pointer;
+                margin-top: 20px;
             }
 
             .one {
                 background: url(../img/linkBox_1.png) no-repeat;
                 background-size: cover;
+                background-position: center;
             }
 
             .two {
                 background: url(../img/linkBox_2.png) no-repeat;
                 background-size: cover;
+                background-position: center;
 
                 img {
                     width: 40%;
@@ -275,11 +282,13 @@
             .three {
                 background: url(../img/linkBox_3.png) no-repeat;
                 background-size: cover;
+                background-position: center;
             }
 
             .four {
                 background: url(../img/linkBox_4.png) no-repeat;
                 background-size: cover;
+                background-position: center;
             }
         }
 
@@ -296,7 +305,7 @@
             .productionText {
                 position: absolute;
                 z-index: 1;
-                top: 450px;
+                top: 550px;
                 left: 5%;
                 font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
                 padding: 0;
@@ -314,7 +323,7 @@
                 justify-content: flex-end;
                 align-items: center;
                 position: absolute;
-                top: 200px;
+                top: 250px;
                 border-top-left-radius: 70px;
                 right: 0;
                 padding: 5% 0% 5% 5%;
@@ -336,7 +345,7 @@
             padding: 0;
             margin: 0;
             position: relative;
-            height: 1000px;
+            height: 1200px;
 
             .bg {
                 width: 100%;
@@ -354,7 +363,7 @@
         .contactUs {
             background-color: black;
             width: 100%;
-            height: 1000px;
+            height: auto;
 
             .contact-area {
                 width: 100%;
@@ -460,8 +469,6 @@
             .greenLine {
                 text-align: center;
                 width: 100%;
-                position: absolute;
-                top: 0;
                 background: #CFFFCB;
                 font-size: 0.5em;
             }
@@ -498,10 +505,12 @@
             }
 
             .animationBox {
-                font-size: 0.8em;
+                font-size: 0.7em;
+                height: 400px;
             }
 
             .WeAreOurs {
+                width: 100%;
                 display: flex;
                 justify-content: space-around;
                 align-items: center;
@@ -526,6 +535,7 @@
 
                 .weAre {
                     width: 100%;
+                    scale: 1;
                 }
             }
 
@@ -553,14 +563,18 @@
                 justify-content: center;
                 align-items: center;
                 flex-direction: column;
-
-                div {
-                    .learnMore {
-                        color: #00D44D;
-                        cursor: pointer;
-                        margin-top: 20px;
-                        font-size: 0.6em;
+                div{
+                    img {
+                        width: 70%;
+                        scale: 1;
                     }
+                }
+ 
+                .learnMore {
+                    color: #00D44D;
+                    cursor: pointer;
+                    margin-top: 20px;
+                    font-size: 1em;
                 }
             }
 
@@ -596,6 +610,8 @@
                     div {
                         text-align: center;
                         width: 100%;
+                        padding: 0;
+                        margin: 0;
 
                         h1 {
                             margin-top: 20px;
@@ -678,8 +694,6 @@
             .greenLine {
                 text-align: center;
                 width: 100%;
-                position: absolute;
-                top: 0;
                 background: #CFFFCB;
                 font-size: 0.8em;
             }
@@ -720,6 +734,7 @@
             }
 
             .WeAreOurs {
+                width: 100%;
                 display: flex;
                 justify-content: space-around;
                 align-items: center;
@@ -744,6 +759,7 @@
 
                 .weAre {
                     width: 100%;
+                    scale: 1;
                 }
             }
 
@@ -772,13 +788,11 @@
                 align-items: center;
                 flex-direction: column;
 
-                div {
-                    .learnMore {
-                        color: #00D44D;
-                        cursor: pointer;
-                        margin-top: 20px;
-                        font-size: 0.6em;
-                    }
+                .learnMore {
+                    color: #00D44D;
+                    cursor: pointer;
+                    margin-top: 20px;
+                    font-size: 0.6em;
                 }
             }
 
@@ -929,10 +943,8 @@
             }
 
             .WeAreOurs {
-                display: flex;
-                justify-content: space-around;
-                align-items: center;
-                flex-direction: column;
+                width: 100%;
+                display: block;
                 margin: 20px 0px;
 
                 div {
@@ -953,6 +965,11 @@
 
                 .weAre {
                     width: 100%;
+                    scale: 1;
+                }
+
+                .Line {
+                    display: none;
                 }
             }
 
@@ -980,14 +997,14 @@
                 justify-content: center;
                 align-items: center;
                 flex-direction: column;
-
-                div {
-                    .learnMore {
-                        color: #00D44D;
-                        cursor: pointer;
-                        margin-top: 20px;
-                        font-size: 0.6em;
-                    }
+                a{
+                    width: 100%;
+                }
+                .learnMore {
+                    color: #00D44D;
+                    cursor: pointer;
+                    margin-top: 20px;
+                    font-size: 1.2em;
                 }
             }
 
@@ -1024,7 +1041,7 @@
                         text-align: center;
                         margin: 0;
                         padding: 0;
-                        width: 100%;
+                        width: 80%;
 
                         h1 {
                             margin-top: 20px;
@@ -1130,19 +1147,35 @@
 
             .WeAreOurs {
                 margin-bottom: 100px;
+                width: 100%;
+                height: 800px;
+                display: block;
 
-                div {
-                    width: 33%;
+                .text {
+                    width: 100%;
+
+                    .title {
+                        font-size: 4em;
+                    }
 
                     .subTitle {
-                        font-size: 0.8em;
+                        font-size: 1.5em;
                     }
 
                     .content {
-                        font-size: 0.7em;
-                        font-weight: bold;
+                        font-size: 1.2em;
                     }
                 }
+
+                .Line {
+                    display: none;
+                }
+
+                .weAre {
+                    width: 80%;
+                    margin-top: 50px;
+                }
+
             }
 
             .productionArea {
@@ -1217,24 +1250,204 @@
 @media screen and (min-width : 1800px) {
     .home-container {
         width: 100%;
+        font-size: 1em;
+        background-color: white;
+        padding: 0;
+
+        .home-main {
+            position: relative;
+            padding: 0;
+            margin: 0;
+
+            .greenLine {
+                text-align: center;
+                width: 100%;
+                background: #CFFFCB;
+            }
+
+            .parallax-text {
+                .bannerText {
+                    line-height: 80px;
+
+                    h1 {
+                        font-size: 5em;
+                    }
+
+                    p {
+                        font-size: 1.5em;
+                    }
+                }
+            }
+        }
 
         .home-wrap {
-            width: 70%;
-            font-size: 1em;
-            margin: 0 auto;
+            padding: 300px 0px 0px 0px;
+
+            .animationBox {
+                height: 800px;
+                font-size: 3em;
+            }
+
+            .WeAreOurs {
+
+                div {
+                    width: 33%;
+
+                    .title {
+                        font-size: 3em;
+                    }
+
+                    .subTitle {
+                        font-size: 2em;
+                    }
+
+                    .content {
+                        font-size: 1.5em;
+                    }
+                }
+
+            }
+
+            .middleText {
+                height: 600px;
+                line-height: 100px;
+
+                p {
+                    font-size: 1.5em;
+                }
+            }
+
+            .linkBoxArea {
+
+                div {
+                    height: 900px;
+
+                    .learnMore {
+                        font-size: 2em;
+                    }
+                }
+
+            }
 
             .productionArea {
+                height: 1600px;
+
+                img {
+                    width: 100%;
+                }
 
                 .productionText {
-                    top: 750px;
+                    top: 1100px;
+                    font-size: 2em;
                 }
-                .whiteBox{
-                    top: 250px;
+
+                .whiteBox {
+                    top: 500px;
+
                 }
             }
 
             .ecoBallsArea {
-                height: 1500px;
+                height: 2900px;
+
+            }
+
+            .contactUs {
+                height: auto;
+
+                .contact-area {
+                    width: 100%;
+                    text-align: right;
+                    padding-right: 10%;
+
+                    .contact-title {
+                        font-family: 'Noto Sans KR', sans-serif;
+                        -webkit-text-stroke: 1px white;
+
+                        img {
+                            width: 10%;
+                            padding: 1% 1%;
+                        }
+                    }
+                }
+
+                .contact-us {
+                    width: 60%;
+                    margin: 0 auto;
+
+                    form {
+                        width: 100%;
+                        padding: 10% 0%;
+
+                        label {
+                            display: block;
+                            border-bottom: 1px solid white;
+
+                            &:last-child {
+                                border-bottom: none;
+                            }
+
+                            span {
+                                color: white;
+                                width: 10%;
+                                display: inline-block;
+                                padding: 2% 0%
+                            }
+
+                            input {
+                                width: 90%;
+                                color: white;
+                                padding: 20px;
+                                background: transparent;
+                                border: none;
+                                outline: none;
+                            }
+
+                            textarea {
+                                display: block;
+                                width: 100%;
+                                padding: 10px;
+                                font-size: 1.2em;
+                            }
+                        }
+
+                        .btnArea {
+                            text-align: right;
+
+                            .contact-btn {
+                                width: 15%;
+                                height: 40px;
+                                border: 1px solid white;
+                                background-color: transparent;
+                                color: white;
+                                margin-top: 3%;
+                                cursor: pointer;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+
+
+        @keyframes upDown {
+            0% {
+                bottom: 10%;
+            }
+
+            80% {
+                bottom: 5%;
+            }
+        }
+
+        @keyframes Scale {
+            0% {
+                transform: scale(1);
+            }
+
+            90% {
+                transform: scale(1.03);
             }
         }
     }

@@ -61,7 +61,9 @@ div {
       cursor: pointer;
       position: relative;
       padding: 10px;
-
+      &:hover{
+        border-bottom: 2px solid black;
+      }
       .subMenu {
         display: none;
       }
@@ -79,7 +81,6 @@ div {
 
         li {
           margin: 5%;
-          border-bottom: 1px solid black;
           color: #5E5E5E;
           cursor: pointer;
 
@@ -131,7 +132,6 @@ div {
         li {
           padding: 10%;
           cursor: pointer;
-          border-bottom: 1px solid black;
           color: #5E5E5E;
 
           &:hover {

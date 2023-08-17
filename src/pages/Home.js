@@ -107,6 +107,7 @@ const Home = () => {
             if (section3Top < scroll) {
                 setShowCnt(true);
             }
+
         };
 
         window.addEventListener('scroll', handleScroll);
@@ -212,11 +213,12 @@ const Home = () => {
         <div className="home-container">
 
             <div className="home-main">
-                <img src={homeBack} alt="" width='100%' />
                 <div className="greenLine">
                     헌 볼 수거를 요청해보세요. OURS로 재탄생 됩니다. <span onClick={() => { navigate('/reservation') }}
-                            style={{ color: "#00D44D", cursor: 'pointer' }}>지구를 지키러 가기  <FontAwesomeIcon icon={faCaretRight} /> </span>
+                        style={{ color: "#00D44D", cursor: 'pointer' }}>지구를 지키러 가기  <FontAwesomeIcon icon={faCaretRight} /> </span>
                 </div>
+                <img src={homeBack} alt="" width='100%' />
+
                 <div className="parallax-text">
                     <div className="bannerText">
                         <h1>
@@ -252,7 +254,7 @@ const Home = () => {
                 </div>
 
                 <div className="WeAreOurs">
-                    <div>
+                    <div className="text">
                         <p onClick={() => { navigate('/Ours') }}
                             style={{ color: "#00D44D", cursor: 'pointer' }}>더 알아보기 <FontAwesomeIcon icon={faCaretRight} /> </p>
                         <p className="title">YES, WE ARE OURS</p>
@@ -264,7 +266,7 @@ const Home = () => {
                             아워스와 함께 인사해요! <span>HELLO, GREEN!</span>
                         </p>
                     </div>
-                    {windowWidth <= 768 ? "" : <img className="Line" src={Line} alt="" />}
+                    {windowWidth <= 824 ? "" : <img className="Line" src={Line} alt="" />}
                     <img className="weAre" src={weAre} alt="" />
                 </div>
 
@@ -301,22 +303,24 @@ const Home = () => {
                 </div>
 
                 <div className="linkBoxArea">
-                    <div className="one">
+                    <div onClick={() => { navigate('/reservation') }} className="one">
                         <img src={linkText_1} alt="" />
-                        <p className="learnMore" onClick={() => { navigate('/reservation') }}>더 알아보기 <FontAwesomeIcon icon={faCaretRight} /> </p>
+                        <p className="learnMore" >더 알아보기 <FontAwesomeIcon icon={faCaretRight} /> </p>
                     </div>
-                    <div className="two">
+                    <div onClick={() => { navigate('/OursBox') }} className="two">
                         <img src={linkText_2} alt="" />
-                        <p className="learnMore" onClick={() => { navigate('/OursBox') }}>더 알아보기 <FontAwesomeIcon icon={faCaretRight} /> </p>
+                        <p className="learnMore">더 알아보기 <FontAwesomeIcon icon={faCaretRight} /> </p>
                     </div>
-                    <div className="three">
+                    <div onClick={() => { navigate('/Factory') }} className="three">
                         <img src={linkText_3} alt="" />
-                        <p className="learnMore" onClick={() => { navigate('/Factory') }}>더 알아보기 <FontAwesomeIcon icon={faCaretRight} /> </p>
+                        <p className="learnMore" >더 알아보기 <FontAwesomeIcon icon={faCaretRight} /> </p>
                     </div>
-                    <div className="four">
-                        <img src={linkText_4} alt="" />
-                        <a className="learnMore" href="https://ours-event.com/" target="_blank" rel="noreferrer">더 알아보기 <FontAwesomeIcon icon={faCaretRight} /> </a>
-                    </div>
+                    <a href="https://ours-event.com/" target="_blank" rel="noreferrer">
+                        <div className="four">
+                            <img src={linkText_4} alt="" />
+                            <p className="learnMore">더 알아보기 <FontAwesomeIcon icon={faCaretRight} /></p>
+                        </div>
+                    </a>
                 </div>
 
                 <div className="productionArea">
