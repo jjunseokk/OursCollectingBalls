@@ -40,6 +40,7 @@ div {
   padding: 0;
 
   .navbar-logo {
+    width: 8%;
     cursor: pointer;
     text-align: center;
     padding: 0;
@@ -69,7 +70,7 @@ div {
         position: absolute;
         top: 105%;
         left: 0%;
-        z-index: 1;
+        z-index: 2;
         width: 200px;
         background: white;
         border-bottom-left-radius: 20px;
@@ -173,9 +174,11 @@ div {
   display: block;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   padding: 0;
-  h2{
+
+  h2 {
     margin: 5%;
   }
+
   .tradeMenu {
     padding: 5%;
     border-bottom: 1px solid black;
@@ -185,11 +188,23 @@ div {
       cursor: pointer;
     }
   }
-  .mainMenu{
+
+  .mainMenu {
     padding: 5%;
-    li{
+
+    li {
       padding: 5px 0px;
       cursor: pointer;
+
+      .project.active {
+        margin-left: 20px;
+        height: auto;
+        opacity: 1;
+        transition: all 2s;
+        li{
+          padding: 10px 0px;
+        }
+      }
     }
   }
 }

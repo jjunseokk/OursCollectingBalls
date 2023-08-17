@@ -3,7 +3,7 @@ import '../style/event.scss';
 import { useNavigate } from 'react-router-dom';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleDoubleDown, faArrowRight, faCaretRight} from '@fortawesome/free-solid-svg-icons';
+import { faAngleDoubleDown, faArrowRight, faCaretRight } from '@fortawesome/free-solid-svg-icons';
 
 import eventBanner from '../img/eventBanner.png';
 import eventBannerText from '../img/eventBannerText.png';
@@ -20,6 +20,8 @@ import contact from '../img/contact.png';
 import Cycle from '../img/cycleImg.png';
 import management from '../img/management.png';
 import eventBannerText2 from '../img/eventBannerText2.png';
+import Logo from '../img/oursLogo.png';
+import slogan from '../img/slogan.png';
 
 const Ours = () => {
     const businessBox = [
@@ -51,6 +53,8 @@ const Ours = () => {
     const [counter2, setCounter2] = useState(0);
     const targetValue1 = 100; // 목표치 1: 100%
     const targetValue2 = 2500000000; // 목표치 2: 2,500,000,000
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
 
     useEffect(() => {
         const handleScroll = () => {
@@ -93,7 +97,7 @@ const Ours = () => {
                             }
                             return nextCounter;
                         });
-                    }, 30); // 10ms마다 숫자 증가 (숫자 증가 속도 조절 가능)
+                    }, 50); // 10ms마다 숫자 증가 (숫자 증가 속도 조절 가능)
                 }
 
                 // 스크롤이 .showAnimation에 도달하면 숫자를 올리는 애니메이션 시작
@@ -101,7 +105,7 @@ const Ours = () => {
                     // 0부터 목표치까지 1씩 증가시키며 애니메이션 효과 구현
                     const interval2 = setInterval(() => {
                         setCounter2((prevCounter) => {
-                            const increment = 100000; // 증가량 (25억)
+                            const increment = 1000000; // 증가량 (25억)
                             const nextCounter = prevCounter + increment;
                             // 목표치 이상이면 목표치로 설정하고 애니메이션 종료
                             if (nextCounter >= targetValue2) {
@@ -124,6 +128,23 @@ const Ours = () => {
         };
     }, [counter1, counter2]);
 
+
+
+    useEffect(() => {
+        // 창 너비 변경 시 이벤트 핸들러
+        const handleResize = () => {
+            setWindowWidth(window.innerWidth);
+        };
+
+        // 이벤트 핸들러 등록
+        window.addEventListener('resize', handleResize);
+
+        // 컴포넌트 언마운트 시 이벤트 핸들러 제거
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
     return (
         <div className='eventContainer'>
             <div className='banner' >
@@ -135,6 +156,28 @@ const Ours = () => {
                 <FontAwesomeIcon className='down' icon={faAngleDoubleDown} />
             </div>
             <div className='EventWrap'>
+                <div className='oursMission'>
+                    <span>OURS MISSION</span>
+                    <img src={Logo} alt='' />
+                    <div className='greenLine'>
+                        <p>
+                            폐 골프공은 완전 분쇄하여 완벽한 새 공을 만들어내는 특허 받은 재생산 기술을 통해, {windowWidth <= 390 ? null : <br />}
+                            무분별하게 발생하는 로스트볼로 인한 자연오염을 방지하는{windowWidth <= 390 ? null : <br />}
+                            New Millennial Eco Lifestyle GOLF BRAND
+                        </p>
+                    </div>
+                </div>
+                <div className='oursMission'>
+                    <span>OURS SLOGAN</span>
+                    <img src={slogan} alt='' />
+                    <div className='greenLine'>
+                        <p>
+                            OURS의 슬로건 HELLO, GREEN은  “모두 자연에서 만나자” 라는 뜻과{windowWidth <= 390 ? null : <br />}
+                            자연을 상징하는 GREEN임과 동시에 골프의 GREEN으로{windowWidth <= 390 ? null : <br />}
+                            중의적 표현을 담고 있습니다.
+                        </p>
+                    </div>
+                </div>
                 <div className='oursBusiness'>
                     <div className='businessText'>
                         <h1>친환경 순환 골프 비즈니스</h1>

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&family=Noto+Sans+KR&display=swap');
+
 body {
     margin: 0;
     padding: 0;
@@ -51,6 +53,39 @@ body {
 
     .EventWrap {
         width: 100%;
+        padding: 0;
+
+        .oursMission {
+            text-align: center;
+            font-family: "Noto Sans KR", sans-serif;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+            span {
+                font-size: 2em;
+                margin: 50px 0px;
+                font-weight: bold;
+                font-family: 'no';
+                background: linear-gradient(to top, #AEFF1E 40%, transparent 40%);
+            }
+
+            img {
+                width: 25%;
+                margin-bottom: 60px;
+            }
+
+            .greenLine {
+                width: 100%;
+                padding: 20px 0px;
+                background: #006530;
+                color: white;
+                font-weight: bold;
+                line-height: 30px;
+            }
+        }
 
         .oursBusiness {
             text-align: center;
@@ -58,7 +93,7 @@ body {
 
             .businessText {
                 margin: 100px 0px;
-              
+
                 .showLine {
                     position: relative;
                     background: linear-gradient(to top, #AEFF1E 40%, transparent 40%);
@@ -236,6 +271,39 @@ body {
         }
 
         .EventWrap {
+            .oursMission {
+                text-align: center;
+                font-family: "Noto Sans KR", sans-serif;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+
+                span {
+                    font-size: 2em;
+                    margin: 50px 0px;
+                    font-weight: bold;
+                    font-family: 'no';
+                    background: linear-gradient(to top, #AEFF1E 40%, transparent 40%);
+                }
+
+                img {
+                    width: 50%;
+                    margin-bottom: 60px;
+                }
+
+                .greenLine {
+                    width: 100%;
+                    padding: 20px 0px;
+                    background: #006530;
+                    color: white;
+                    font-weight: bold;
+                    line-height: 30px;
+                    font-size: 0.8em;
+                }
+            }
+
             .oursBusiness {
                 text-align: center;
                 padding: 0;
