@@ -12,7 +12,7 @@ import homeBack from '../img/homeBack.png';
 import ecoGolfBack from '../img/ecoGolfback.png';
 import ecoGolf from '../img/ecoGolf.png';
 import ecoGolfText from '../img/ecoGolfText.png';
-import weAre from '../img/weAre.png';
+import weAre from '../img/weAre.gif';
 import Line from '../img/Line.png';
 import functionImg_1 from '../img/functionImg_1.png';
 import functionImg_2 from '../img/functionImg_2.png';
@@ -213,6 +213,10 @@ const Home = () => {
 
             <div className="home-main">
                 <img src={homeBack} alt="" width='100%' />
+                <div className="greenLine">
+                    헌 볼 수거를 요청해보세요. OURS로 재탄생 됩니다. <span onClick={() => { navigate('/reservation') }}
+                            style={{ color: "#00D44D", cursor: 'pointer' }}>지구를 지키러 가기  <FontAwesomeIcon icon={faCaretRight} /> </span>
+                </div>
                 <div className="parallax-text">
                     <div className="bannerText">
                         <h1>
@@ -272,7 +276,7 @@ const Home = () => {
                     </div>
                     <div className="top">
                         <img src={functionImg_2} alt="" />
-                        <img className="text" src={functionText_2} alt="" />
+                        <img style={{ scale: '0.8' }} className="text" src={functionText_2} alt="" />
                         <img className="content" src={functionContent_2} alt="" />
                     </div>
                     <div className="bottom">
@@ -283,7 +287,7 @@ const Home = () => {
                     <div className="top">
                         <img src={functionImg_4} alt="" />
                         <img className="text" src={functionText_4} alt="" />
-                        <img className="content" src={functionContent_4} alt="" />
+                        <img style={{ scale: '1.2' }} className="content" src={functionContent_4} alt="" />
                     </div>
                 </div>
 
