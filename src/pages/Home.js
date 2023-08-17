@@ -245,7 +245,6 @@ const Home = () => {
                     <div className="first-box">
                         <p>매년 유실되는 골프공</p>
                         <h1>약 <strong>{formattedValue}</strong>개 이상</h1>
-
                     </div>
                     <div className="second-box" >
                         <p>연간 폐 골프공으로 다시태어날 수 있는 아워스 에코볼</p>

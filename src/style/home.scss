@@ -23,7 +23,6 @@
             text-align: center;
             width: 100%;
             background: #CFFFCB;
-            font-size: 1.5em;
             padding: 20px 0px;
         }
 
@@ -72,7 +71,7 @@
     }
 
     .home-wrap {
-        padding: 100px 0px 0px 0px;
+        padding: 250px 0px 0px 0px;
 
         .home-goLink {
             padding: 0;
@@ -109,6 +108,9 @@
             flex-direction: column;
             font-weight: bold;
             font-size: 2em;
+            .first-box{
+                margin-bottom: 50px;
+            }
         }
 
         .WeAreOurs {
@@ -119,7 +121,7 @@
             align-items: center;
             margin: 20px 0px;
 
-            div {
+            .text {
                 width: 33%;
 
                 .title {
@@ -1281,24 +1283,24 @@
         }
 
         .home-wrap {
-            padding: 300px 0px 0px 0px;
+            padding: 400px 0px 0px 0px;
 
             .animationBox {
-                height: 800px;
+                height: 1000px;
                 font-size: 3em;
             }
 
             .WeAreOurs {
-
-                div {
+                height: 900px;
+                .text {
                     width: 33%;
 
                     .title {
-                        font-size: 3em;
+                        font-size: 4em;
                     }
 
                     .subTitle {
-                        font-size: 2em;
+                        font-size: 2.4em;
                     }
 
                     .content {
@@ -1309,7 +1311,7 @@
             }
 
             .middleText {
-                height: 600px;
+                height: 900px;
                 line-height: 100px;
 
                 p {
@@ -1330,7 +1332,7 @@
             }
 
             .productionArea {
-                height: 1600px;
+                height: 1700px;
 
                 img {
                     width: 100%;
