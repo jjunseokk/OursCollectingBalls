@@ -55,15 +55,15 @@ div {
     justify-content: space-around;
     align-items: center;
 
-    >li {
+    li {
       list-style: none;
       margin: 0px 10px;
       cursor: pointer;
       position: relative;
       padding: 10px;
-      &:hover{
-        border-bottom: 2px solid black;
-      }
+
+
+
       .subMenu {
         display: none;
       }
@@ -88,7 +88,20 @@ div {
             color: #00d44d;
             font-weight: bold;
           }
+
+          a {
+            padding: 0;
+            &:hover {
+              color: #00d44d;
+            }
+          }
         }
+      }
+    }
+
+    >li {
+      &:hover {
+        border-bottom: 2px solid black;
       }
     }
   }

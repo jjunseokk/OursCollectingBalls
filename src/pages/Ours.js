@@ -162,7 +162,7 @@ const Ours = () => {
                     <div className='greenLine'>
                         <p>
                             폐 골프공은 완전 분쇄하여 완벽한 새 공을 만들어내는 특허 받은 재생산 기술을 통해, {windowWidth <= 390 ? null : <br />}
-                            무분별하게 발생하는 로스트볼로 인한 자연오염을 방지하는{windowWidth <= 390 ? null : <br />}
+                            무분별하게 발생하는 헌 골프공으로 인한 자연오염을 방지하는{windowWidth <= 390 ? null : <br />}
                             New Millennial Eco Lifestyle GOLF BRAND
                         </p>
                     </div>

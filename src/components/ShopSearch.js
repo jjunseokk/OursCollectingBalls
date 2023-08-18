@@ -225,7 +225,7 @@ const ShopSearch = () => {
                         <FontAwesomeIcon icon={faSearch} className="shop-searchIcon" />
                     </div>
                     <div className="shop">
-                        <h4><img src={golf} alt="" width="10px" /> 로스트볼 수거량 (3만 알 기준)</h4>
+                        <h4><img src={golf} alt="" width="10px" /> 헌 골프공 수거량 (3만 알 기준)</h4>
                         <div className="collect-weight">
                             <button
                                 onClick={() => {

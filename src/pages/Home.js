@@ -91,7 +91,7 @@ const Home = () => {
     const number = 2500000000;
     const duration = 2000; // 애니메이션 지속 시간 (밀리초)
     const fps = 60; // 초당 프레임 수
-    const frameDuration = 1000 / fps;
+    const frameDuration = 700 / fps;
     const totalFrames = duration / frameDuration;
     const frameIncrement = number / totalFrames;
 
@@ -237,11 +237,11 @@ const Home = () => {
             <div className="home-wrap">
                 <div className="home-goLink">
                     <img className="back" src={ecoGolfBack} alt="" />
-                    <img className="text" src={ecoGolfText} alt="" ref={section3Ref} />
-                    <img className="ball" src={ecoGolf} alt="" />
+                    <img className="text" src={ecoGolfText} alt=""  />
+                    <img className="ball" src={ecoGolf} alt="" ref={section3Ref} />
                 </div>
 
-                <div className="animationBox">
+                <div className="animationBox" >
                     <div className="first-box">
                         <p>매년 유실되는 골프공</p>
                         <h1>약 <strong>{formattedValue}</strong>개 이상</h1>

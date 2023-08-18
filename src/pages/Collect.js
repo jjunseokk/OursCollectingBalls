@@ -79,7 +79,7 @@ const Collect = () => {
                     </select>
 
                     <p>
-                        <img src={golf} alt="" width="10px" /> 로스트볼 수거량
+                        <img src={golf} alt="" width="10px" /> 헌 골프공 수거량
                     </p>
                     <div className="collect-weight">
                         <button>1톤 이하</button>

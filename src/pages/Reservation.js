@@ -205,7 +205,7 @@ const Reservation = () => {
             <p>이메일 </p><span>{service.service && service.service.email}</span>
             <p>예약장소 </p><span>{address.add && address.add.address}</span>
             <p>예약날짜 </p><span>{date && date.date} {date && date.time}</span>
-            <p>로스트볼 수거량 </p><span>{collect && collect.collect}</span>
+            <p>헌 골프공 수거량 </p><span>{collect && collect.collect}</span>
             <p>기타 문의사항 </p><span>{service.service && service.service.inquiry}</span>
           </div>
           <div className="btn-area">
