@@ -108,7 +108,8 @@
             flex-direction: column;
             font-weight: bold;
             font-size: 2em;
-            .first-box{
+
+            .first-box {
                 margin-bottom: 50px;
             }
         }
@@ -519,8 +520,9 @@
                 align-items: center;
                 flex-direction: column;
                 margin: 20px 0px;
+                border: 1px solid red;
 
-                div {
+                .text {
                     width: 100%;
 
                     .title {
@@ -566,13 +568,14 @@
                 justify-content: center;
                 align-items: center;
                 flex-direction: column;
-                div{
+
+                div {
                     img {
                         width: 70%;
                         scale: 1;
                     }
                 }
- 
+
                 .learnMore {
                     color: #00D44D;
                     cursor: pointer;
@@ -744,7 +747,7 @@
                 flex-direction: column;
                 margin: 20px 0px;
 
-                div {
+                .text {
                     width: 100%;
 
                     .title {
@@ -950,7 +953,7 @@
                 display: block;
                 margin: 20px 0px;
 
-                div {
+                .text {
                     width: 100%;
 
                     .title {
@@ -1000,9 +1003,11 @@
                 justify-content: center;
                 align-items: center;
                 flex-direction: column;
-                a{
+
+                a {
                     width: 100%;
                 }
+
                 .learnMore {
                     color: #00D44D;
                     cursor: pointer;
@@ -1293,6 +1298,7 @@
 
             .WeAreOurs {
                 height: 900px;
+
                 .text {
                     width: 33%;
 
