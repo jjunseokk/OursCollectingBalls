@@ -116,11 +116,11 @@
 
         .WeAreOurs {
             width: 100%;
-            height: 600px;
+            height: auto;
             display: flex;
             justify-content: space-around;
-            align-items: center;
-            margin: 20px 0px;
+            align-items: flex-start;
+            margin: 0px 0px 100px 0px;
 
             .text {
                 width: 33%;
@@ -470,7 +470,7 @@
 
         .home-main {
             img {
-                height: 700px;
+                height: 550px;
             }
 
             .greenLine {
@@ -523,7 +523,7 @@
                 justify-content: space-around;
                 align-items: center;
                 flex-direction: column;
-                margin: 20px 0px;
+                margin: 0px 0px 20px 0px;
 
                 .text {
                     width: 100%;
@@ -701,7 +701,7 @@
 
         .home-main {
             img {
-                height: 700px;
+                height: 600px;
             }
 
             .greenLine {
@@ -758,7 +758,7 @@
                 justify-content: space-around;
                 align-items: center;
                 flex-direction: column;
-                margin: 20px 0px;
+                margin: 0px 0px 20px 0px;
 
                 .text {
                     width: 100%;
