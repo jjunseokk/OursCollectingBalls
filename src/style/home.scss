@@ -469,11 +469,16 @@
     .home-container {
 
         .home-main {
+            img {
+                height: 90vh;
+            }
+
             .greenLine {
                 text-align: center;
                 width: 100%;
                 background: #CFFFCB;
                 font-size: 0.5em;
+                padding: 10px 0px;
             }
 
             .parallax-text {
@@ -481,14 +486,14 @@
                 .bannerText {
                     width: 100%;
                     text-shadow: 6px 6px 1px black;
-                    line-height: 20px;
+                    line-height: 25px;
 
                     h1 {
-                        font-size: 1em;
+                        font-size: 1.2em;
                     }
 
                     p {
-                        font-size: 0.5em;
+                        font-size: 0.7em;
                     }
                 }
 
@@ -509,7 +514,7 @@
 
             .animationBox {
                 font-size: 0.7em;
-                height: 400px;
+                height: 250px;
             }
 
             .WeAreOurs {
@@ -695,11 +700,16 @@
     .home-container {
 
         .home-main {
+            img {
+                height: 90vh;
+            }
+
             .greenLine {
                 text-align: center;
                 width: 100%;
                 background: #CFFFCB;
                 font-size: 0.8em;
+                padding: 15px 0px;
             }
 
             .parallax-text {
@@ -710,11 +720,11 @@
                     line-height: 45px;
 
                     h1 {
-                        font-size: 2em;
+                        font-size: 1.5em;
                     }
 
                     p {
-                        font-size: 1em;
+                        font-size: 0.7em;
                     }
                 }
 
@@ -735,6 +745,11 @@
 
             .animationBox {
                 font-size: 0.8em;
+                height: 240px;
+
+                .first-box {
+                    margin-bottom: 20px;
+                }
             }
 
             .WeAreOurs {
