@@ -6,6 +6,18 @@
     background-color: #FFFFFF;
     position: relative;
 
+    .noData {
+        background: rgba($color: #000000, $alpha: 0.3);
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        color: white;
+    }
+
     .reservationList-text {
         width: 80%;
         margin: 0 auto;
@@ -415,6 +427,7 @@
                             width: 100%;
                             right: 0px;
                             text-align: center;
+
                             button {
                                 width: 40%;
                             }

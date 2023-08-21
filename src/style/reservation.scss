@@ -11,6 +11,8 @@
     font-family: 'Noto Sans KR', sans-serif;
     color: black;
 
+
+
     .progress-status {
         width: 30%;
         padding: 0;
@@ -550,9 +552,10 @@
             border-right: none;
 
             .progress-text {
-                p{
+                p {
                     margin-top: 50px;
                 }
+
                 .process {
                     display: block;
                     margin: 30px auto;
