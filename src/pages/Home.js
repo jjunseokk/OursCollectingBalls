@@ -37,6 +37,7 @@ import production_3 from '../img/production_3.png';
 import ecoBalls from '../img/ecoBalls.png';
 import ecoBallsText from '../img/ecoBallsText.png';
 import rowLine from '../img/row-line.png';
+import homeBackMobile from '../img/homeBackMobile.png';
 
 
 const Home = () => {
@@ -217,7 +218,7 @@ const Home = () => {
                     헌 볼 수거를 요청해보세요. OURS로 재탄생 됩니다. <span onClick={() => { navigate('/reservation') }}
                         style={{ color: "#00D44D", cursor: 'pointer' }}>지구를 지키러 가기  <FontAwesomeIcon icon={faCaretRight} /> </span>
                 </div>
-                <img src={homeBack} alt="" width='100%' />
+                {windowWidth <= 480 ? <img src={homeBackMobile} alt="" width='100%' /> : <img src={homeBack} alt="" width='100%' />}
 
                 <div className="parallax-text">
                     <div className="bannerText">
@@ -237,7 +238,7 @@ const Home = () => {
             <div className="home-wrap">
                 <div className="home-goLink">
                     <img className="back" src={ecoGolfBack} alt="" />
-                    <img className="text" src={ecoGolfText} alt=""  />
+                    <img className="text" src={ecoGolfText} alt="" />
                     <img className="ball" src={ecoGolf} alt="" ref={section3Ref} />
                 </div>
 
