@@ -9,6 +9,8 @@ import { addState, collectState } from "../redux/store";
 
 import golf from '../img/golf.png';
 import warning from '../img/warning.png';
+import reservationBanner from '../img/reservationBanner.png';
+
 import axios from "axios";
 
 const ShopSearch = () => {
@@ -217,6 +219,11 @@ const ShopSearch = () => {
 
     return (
         <div className="reservation-result">
+            <img src={reservationBanner} alt="" width='100%' />
+            <div className="banner-text">
+                <h2>헌 볼 무상 수거를 신청 해보세요!</h2>
+                <p>OURS의 체계적인 헌 볼 수거 & 에코 보상 서비스</p>
+            </div>
             <div className="shop-searchZone">
                 <div className="select-zone">
                     <div className="shop-search">

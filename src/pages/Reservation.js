@@ -15,6 +15,8 @@ import ScheduleCheck from "../components/ScheduleCheck";
 import progress_1 from '../img/progress_1.png';
 import progress_2 from '../img/progress_2.png';
 import progress_3 from '../img/progress_3.png';
+import reservationProcess from '../img/reservation-process.png';
+import reservationProcessMobile from '../img/reservation-process_mobile.png';
 import { timeState } from "../redux/store";
 
 // 예약 컴포넌트
@@ -28,6 +30,24 @@ const Reservation = () => {
   const { checked, address, date, service, collect, } = redux_data;
 
   console.log("실제 데이터:", redux_data);
+
+
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    // 창 너비 변경 시 이벤트 핸들러
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    // 이벤트 핸들러 등록
+    window.addEventListener('resize', handleResize);
+
+    // 컴포넌트 언마운트 시 이벤트 핸들러 제거
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   // 다음 단계로 이동하는 함수
   // 항목들을 선택했는지 비교
@@ -160,7 +180,9 @@ const Reservation = () => {
       <div className="reservation-container">
         <div className="progress-status">
           <div className="progress-text">
-            <img src={progressText} alt="" />
+            <img className="status" src={progressText} alt="" />
+            <p>OURS가 <span>지구를 지키는 방법</span> </p>
+            {windowWidth <= 1023 ? <img className="process" src={reservationProcessMobile} alt="" /> : <img className="process" src={reservationProcess} alt="" />}
           </div>
         </div>
         <div className="reservation-area">

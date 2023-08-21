@@ -53,6 +53,7 @@ const Ours = () => {
     const [counter2, setCounter2] = useState(0);
     const targetValue1 = 100; // 목표치 1: 100%
     const targetValue2 = 2500000000; // 목표치 2: 2,500,000,000
+    
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
 

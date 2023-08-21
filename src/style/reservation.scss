@@ -23,9 +23,25 @@
             padding: 30px 0px;
             text-align: center;
 
-            img {
+            .status {
                 width: 50%;
                 margin-top: 5px;
+            }
+
+            p {
+                margin-top: 100px;
+                font-size: 1.4em;
+                font-weight: bold;
+
+                span {
+                    background: linear-gradient(to top, #AEFF1E 40%, transparent 40%);
+                }
+            }
+
+            .process {
+                display: block;
+                margin: 30px auto;
+                width: 50%;
             }
         }
     }
@@ -42,12 +58,20 @@
 
         .reservation-result {
             width: 100%;
+            padding: 0;
             position: relative;
             background-color: transparent;
 
+            .banner-text {
+                position: absolute;
+                top: 12%;
+                right: 5%;
+                color: white;
+            }
+
             // ---------shopsearch---------
             .shop-searchZone {
-                padding: 0px;
+                padding: 10px;
                 padding-bottom: 40px;
                 border-bottom: 2px solid black;
 
@@ -68,7 +92,7 @@
                             justify-content: space-around;
 
                             button {
-                                width: 23%;
+                                width: 30%;
                                 height: 30px;
                                 background-color: white;
                                 border: 1px solid black;
@@ -524,6 +548,17 @@
         .progress-status {
             width: 100%;
             border-right: none;
+
+            .progress-text {
+                p{
+                    margin-top: 50px;
+                }
+                .process {
+                    display: block;
+                    margin: 30px auto;
+                    width: 80%;
+                }
+            }
         }
 
         .reservation-area {
@@ -531,6 +566,11 @@
 
             .reservation-result {
                 width: 100%;
+
+                .banner-text {
+                    top: 1%;
+                    font-size: 0.7em;
+                }
 
                 // ---------shopsearch---------
                 .shop-searchZone {
@@ -554,6 +594,7 @@
 
                             input {
                                 width: 30%;
+                                font-size: 0.76em;
 
                                 &:focus {
                                     outline: none
@@ -800,6 +841,10 @@
 
             .reservation-result {
                 width: 100%;
+
+                .banner-text {
+                    top: 5%;
+                }
 
                 // ---------shopsearch---------
                 .shop-searchZone {
@@ -1063,9 +1108,14 @@
         .progress-status {
             width: 100%;
             border-right: none;
-            .progress-text{
-                img{
+
+            .progress-text {
+                .status {
                     width: 30%;
+                }
+
+                .process {
+                    width: 80%;
                 }
             }
         }
@@ -1075,6 +1125,10 @@
 
             .reservation-result {
                 width: 100%;
+
+                .banner-text {
+                    top: 10%;
+                }
 
                 // ---------shopsearch---------
                 .shop-searchZone {
