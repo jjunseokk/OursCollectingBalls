@@ -55,7 +55,7 @@ const Header = () => {
                         </div>
                     </div>
 
-                    <div className={showMenu ? "phone-menu phone-menuActive" : "phone-menu"}>
+                    <div className={showMenu ? "phone-menu phone-menuActive phone-menu-text" : "phone-menu phone-menu-text"}>
                         <h2>Trade</h2>
                         <ul className="tradeMenu">
                             <li onClick={() => { handleMenuClick('/reservation') }}>수거예약</li>

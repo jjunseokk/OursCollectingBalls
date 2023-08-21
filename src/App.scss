@@ -91,6 +91,7 @@ div {
 
           a {
             padding: 0;
+
             &:hover {
               color: #00d44d;
             }
@@ -177,21 +178,7 @@ div {
 
 }
 
-.phone-menu {
-  position: absolute;
-  top: 0%;
-  z-index: 1;
-  width: 50%;
-  height: 100%;
-  background-color: white;
-  display: none;
-}
-
-.phone-menuActive {
-  display: block;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  padding: 0;
-
+.phone-menu-text {
   h2 {
     margin: 5%;
   }
@@ -225,6 +212,26 @@ div {
       }
     }
   }
+}
+
+.phone-menu {
+  position: absolute;
+  top: 0%;
+  left: -100%;
+  z-index: 1;
+  width: 50%;
+  height: 100%;
+  background-color: white;
+  transition: all 1s;
+}
+
+.phone-menuActive {
+  transition: all 1s;
+  left: 0%;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 0;
+
+
 }
 
 /* --------footer----------------------- */
