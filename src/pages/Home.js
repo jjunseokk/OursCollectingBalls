@@ -332,15 +332,17 @@ const Home = () => {
                     <div className="whiteBox">
                         <div>
                             <img src={production_1} alt="" />
-                            <h1>OURS 에코볼</h1>
+                            <h3>OURS 에코볼 2피스 6구</h3>
+                            <p className="discount">25,000원</p>
+                            <p>8,000원</p>
                         </div>
                         <div>
                             <img src={production_2} alt="" />
-                            <h1>What is next?</h1>
+                            <h3>What is next?</h3>
                         </div>
                         <div>
                             <img src={production_3} alt="" />
-                            <h1>What is next?</h1>
+                            <h3>What is next?</h3>
                         </div>
                     </div>
                 </div>
