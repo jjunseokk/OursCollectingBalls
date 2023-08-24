@@ -332,7 +332,7 @@
                 padding: 5% 0% 5% 5%;
                 font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
 
-                div {
+                .whiteDiv {
                     text-align: center;
                     width: 30%;
                     margin: 0px 10px;
@@ -597,7 +597,7 @@
                 height: auto;
                 position: relative;
 
-                img {
+                .back {
                     width: 100%;
                 }
 
@@ -622,7 +622,7 @@
                     position: initial;
                     padding: 0%;
 
-                    div {
+                    .whiteDiv {
                         text-align: center;
                         width: 100%;
                         padding: 0;
@@ -633,6 +633,51 @@
                             font-size: 1.5em;
                         }
                     }
+                }
+
+                .slide {
+                    .slick-track {
+                        width: 2000px !important;
+                    }
+
+                    .slideBox {
+                        text-align: center;
+
+                        img {
+                            width: 100%;
+                        }
+
+                        h3 {
+                            margin-top: 20px;
+                            font-size: 0.7em;
+                        }
+
+                        .discount {
+                            text-decoration: line-through;
+                            color: #B5B5B5;
+                            margin-top: 10px;
+                        }
+
+                        p {
+                            font-size: 0.7em;
+                        }
+                    }
+
+                }
+
+                .leftArrow,
+                .rightArrow {
+                    width: 5%;
+                    position: absolute;
+                    top: 60%;
+                }
+
+                .leftArrow {
+                    right: 5%;
+                }
+
+                .rightArrow {
+                    left: 5%;
                 }
             }
 
@@ -825,7 +870,7 @@
                 height: auto;
                 position: relative;
 
-                img {
+                .back {
                     width: 100%;
                 }
 
@@ -850,17 +895,64 @@
                     position: initial;
                     padding: 0%;
 
-                    div {
+                    .whiteDiv {
                         text-align: center;
                         width: 100%;
 
                         h3 {
                             margin-top: 20px;
-                            font-size: 1.5em;
+                            font-size: 1em;
                         }
                     }
                 }
+
+                .slide {
+                    .slick-track {
+                        width: 2000px !important;
+                    }
+
+                    .slideBox {
+                        text-align: center;
+
+                        img {
+                            width: 100%;
+                        }
+
+                        h3 {
+                            margin-top: 20px;
+                            font-size: 1em;
+                        }
+
+                        .discount {
+                            text-decoration: line-through;
+                            color: #B5B5B5;
+                            margin-top: 10px;
+                        }
+
+                        p {
+                            font-size: 0.9em;
+                        }
+                    }
+
+                }
+
+                .leftArrow,
+                .rightArrow {
+                    width: 5%;
+                    position: absolute;
+                    top: 60%;
+                }
+
+                .leftArrow {
+                    right: 5%;
+                }
+
+                .rightArrow {
+                    left: 5%;
+                }
             }
+
+
 
             .ecoBallsArea {
                 height: auto;
@@ -1055,16 +1147,18 @@
 
                 .whiteBox {
                     width: 100%;
-                    top: 100px;
-                    border-top-left-radius: 0px;
                     justify-content: center;
-                    align-items: center;
-                    flex-direction: column;
+                    align-items: flex-start;
                     background: white;
                     position: initial;
                     padding: 0%;
+                    margin-bottom: 20px;
 
-                    div {
+                    .back {
+                        width: 80%;
+                    }
+
+                    .whiteDiv {
                         text-align: center;
                         margin: 0;
                         padding: 0;
@@ -1072,9 +1166,53 @@
 
                         h3 {
                             margin-top: 20px;
-                            font-size: 1.5em;
                         }
                     }
+                }
+
+                .slide {
+                    .slick-track {
+                        width: 2000px !important;
+                    }
+
+                    .slideBox {
+                        text-align: center;
+
+                        img {
+                            width: 100%;
+                        }
+
+                        h3 {
+                            margin-top: 20px;
+                            font-size: 1em;
+                        }
+
+                        .discount {
+                            text-decoration: line-through;
+                            color: #B5B5B5;
+                            margin-top: 10px;
+                        }
+
+                        p {
+                            font-size: 0.9em;
+                        }
+                    }
+
+                }
+
+                .leftArrow,
+                .rightArrow {
+                    width: 5%;
+                    position: absolute;
+                    top: 60%;
+                }
+
+                .leftArrow {
+                    right: 5%;
+                }
+
+                .rightArrow {
+                    left: 5%;
                 }
             }
 
@@ -1213,7 +1351,7 @@
                 }
 
                 .whiteBox {
-                    div {
+                    .whiteDiv {
                         h3 {
                             margin-top: 20px;
                             font-size: 1em;

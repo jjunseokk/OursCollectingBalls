@@ -1,12 +1,13 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import '../style/home.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleDoubleDown, faCaretRight } from '@fortawesome/free-solid-svg-icons';
 import axios from "axios";
 import emailjs from '@emailjs/browser';
-
-
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 import homeBack from '../img/homeBack.png';
 import ecoGolfBack from '../img/ecoGolfback.png';
@@ -38,6 +39,9 @@ import ecoBalls from '../img/ecoBalls.png';
 import ecoBallsText from '../img/ecoBallsText.png';
 import rowLine from '../img/row-line.png';
 import homeBackMobile from '../img/homeBackMobile.png';
+import rightArrow from '../img/right.png';
+import leftArrow from '../img/left.png';
+
 
 
 const Home = () => {
@@ -56,6 +60,23 @@ const Home = () => {
 
     const section3Ref = useRef(null);
     const form = useRef();
+
+
+    // 슬라이드 셋팅/ 버튼
+    const settings = {
+        className: "center",
+        centerMode: true,
+        infinite: false,
+        slidesToShow: 1,
+        speed: 500,
+        arrows: false,
+
+    };
+
+    const slickRef = useRef(null);
+
+    const previous = useCallback(() => slickRef.current.slickPrev(), []);
+    const next = useCallback(() => slickRef.current.slickNext(), []);
 
     // 큐빙 데이터 가져오기
     useEffect(() => {
@@ -104,7 +125,6 @@ const Home = () => {
 
             setScrollPosition(scrollPosition);
 
-            console.log("결과괎", section3Top, "<", scroll);
             if (section3Top < scroll) {
                 setShowCnt(true);
             }
@@ -324,28 +344,69 @@ const Home = () => {
                 </div>
 
                 <div className="productionArea">
-                    <img src={productionBg} alt="" />
+                    <img className="back" src={productionBg} alt="" />
                     <div className="productionText">
                         <h3>OURS 제품 소개</h3>
                         <p>아워스의 100% 업사이클링으로  <br /> 지구를 지키는 방법을 직접 만나 <br /> 보세요.</p>
                     </div>
-                    <div className="whiteBox">
-                        <div>
-                            <img src={production_1} alt="" />
-                            <h3>OURS 에코볼 2피스 6구</h3>
-                            <p className="discount">25,000원</p>
-                            <p>8,000원</p>
+                    {windowWidth <= 768 ? (
+                        <>
+                            <div className="slide">
+                                <Slider {...settings} ref={slickRef}>
+                                    <div className="slideBox">
+                                        <img src={production_1} alt="" />
+                                        <h3>OURS 에코볼 2피스 6구</h3>
+                                        <p className="discount">25,000원</p>
+                                        <p>8,000원</p>
+                                    </div>
+                                    <div className="slideBox">
+                                        <img src={production_2} alt="" />
+                                        <h3>What is next?</h3>
+                                    </div>
+                                    <div className="slideBox">
+                                        <img src={production_3} alt="" />
+                                        <h3>What is next?</h3>
+                                    </div>
+                                </Slider>
+                            </div>
+                            <div onClick={previous}>
+                                <img
+                                    className="rightArrow"
+                                    src={rightArrow}
+                                    alt={"pre-arrow"}
+                                />
+                            </div>
+                            <div onClick={next}>
+                                <img
+                                    className="leftArrow"
+                                    src={leftArrow}
+                                    alt={"next-arrow"}
+                                />
+                            </div>
+                        </>
+                    ) : (
+                        <div className="whiteBox">
+                            <div className="whiteDiv">
+                                <img src={production_1} alt="" />
+                                <h3>OURS 에코볼 2피스 6구</h3>
+                                <p className="discount">25,000원</p>
+                                <p>8,000원</p>
+                            </div>
+                            <div className="whiteDiv">
+                                <img src={production_2} alt="" />
+                                <h3>What is next?</h3>
+                            </div>
+                            <div className="whiteDiv">
+                                <img src={production_3} alt="" />
+                                <h3>What is next?</h3>
+                            </div>
                         </div>
-                        <div>
-                            <img src={production_2} alt="" />
-                            <h3>What is next?</h3>
-                        </div>
-                        <div>
-                            <img src={production_3} alt="" />
-                            <h3>What is next?</h3>
-                        </div>
-                    </div>
+                    )}
+
                 </div>
+
+
+
                 <div className="ecoBallsArea">
                     <img className="bg" src={ecoBalls} alt="" />
                     <img className="text" src={ecoBallsText} alt="" />
