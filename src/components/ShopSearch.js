@@ -227,7 +227,7 @@ const ShopSearch = () => {
             <div className="shop-searchZone">
                 <div className="select-zone">
                     <div className="shop-search">
-                        <h4>매장 찾기</h4>
+                        <h4>내 매장 찾기</h4>
                         <input style={{ padding: 10 }} type="text" value={searchTerm} onChange={handleSearch} placeholder="매장명이나 지역을 입력해주세요." />
                         <FontAwesomeIcon icon={faSearch} className="shop-searchIcon" />
                     </div>
@@ -259,7 +259,7 @@ const ShopSearch = () => {
                 </div>
 
                 <div className="input-zone">
-                    <h4>찾으시는 매장이 없으신가요?</h4>
+                    <h4>매장 등록이 안되어있으신가요?</h4>
                     <p>* 추가하기 버튼을 누르시면 아래의 리스트의 추가 됩니다.</p>
                     <form onSubmit={handleSubmit}>
                         <input
