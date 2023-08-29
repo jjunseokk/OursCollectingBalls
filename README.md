@@ -1,4 +1,4 @@
-<img src="[https://github.com/jjunseokk/OursCollectingBalls/issues/1#issue-1870961635](https://user-images.githubusercontent.com/87737169/263917757-6fc055b5-5764-4ee1-b01a-156312c6d6fb.png)https://user-images.githubusercontent.com/87737169/263917757-6fc055b5-5764-4ee1-b01a-156312c6d6fb.png" alt="Ours" />
+<img width="1466" alt="스크린샷 2023-08-29 오후 3 14 01" src="https://github.com/jjunseokk/OursCollectingBalls/assets/87737169/6fc055b5-5764-4ee1-b01a-156312c6d6fb">
 
 # 🌐 Overview
 
