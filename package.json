@@ -24,6 +24,7 @@
     "match-sorter": "^6.3.1",
     "moment": "^2.29.4",
     "mysql2": "^3.3.1",
+    "or": "^0.2.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.4",
     "react-calendar": "^4.2.1",
