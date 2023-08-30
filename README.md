@@ -31,7 +31,7 @@ http://3.36.106.246:5000/
 수거부터 업사이클까지 `🌐아워스`와 함께 하세요.
 <br/>
 <br/>
-<img width="100%" alt="(https://github.com/jjunseokk/OursCollectingBalls/assets/87737169/9ddde61f-16b3-4c46-a1a4-6275a8ad26ee">
+<img width="100%" alt="" src="https://github.com/jjunseokk/OursCollectingBalls/assets/87737169/9ddde61f-16b3-4c46-a1a4-6275a8ad26ee">
 
 🌱 폐골프공 수거를 예약할 수 있어요! 예약하시면 일정을 조율해 찾아갑니다! <br/>
 🌳 지구를 지키는 Ours 지구의 환경을 위해 같이 동참해요! <br/>
