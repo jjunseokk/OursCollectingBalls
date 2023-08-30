@@ -46,18 +46,18 @@ http://3.36.106.246:5000/
 
 <div class="box">
 <details>
-<summary>1. Sign Up</summary>
+<summary>1. Scroll Animation</summary>
 <div markdown="1">
-<img src="https://github.com/chltjdrhd777/chltjdrhd777-final-prototype-imgs/blob/main/gif/%E1%84%92%E1%85%AC%E1%84%8B%E1%85%AF%E1%86%AB%E1%84%80%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%B8.gif"/>
+<img src="https://github.com/jjunseokk/OursCollectingBalls/assets/87737169/2a260200-9d0d-47d0-a1e0-6efa6b3d9774"/>
 </div>
 </details>
 </div>
     
 <div class="box">
 <details>
-<summary>2. Google Login</summary>
+<summary>2. Inquiry(자사 이메일로 전송)</summary>
 <div markdown="1">
-<img src="https://github.com/chltjdrhd777/chltjdrhd777-final-prototype-imgs/blob/main/gif/%E1%84%80%E1%85%AE%E1%84%80%E1%85%B3%E1%86%AF%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%E1%84%8B%E1%85%B5%E1%86%AB.gif" />
+<img src="https://github.com/jjunseokk/OursCollectingBalls/assets/87737169/6f862bfa-1b24-476f-a07e-f8b716484bab" />
 </div>
 </details>
 </div>
