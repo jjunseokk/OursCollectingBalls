@@ -111,7 +111,7 @@ http://3.36.106.246:5000/
 <details>
 <summary>8. Pages Responsive</summary>
 <div markdown="1">
-<img src="https://github.com/jjunseokk/OursCollectingBalls/assets/87737169/6e7a9dc2-8289-4b3a-b8cb-0cb2c38bd299"/>
+<img width="100%" src="https://github.com/jjunseokk/OursCollectingBalls/assets/87737169/d37bd1c6-7ee8-4339-b924-f82c07a0155e"/>
 </div>
 </details>
 </div>
