@@ -82,31 +82,39 @@ http://3.36.106.246:5000/
 
 <div class="box">
 <details>
-<summary>5. Login Responsive</summary>
+<summary>5. Reservation</summary>
 <div markdown="1">
-<img src="https://github.com/chltjdrhd777/chltjdrhd777-final-prototype-imgs/blob/main/gif/%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8E%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%A1%E1%86%AB%E1%84%8B%E1%85%B3%E1%86%BC%E1%84%92%E1%85%A7%E1%86%BC.gif"/>
+<img width="100%"  src="https://github.com/jjunseokk/OursCollectingBalls/assets/87737169/d2b2507c-0fab-4b85-8d56-a340f082c4b2"/>
 </div>
 </details>
 </div>
 
 <div class="box">
 <details>
-<summary>6. Login Failed</summary>
+<summary>6. Reservation Failed</summary>
 <div markdown="1">
-<img src="https://github.com/chltjdrhd777/chltjdrhd777-final-prototype-imgs/blob/main/gif/%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%E1%84%8B%E1%85%B5%E1%86%AB%20%E1%84%91%E1%85%A9%E1%86%B7%E1%84%8B%E1%85%B5%20%E1%84%83%E1%85%A1%20%E1%84%8E%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%BB%E1%84%8C%E1%85%B5%20%E1%84%8B%E1%85%A1%E1%86%AD%E1%84%8B%E1%85%B3%E1%86%AF%20%E1%84%84%E1%85%A2.gif"/>
+<img width="100%" src="https://github.com/jjunseokk/OursCollectingBalls/assets/87737169/6e7a9dc2-8289-4b3a-b8cb-0cb2c38bd299"/>
 </div>
 </details>
 </div>
 
 <div class="box">
 <details>
-<summary>7. Log Out</summary>
+<summary>7. Reservation Details</summary>
 <div markdown="1">
-<img src="https://cdn.discordapp.com/attachments/909629390248374305/922392749867687966/79d1a5248d5d0a9b.gif" />
+<img width="100%" src="https://github.com/jjunseokk/OursCollectingBalls/assets/87737169/4380c047-63d5-404f-8f61-a17ea115db15" />
 </div>
 </details>
 </div>
 
+<div class="box">
+<details>
+<summary>8. Pages Responsive</summary>
+<div markdown="1">
+<img src="https://github.com/jjunseokk/OursCollectingBalls/assets/87737169/6e7a9dc2-8289-4b3a-b8cb-0cb2c38bd299"/>
+</div>
+</details>
+</div>
 </div>
 </details>
 
