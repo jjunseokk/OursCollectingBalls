@@ -37,6 +37,80 @@ http://3.36.106.246:5000/
 🌳 지구를 지키는 Ours 지구의 환경을 위해 같이 동참해요! <br/>
 🌲 골프 대회 캠페인도 함께 할 수 있어요 <br/>
 <br/>
+<br/>
+
+<details>
+<summary><b>Home Page (Landing Page)</b></summary>
+<div markdown="1">
+<br>
+
+<div class="box">
+<details>
+<summary>1. Sign Up</summary>
+<div markdown="1">
+<img src="https://github.com/chltjdrhd777/chltjdrhd777-final-prototype-imgs/blob/main/gif/%E1%84%92%E1%85%AC%E1%84%8B%E1%85%AF%E1%86%AB%E1%84%80%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%B8.gif"/>
+</div>
+</details>
+</div>
+    
+<div class="box">
+<details>
+<summary>2. Google Login</summary>
+<div markdown="1">
+<img src="https://github.com/chltjdrhd777/chltjdrhd777-final-prototype-imgs/blob/main/gif/%E1%84%80%E1%85%AE%E1%84%80%E1%85%B3%E1%86%AF%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%E1%84%8B%E1%85%B5%E1%86%AB.gif" />
+</div>
+</details>
+</div>
+
+<div class="box">
+<details>
+<summary>3. Kakao Login</summary>
+<div markdown="1">
+<img src="https://cdn.discordapp.com/attachments/909629390248374305/922392455872147496/939acd1eb0e4b49c.gif" />
+</div>
+</details>
+</div>
+
+<div class="box">
+<details>
+<summary>4. Email Login</summary>
+<div markdown="1">
+<img src="https://github.com/chltjdrhd777/chltjdrhd777-final-prototype-imgs/blob/main/gif/%E1%84%8B%E1%85%B5%E1%84%86%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%A9%20%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%E1%84%8B%E1%85%B5%E1%86%AB%20%E1%84%89%E1%85%A5%E1%86%BC%E1%84%80%E1%85%A9%E1%86%BC%E1%84%89%E1%85%B5.gif"/>
+</div>
+</details>
+</div>
+
+<div class="box">
+<details>
+<summary>5. Login Responsive</summary>
+<div markdown="1">
+<img src="https://github.com/chltjdrhd777/chltjdrhd777-final-prototype-imgs/blob/main/gif/%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%8E%E1%85%A1%E1%86%BC%20%E1%84%87%E1%85%A1%E1%86%AB%E1%84%8B%E1%85%B3%E1%86%BC%E1%84%92%E1%85%A7%E1%86%BC.gif"/>
+</div>
+</details>
+</div>
+
+<div class="box">
+<details>
+<summary>6. Login Failed</summary>
+<div markdown="1">
+<img src="https://github.com/chltjdrhd777/chltjdrhd777-final-prototype-imgs/blob/main/gif/%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%E1%84%8B%E1%85%B5%E1%86%AB%20%E1%84%91%E1%85%A9%E1%86%B7%E1%84%8B%E1%85%B5%20%E1%84%83%E1%85%A1%20%E1%84%8E%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%BB%E1%84%8C%E1%85%B5%20%E1%84%8B%E1%85%A1%E1%86%AD%E1%84%8B%E1%85%B3%E1%86%AF%20%E1%84%84%E1%85%A2.gif"/>
+</div>
+</details>
+</div>
+
+<div class="box">
+<details>
+<summary>7. Log Out</summary>
+<div markdown="1">
+<img src="https://cdn.discordapp.com/attachments/909629390248374305/922392749867687966/79d1a5248d5d0a9b.gif" />
+</div>
+</details>
+</div>
+
+</div>
+</details>
+
+
 # 🌎 사용 스택 및 아키텍쳐
 | Part         | Stacks                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | :----------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
