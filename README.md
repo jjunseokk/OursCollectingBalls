@@ -48,7 +48,7 @@ http://3.36.106.246:5000/
 <details>
 <summary>1. Scroll Animation</summary>
 <div markdown="1">
-<img src="https://github.com/jjunseokk/OursCollectingBalls/assets/87737169/2a260200-9d0d-47d0-a1e0-6efa6b3d9774"/>
+<img width="100%" src="https://github.com/jjunseokk/OursCollectingBalls/assets/87737169/2a260200-9d0d-47d0-a1e0-6efa6b3d9774"/>
 </div>
 </details>
 </div>
@@ -57,25 +57,25 @@ http://3.36.106.246:5000/
 <details>
 <summary>2. Inquiry(자사 이메일로 전송)</summary>
 <div markdown="1">
-<img src="https://github.com/jjunseokk/OursCollectingBalls/assets/87737169/6f862bfa-1b24-476f-a07e-f8b716484bab" />
+<img width="100%" src="https://github.com/jjunseokk/OursCollectingBalls/assets/87737169/6f862bfa-1b24-476f-a07e-f8b716484bab" />
 </div>
 </details>
 </div>
 
 <div class="box">
 <details>
-<summary>3. Kakao Login</summary>
+<summary>3. Reservation List Search</summary>
 <div markdown="1">
-<img src="https://cdn.discordapp.com/attachments/909629390248374305/922392455872147496/939acd1eb0e4b49c.gif" />
+<img width="100%" src="https://github.com/jjunseokk/OursCollectingBalls/assets/87737169/9779e0ed-9ef8-49be-9f11-3ffb497d15f0" />
 </div>
 </details>
 </div>
 
 <div class="box">
 <details>
-<summary>4. Email Login</summary>
+<summary>4. Reservation List Add</summary>
 <div markdown="1">
-<img src="https://github.com/chltjdrhd777/chltjdrhd777-final-prototype-imgs/blob/main/gif/%E1%84%8B%E1%85%B5%E1%84%86%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%A9%20%E1%84%85%E1%85%A9%E1%84%80%E1%85%B3%E1%84%8B%E1%85%B5%E1%86%AB%20%E1%84%89%E1%85%A5%E1%86%BC%E1%84%80%E1%85%A9%E1%86%BC%E1%84%89%E1%85%B5.gif"/>
+<img width="100%"  src="https://github.com/jjunseokk/OursCollectingBalls/assets/87737169/31103419-893f-4d2c-8382-fb03ceaaa936"/>
 </div>
 </details>
 </div>
