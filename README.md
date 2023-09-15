@@ -1,6 +1,13 @@
 <img width="100%" alt="스크린샷 2023-08-29 오후 3 14 01" src="https://github.com/jjunseokk/OursCollectingBalls/assets/87737169/6fc055b5-5764-4ee1-b01a-156312c6d6fb">
 
 # 🌐 Overview
+<br/>
+<br/>
+
+### 💻 Project 시작 방법
+1. git clone 현재 레포
+2. npm install
+3. 터미널 창을 두개를 열고 하나는 npm start, 나머지 하나는 nodemon server.js로 실행해야 리스트가 전부 뜹니다.
 
 ### 💻 Project
 2023.05.01 ~ 2023.08.31
