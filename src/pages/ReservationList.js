@@ -74,15 +74,6 @@ const ReservationList = () => {
         <div className="reservationList-container">
             {dbData ? (
                 <>
-                    <div className="noData">
-                        <div className="modal">
-                        <h1>잘못된 접근입니다!</h1>
-                        <h3>예약안내 페이지로 이동하셔서 이름과 전화번호를 입력 후 확인 해 주세요.</h3>
-                        </div>
-                    </div>
-                </>
-            ) : (
-                <>
                     <div className="reservationList-text">
                         <div>
                             <h3>예약 내역 조회하기</h3>
@@ -182,7 +173,18 @@ const ReservationList = () => {
                         </div>
                     </div>
                 </>
-            )}
+            ) :
+                (
+                    <>
+                        <div className="noData">
+                            <div className="modal">
+                                <h1>잘못된 접근입니다!</h1>
+                                <h3>예약안내 페이지로 이동하셔서 이름과 전화번호를 입력 후 확인 해 주세요.</h3>
+                            </div>
+                        </div>
+                    </>
+                )
+            }
 
 
         </div >
