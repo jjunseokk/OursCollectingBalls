@@ -6,13 +6,14 @@ const http = require("http");
 const port = 5000;
 
 require('dotenv').config();
+console.log("ss",);
 
 const connection = mysql.createConnection({
-    host: 'ls-73437f1140087ff57815f637d3fad565a1b67dd9.ct49gfaignpb.ap-northeast-2.rds.amazonaws.com',
+    host: process.env.MySQL_Host,
     port: 3306,
-    user: 'dbmasteruser',
-    password: 'tH}Gl|ePw([l1DI(a-Ve[9oQ.V|l%eTz',
-    database: 'xperon_pos_db',
+    user: process.env.MySQL_User,
+    password: process.env.MySQL_Password,
+    database: process.env.MySQL_Database,
 });
 
 const app = express();
